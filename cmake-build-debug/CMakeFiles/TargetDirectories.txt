@@ -1,0 +1,3 @@
+C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir
+C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/rebuild_cache.dir
