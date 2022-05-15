@@ -31,6 +31,8 @@ public:
 
     vector<map<string, map<string, string>>> read();
 
+    void write(const vector<map<string, map<string, string>>>& content);
+
     map<string, string> getClass(const string &className);
 
     string getAttr(const string &className, const string &attrName);
@@ -100,6 +102,18 @@ private:
     public:
         explicit AttributeNotFoundError(const string& message) : runtime_error(message) {}
     };
+
+    static string subString(const string& string, int startIndex, int endIndex) {
+        if(startIndex >= 0 and startIndex <= string.length() and endIndex >= 0 and endIndex <= string.length()){
+            std::string returnstring;
+
+            for(int i = startIndex; i < endIndex; i++){
+                returnstring += string[i];
+            }
+            return returnstring;
+        } else
+            throw std::out_of_range("Index out of range");
+    }
 };
 
 

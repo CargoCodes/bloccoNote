@@ -8,13 +8,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/viato/CLionProjects/bloccoNote/KvK.cpp" "C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/KvK.cpp.obj"
-  "C:/Users/viato/CLionProjects/bloccoNote/Note.cpp" "C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/Note.cpp.obj"
-  "C:/Users/viato/CLionProjects/bloccoNote/NotesMemory.cpp" "C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/NotesMemory.cpp.obj"
-  "C:/Users/viato/CLionProjects/bloccoNote/main.cpp" "C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/main.cpp.obj"
-  "C:/Users/viato/CLionProjects/bloccoNote/utils.cpp" "C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/utils.cpp.obj"
+  "/Users/Codes.py/CLionProjects/bloccoNote/KvK.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/KvK.cpp.o"
+  "/Users/Codes.py/CLionProjects/bloccoNote/Note.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/Note.cpp.o"
+  "/Users/Codes.py/CLionProjects/bloccoNote/NotesMemory.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/NotesMemory.cpp.o"
+  "/Users/Codes.py/CLionProjects/bloccoNote/main.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/main.cpp.o"
+  "/Users/Codes.py/CLionProjects/bloccoNote/utils.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/utils.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

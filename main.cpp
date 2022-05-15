@@ -9,7 +9,11 @@
 using namespace std;
 
 int main() {
-    int id = 0; // local variable for note's id
+    KvK kvk("a.kvk");
 
+    kvk.addClass("porcoddio");
+    kvk.addAttr("porcoddio", "diocane", "true");
+
+    kvk.removeClass("b");
 
 }
