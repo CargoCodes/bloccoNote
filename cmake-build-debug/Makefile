@@ -128,29 +128,29 @@ bloccoNote/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\bloccoNote.dir\build.make CMakeFiles/bloccoNote.dir/build
 .PHONY : bloccoNote/fast
 
-KvK.obj: KvK.cpp.obj
-.PHONY : KvK.obj
+LsmL.obj: LsmL.cpp.obj
+.PHONY : LsmL.obj
 
 # target to build an object file
-KvK.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\bloccoNote.dir\build.make CMakeFiles/bloccoNote.dir/KvK.cpp.obj
-.PHONY : KvK.cpp.obj
+LsmL.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\bloccoNote.dir\build.make CMakeFiles/bloccoNote.dir/LsmL.cpp.obj
+.PHONY : LsmL.cpp.obj
 
-KvK.i: KvK.cpp.i
-.PHONY : KvK.i
+LsmL.i: LsmL.cpp.i
+.PHONY : LsmL.i
 
 # target to preprocess a source file
-KvK.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\bloccoNote.dir\build.make CMakeFiles/bloccoNote.dir/KvK.cpp.i
-.PHONY : KvK.cpp.i
+LsmL.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\bloccoNote.dir\build.make CMakeFiles/bloccoNote.dir/LsmL.cpp.i
+.PHONY : LsmL.cpp.i
 
-KvK.s: KvK.cpp.s
-.PHONY : KvK.s
+LsmL.s: LsmL.cpp.s
+.PHONY : LsmL.s
 
 # target to generate assembly for a file
-KvK.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\bloccoNote.dir\build.make CMakeFiles/bloccoNote.dir/KvK.cpp.s
-.PHONY : KvK.cpp.s
+LsmL.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\bloccoNote.dir\build.make CMakeFiles/bloccoNote.dir/LsmL.cpp.s
+.PHONY : LsmL.cpp.s
 
 Note.obj: Note.cpp.obj
 .PHONY : Note.obj
@@ -257,9 +257,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... bloccoNote
-	@echo ... KvK.obj
-	@echo ... KvK.i
-	@echo ... KvK.s
+	@echo ... LsmL.obj
+	@echo ... LsmL.i
+	@echo ... LsmL.s
 	@echo ... Note.obj
 	@echo ... Note.i
 	@echo ... Note.s

@@ -5,13 +5,13 @@
 #ifndef BLOCCONOTE_NOTE_H
 #define BLOCCONOTE_NOTE_H
 
-#include "KvK.h"
+#include "LsmL.h"
 #include <iostream>
 
 class Note {
 public:
 
-    explicit Note(const KvK& dataBase, const string& title, const string& content="")
+    explicit Note(const LsmL& dataBase, const string& title, const string& content="")
     : dataBase(dataBase), title(title), content(content) {}
 
     const string &getTitle() const {
@@ -19,7 +19,7 @@ public:
     }
 
     void setTitle(const string &newTitle) {
-        this->dataBase.editClass(this->title, newTitle);
+        this->dataBase.editField(this->title, newTitle);
         this->title = newTitle;
     }
 
@@ -34,20 +34,20 @@ public:
     }
 
     bool remove() {
-        return this->dataBase.removeClass(this->title);
+        return this->dataBase.removeField(this->title);
     }
 
     void save() {
         if(this->title.empty())
             throw EmptyNoteTitleError("You must at least set a title for the note");
-        this->dataBase.addClass(this->title);
+        this->dataBase.addField(this->title);
         this->dataBase.addAttr(this->title,
                                "content",
                                this->content.empty() ? "":this->content);
     }
 
     void edit(const string& newtitle, const string& newContent) {
-        this->dataBase.editClass(this->title, newtitle);
+        this->dataBase.editField(this->title, newtitle);
         this->title = newtitle;
         this->dataBase.editAttr(this->title,
                                 "content",
@@ -57,7 +57,7 @@ public:
     }
 
 private:
-    KvK dataBase;
+    LsmL dataBase;
 
     string title;
     string content;
@@ -65,7 +65,9 @@ private:
 
     class EmptyNoteTitleError : public runtime_error {
     public:
-        EmptyNoteTitleError(const char* message) : runtime_error(message) {}
+        explicit EmptyNoteTitleError(const char* message) : runtime_error(message) {
+            cerr << message << endl;
+        }
     };
 };
 

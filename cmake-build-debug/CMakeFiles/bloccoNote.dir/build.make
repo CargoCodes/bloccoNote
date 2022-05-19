@@ -78,22 +78,9 @@ CMakeFiles/bloccoNote.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bloccoNote.dir/main.cpp.s"
 	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\viato\CLionProjects\bloccoNote\main.cpp -o CMakeFiles\bloccoNote.dir\main.cpp.s
 
-CMakeFiles/bloccoNote.dir/KvK.cpp.obj: CMakeFiles/bloccoNote.dir/flags.make
-CMakeFiles/bloccoNote.dir/KvK.cpp.obj: ../KvK.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\viato\CLionProjects\bloccoNote\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/bloccoNote.dir/KvK.cpp.obj"
-	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\bloccoNote.dir\KvK.cpp.obj -c C:\Users\viato\CLionProjects\bloccoNote\KvK.cpp
-
-CMakeFiles/bloccoNote.dir/KvK.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bloccoNote.dir/KvK.cpp.i"
-	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\viato\CLionProjects\bloccoNote\KvK.cpp > CMakeFiles\bloccoNote.dir\KvK.cpp.i
-
-CMakeFiles/bloccoNote.dir/KvK.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bloccoNote.dir/KvK.cpp.s"
-	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\viato\CLionProjects\bloccoNote\KvK.cpp -o CMakeFiles\bloccoNote.dir\KvK.cpp.s
-
 CMakeFiles/bloccoNote.dir/Note.cpp.obj: CMakeFiles/bloccoNote.dir/flags.make
 CMakeFiles/bloccoNote.dir/Note.cpp.obj: ../Note.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\viato\CLionProjects\bloccoNote\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/bloccoNote.dir/Note.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\viato\CLionProjects\bloccoNote\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/bloccoNote.dir/Note.cpp.obj"
 	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\bloccoNote.dir\Note.cpp.obj -c C:\Users\viato\CLionProjects\bloccoNote\Note.cpp
 
 CMakeFiles/bloccoNote.dir/Note.cpp.i: cmake_force
@@ -106,7 +93,7 @@ CMakeFiles/bloccoNote.dir/Note.cpp.s: cmake_force
 
 CMakeFiles/bloccoNote.dir/NotesMemory.cpp.obj: CMakeFiles/bloccoNote.dir/flags.make
 CMakeFiles/bloccoNote.dir/NotesMemory.cpp.obj: ../NotesMemory.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\viato\CLionProjects\bloccoNote\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/bloccoNote.dir/NotesMemory.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\viato\CLionProjects\bloccoNote\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/bloccoNote.dir/NotesMemory.cpp.obj"
 	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\bloccoNote.dir\NotesMemory.cpp.obj -c C:\Users\viato\CLionProjects\bloccoNote\NotesMemory.cpp
 
 CMakeFiles/bloccoNote.dir/NotesMemory.cpp.i: cmake_force
@@ -119,7 +106,7 @@ CMakeFiles/bloccoNote.dir/NotesMemory.cpp.s: cmake_force
 
 CMakeFiles/bloccoNote.dir/utils.cpp.obj: CMakeFiles/bloccoNote.dir/flags.make
 CMakeFiles/bloccoNote.dir/utils.cpp.obj: ../utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\viato\CLionProjects\bloccoNote\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/bloccoNote.dir/utils.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\viato\CLionProjects\bloccoNote\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/bloccoNote.dir/utils.cpp.obj"
 	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\bloccoNote.dir\utils.cpp.obj -c C:\Users\viato\CLionProjects\bloccoNote\utils.cpp
 
 CMakeFiles/bloccoNote.dir/utils.cpp.i: cmake_force
@@ -130,22 +117,35 @@ CMakeFiles/bloccoNote.dir/utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bloccoNote.dir/utils.cpp.s"
 	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\viato\CLionProjects\bloccoNote\utils.cpp -o CMakeFiles\bloccoNote.dir\utils.cpp.s
 
+CMakeFiles/bloccoNote.dir/LsmL.cpp.obj: CMakeFiles/bloccoNote.dir/flags.make
+CMakeFiles/bloccoNote.dir/LsmL.cpp.obj: ../LsmL.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\viato\CLionProjects\bloccoNote\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/bloccoNote.dir/LsmL.cpp.obj"
+	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\bloccoNote.dir\LsmL.cpp.obj -c C:\Users\viato\CLionProjects\bloccoNote\LsmL.cpp
+
+CMakeFiles/bloccoNote.dir/LsmL.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bloccoNote.dir/LsmL.cpp.i"
+	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\viato\CLionProjects\bloccoNote\LsmL.cpp > CMakeFiles\bloccoNote.dir\LsmL.cpp.i
+
+CMakeFiles/bloccoNote.dir/LsmL.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bloccoNote.dir/LsmL.cpp.s"
+	C:\PROGRA~1\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\viato\CLionProjects\bloccoNote\LsmL.cpp -o CMakeFiles\bloccoNote.dir\LsmL.cpp.s
+
 # Object files for target bloccoNote
 bloccoNote_OBJECTS = \
 "CMakeFiles/bloccoNote.dir/main.cpp.obj" \
-"CMakeFiles/bloccoNote.dir/KvK.cpp.obj" \
 "CMakeFiles/bloccoNote.dir/Note.cpp.obj" \
 "CMakeFiles/bloccoNote.dir/NotesMemory.cpp.obj" \
-"CMakeFiles/bloccoNote.dir/utils.cpp.obj"
+"CMakeFiles/bloccoNote.dir/utils.cpp.obj" \
+"CMakeFiles/bloccoNote.dir/LsmL.cpp.obj"
 
 # External object files for target bloccoNote
 bloccoNote_EXTERNAL_OBJECTS =
 
 bloccoNote.exe: CMakeFiles/bloccoNote.dir/main.cpp.obj
-bloccoNote.exe: CMakeFiles/bloccoNote.dir/KvK.cpp.obj
 bloccoNote.exe: CMakeFiles/bloccoNote.dir/Note.cpp.obj
 bloccoNote.exe: CMakeFiles/bloccoNote.dir/NotesMemory.cpp.obj
 bloccoNote.exe: CMakeFiles/bloccoNote.dir/utils.cpp.obj
+bloccoNote.exe: CMakeFiles/bloccoNote.dir/LsmL.cpp.obj
 bloccoNote.exe: CMakeFiles/bloccoNote.dir/build.make
 bloccoNote.exe: CMakeFiles/bloccoNote.dir/linklibs.rsp
 bloccoNote.exe: CMakeFiles/bloccoNote.dir/objects1.rsp

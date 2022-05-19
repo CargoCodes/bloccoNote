@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/bloccoNote.dir/KvK.cpp.obj"
+  "CMakeFiles/bloccoNote.dir/LsmL.cpp.obj"
   "CMakeFiles/bloccoNote.dir/Note.cpp.obj"
   "CMakeFiles/bloccoNote.dir/NotesMemory.cpp.obj"
   "CMakeFiles/bloccoNote.dir/main.cpp.obj"

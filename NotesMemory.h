@@ -1,12 +1,8 @@
-//
-// Created by viato on 12/05/2022.
-//
-
 #ifndef BLOCCONOTE_NOTESMEMORY_H
 #define BLOCCONOTE_NOTESMEMORY_H
 
 
-#include "KvK.h"
+#include "LsmL.h"
 #include "Note.h"
 #include <vector>
 #include "utils.h"
@@ -24,7 +20,7 @@ public:
         this->memory.push_back(newNote);
     }
 
-    const KvK& getDataBase() const {
+    const LsmL& getDataBase() const {
         return this->dataBase;
     }
 
@@ -47,7 +43,7 @@ public:
     }
 
 private:
-    KvK dataBase = KvK("notesMemory.kvk");
+    LsmL dataBase = LsmL("notesMemory.lsml");
 
     vector<Note> memory;
 };

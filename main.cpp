@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include "KvK.h"
+#include "LsmL.h"
 #include "Note.h"
 #include "NotesMemory.h"
 #include <vector>
@@ -9,7 +9,7 @@
 using namespace std;
 
 int main() {
-    int id = 0; // local variable for note's id
+    int id = 0;
 
 
 }
