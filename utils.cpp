@@ -18,13 +18,16 @@ std::string subString(const std::string& string, int startIndex, int endIndex) {
 }
 
 template <typename T>
-std::vector<T> pop(const std::vector<T> &list, int index) {
-    std::vector<T> returnList;
-    for(int i = 0; i < list.size(); i++){
-        if(i != index){
-            returnList.push_back(list[i]);
-        }
+void pop(std::vector<T>& list, int index) {
+    std::vector<T> tmp;
+
+    for(int i = list.size(); i > index; i--) {
+        tmp.push_back(list[i]);
+        list.pop_back();
     }
-    return returnList;
+    list.pop_back(index);
+
+    for(int j = tmp.size(); j >= 0; j--)
+        list.push_back(tmp[j]);
 }
 

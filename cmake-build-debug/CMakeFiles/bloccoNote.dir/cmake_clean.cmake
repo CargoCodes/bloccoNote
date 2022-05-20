@@ -1,13 +1,13 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/bloccoNote.dir/LsmL.cpp.obj"
-  "CMakeFiles/bloccoNote.dir/Note.cpp.obj"
-  "CMakeFiles/bloccoNote.dir/NotesMemory.cpp.obj"
-  "CMakeFiles/bloccoNote.dir/main.cpp.obj"
-  "CMakeFiles/bloccoNote.dir/utils.cpp.obj"
-  "bloccoNote.exe"
-  "bloccoNote.exe.manifest"
+  "CMakeFiles/bloccoNote.dir/GUInterface.cpp.o"
+  "CMakeFiles/bloccoNote.dir/IdPushButton.cpp.o"
+  "CMakeFiles/bloccoNote.dir/LsmL.cpp.o"
+  "CMakeFiles/bloccoNote.dir/Note.cpp.o"
+  "CMakeFiles/bloccoNote.dir/NotesMemory.cpp.o"
+  "CMakeFiles/bloccoNote.dir/main.cpp.o"
+  "CMakeFiles/bloccoNote.dir/utils.cpp.o"
+  "bloccoNote"
   "bloccoNote.pdb"
-  "libbloccoNote.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

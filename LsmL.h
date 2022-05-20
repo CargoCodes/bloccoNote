@@ -15,10 +15,7 @@ public:
         this->startingContent();
     }
 
-    LsmL(const LsmL& other) {
-        this->filePath = other.filePath;
-        this->content = other.content;
-    }
+    LsmL(const LsmL& other) : filePath(other.filePath), content(other.content) {}
 
     LsmL& operator=(const LsmL& other) {
         this->filePath = other.filePath;
@@ -64,7 +61,7 @@ private:
 
     void nullAdvancement() {
         while(this->text[this->pos] == ' ' or this->text[this->pos] == '\t' or this->text[this->pos] == '\n')
-            this->pos += 1;
+            this->pos++;
     }
 
     static vector<string> split(string str, char separator){
@@ -86,6 +83,19 @@ private:
             }
         }
         return returnList;
+    }
+
+    string readFile() {
+        file.open(this->filePath, ios::in);
+        if(file.is_open()){
+            string currentContent;
+            string fileContent;
+            while (getline(file, fileContent)) {
+                currentContent += fileContent + "\n";
+            }
+            file.close();
+            return currentContent;
+        }
     }
 
     class FieldNotFoundError : runtime_error {

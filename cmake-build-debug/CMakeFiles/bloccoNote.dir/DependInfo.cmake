@@ -8,16 +8,35 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/viato/CLionProjects/bloccoNote/LsmL.cpp" "C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/LsmL.cpp.obj"
-  "C:/Users/viato/CLionProjects/bloccoNote/Note.cpp" "C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/Note.cpp.obj"
-  "C:/Users/viato/CLionProjects/bloccoNote/NotesMemory.cpp" "C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/NotesMemory.cpp.obj"
-  "C:/Users/viato/CLionProjects/bloccoNote/main.cpp" "C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/main.cpp.obj"
-  "C:/Users/viato/CLionProjects/bloccoNote/utils.cpp" "C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/utils.cpp.obj"
+  "/Users/Codes.py/CLionProjects/bloccoNote/GUInterface.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/GUInterface.cpp.o"
+  "/Users/Codes.py/CLionProjects/bloccoNote/IdPushButton.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/IdPushButton.cpp.o"
+  "/Users/Codes.py/CLionProjects/bloccoNote/LsmL.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/LsmL.cpp.o"
+  "/Users/Codes.py/CLionProjects/bloccoNote/Note.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/Note.cpp.o"
+  "/Users/Codes.py/CLionProjects/bloccoNote/NotesMemory.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/NotesMemory.cpp.o"
+  "/Users/Codes.py/CLionProjects/bloccoNote/main.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/main.cpp.o"
+  "/Users/Codes.py/CLionProjects/bloccoNote/utils.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/utils.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
+
+# Preprocessor definitions for this target.
+set(CMAKE_TARGET_DEFINITIONS_CXX
+  "QT_CORE_LIB"
+  "QT_GUI_LIB"
+  "QT_WIDGETS_LIB"
+  )
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "."
+  "../"
+  "/usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework"
+  "/usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers"
+  "/usr/local/Cellar/qt@5/5.15.3/lib/QtGui.framework"
+  "/usr/local/Cellar/qt@5/5.15.3/lib/QtGui.framework/Headers"
+  "/Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers"
+  "/usr/local/Cellar/qt@5/5.15.3/lib/QtCore.framework"
+  "/usr/local/Cellar/qt@5/5.15.3/lib/QtCore.framework/Headers"
+  "/usr/local/Cellar/qt@5/5.15.3/./mkspecs/macx-clang"
   )
 
 # The set of dependency files which are needed:

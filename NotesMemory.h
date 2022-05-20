@@ -9,34 +9,52 @@
 
 class NotesMemory {
 public:
-    NotesMemory() = default;
+    NotesMemory() {
+        this->scan();
+    }
 
-    void addNote(const Note& note) {
+    void addNote(Note* note) {
         this->memory.push_back(note);
     }
 
     void newNote(const string& title, const string& content) {
-        Note newNote(dataBase, title, content);
+        Note* newNote = new Note(dataBase, title, content);
+        newNote->save();
         this->memory.push_back(newNote);
+        //delete newNote;
+    }
+
+    Note operator[](int index) {
+        return *memory[index];
+    }
+
+    int size() {
+        return memory.size();
     }
 
     const LsmL& getDataBase() const {
         return this->dataBase;
     }
 
-    bool deleteNote(int id){
-        if(id > 0 and id < memory.size()) {
-            this->memory[id].remove();
-            this->memory = pop(memory, id);
+    bool deleteNote(int index){
+        if(index >= 0 and index < memory.size()) {
+            auto end = this->memory.begin();
+            for(int i = 0; i <= index; i++)
+                end++;
+            auto begin = end;
+            begin--;
+
+            this->memory[index]->remove();
+            this->memory.erase(begin, end);
             return true;
         }
         return false;
     }
 
     bool editNote(int id, const string& title="", const string& content="") {
-        if(id > 0 and id < memory.size()){
+        if(id >= 0 and id < memory.size()){
             auto& note = this->memory[id];
-            note.edit(title, content);
+            note->edit(title, content);
             return true;
         }
         return false;
@@ -45,7 +63,9 @@ public:
 private:
     LsmL dataBase = LsmL("notesMemory.lsml");
 
-    vector<Note> memory;
+    vector<Note*> memory;
+
+    void scan();
 };
 
 

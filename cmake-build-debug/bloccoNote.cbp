@@ -5,110 +5,247 @@
 		<Option title="bloccoNote"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\Cellar\;CMake Files\..\..\..\..\usr\local\Cellar\qt@5\;CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\;CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\;CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\;CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Widgets\;CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\;CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Core\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug"/>
+				<Option working_dir="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="bloccoNote">
-				<Option output="C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/bloccoNote.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 bloccoNote"/>
-					<CompileFile command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="bloccoNote/fast">
-				<Option output="C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/bloccoNote.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 bloccoNote/fast"/>
-					<CompileFile command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug"/>
+				<Option working_dir="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/viato/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="bloccoNote">
+				<Option output="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/bloccoNote" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug"/>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote"/>
+					<Add directory="/usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework"/>
+					<Add directory="/usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers"/>
+					<Add directory="/usr/local/Cellar/qt@5/5.15.3/lib/QtGui.framework"/>
+					<Add directory="/usr/local/Cellar/qt@5/5.15.3/lib/QtGui.framework/Headers"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers"/>
+					<Add directory="/usr/local/Cellar/qt@5/5.15.3/lib/QtCore.framework"/>
+					<Add directory="/usr/local/Cellar/qt@5/5.15.3/lib/QtCore.framework/Headers"/>
+					<Add directory="/usr/local/Cellar/qt@5/5.15.3/./mkspecs/macx-clang"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 bloccoNote"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="bloccoNote/fast">
+				<Option output="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/bloccoNote" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug"/>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote"/>
+					<Add directory="/usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework"/>
+					<Add directory="/usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers"/>
+					<Add directory="/usr/local/Cellar/qt@5/5.15.3/lib/QtGui.framework"/>
+					<Add directory="/usr/local/Cellar/qt@5/5.15.3/lib/QtGui.framework/Headers"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers"/>
+					<Add directory="/usr/local/Cellar/qt@5/5.15.3/lib/QtCore.framework"/>
+					<Add directory="/usr/local/Cellar/qt@5/5.15.3/lib/QtCore.framework/Headers"/>
+					<Add directory="/usr/local/Cellar/qt@5/5.15.3/./mkspecs/macx-clang"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 bloccoNote/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/viato/CLionProjects/bloccoNote/LsmL.cpp">
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/GUInterface.cpp">
 			<Option target="bloccoNote"/>
 		</Unit>
-		<Unit filename="C:/Users/viato/CLionProjects/bloccoNote/LsmL.h">
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/GUInterface.h">
 			<Option target="bloccoNote"/>
 		</Unit>
-		<Unit filename="C:/Users/viato/CLionProjects/bloccoNote/Note.cpp">
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/IdPushButton.cpp">
 			<Option target="bloccoNote"/>
 		</Unit>
-		<Unit filename="C:/Users/viato/CLionProjects/bloccoNote/Note.h">
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/IdPushButton.h">
 			<Option target="bloccoNote"/>
 		</Unit>
-		<Unit filename="C:/Users/viato/CLionProjects/bloccoNote/NotesMemory.cpp">
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/LsmL.cpp">
 			<Option target="bloccoNote"/>
 		</Unit>
-		<Unit filename="C:/Users/viato/CLionProjects/bloccoNote/NotesMemory.h">
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/LsmL.h">
 			<Option target="bloccoNote"/>
 		</Unit>
-		<Unit filename="C:/Users/viato/CLionProjects/bloccoNote/main.cpp">
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/Note.cpp">
 			<Option target="bloccoNote"/>
 		</Unit>
-		<Unit filename="C:/Users/viato/CLionProjects/bloccoNote/utils.cpp">
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/Note.h">
 			<Option target="bloccoNote"/>
 		</Unit>
-		<Unit filename="C:/Users/viato/CLionProjects/bloccoNote/utils.h">
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/NotesMemory.cpp">
 			<Option target="bloccoNote"/>
 		</Unit>
-		<Unit filename="C:/Users/viato/CLionProjects/bloccoNote/CMakeLists.txt">
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/NotesMemory.h">
+			<Option target="bloccoNote"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/main.cpp">
+			<Option target="bloccoNote"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/utils.cpp">
+			<Option target="bloccoNote"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/utils.h">
+			<Option target="bloccoNote"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Widgets/Qt5Widgets_QMacStylePlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5GuiConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5Gui_QCocoaIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5Gui_QICNSPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5Gui_QMacHeifPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5Gui_QMacJp2Plugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5Gui_QPdfPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5Gui_QSvgIconPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5Gui_QSvgPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5Gui_QTgaPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5Gui_QTiffPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5Gui_QVirtualKeyboardPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5Gui_QWbmpPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5Gui_QWebGLIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5Gui_QWebpPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Gui/Qt5Gui_QXdgDesktopPortalThemePlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Core/Qt5CoreConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Core/Qt5CoreConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Core/Qt5CoreConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Core/Qt5CoreMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Core\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

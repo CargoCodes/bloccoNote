@@ -1,15 +1,11 @@
-#include <iostream>
-#include <fstream>
-#include "LsmL.h"
-#include "Note.h"
-#include "NotesMemory.h"
-#include <vector>
-#include "utils.h"
+#include "GUInterface.h"
+#include <QtWidgets/QApplication>
 
 using namespace std;
 
-int main() {
-    int id = 0;
-
-
+int main(int argc, char **argv) {
+    QApplication app(argc, argv);
+    GUInterface GUI;
+    GUI.show();
+    app.exec();
 }

@@ -14,7 +14,7 @@ public:
     explicit Note(const LsmL& dataBase, const string& title, const string& content="")
     : dataBase(dataBase), title(title), content(content) {}
 
-    const string &getTitle() const {
+    string getTitle() const {
         return title;
     }
 
@@ -43,7 +43,7 @@ public:
         this->dataBase.addField(this->title);
         this->dataBase.addAttr(this->title,
                                "content",
-                               this->content.empty() ? "":this->content);
+                               this->content);
     }
 
     void edit(const string& newtitle, const string& newContent) {
