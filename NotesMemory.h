@@ -9,33 +9,27 @@
 
 class NotesMemory {
 public:
-    explicit NotesMemory(const string& filePath, bool generic = true, bool favorite = false, bool locked = false) :
-            filePath_(filePath), generic_(generic), favorites_(favorite), locked_(locked) {
+    explicit NotesMemory(const string& filePath, bool favorite = false, bool locked = false) :
+            filePath_(filePath), favorites_(favorite), locked_(locked) {
         this->scan();
     }
 
     void addNote(Note* note) {
-        if (generic_)
-            note->updateGenericDataBase(dataBase_);
+        /*if (generic_)
+            note->updateGenericDataBase(&dataBase_);
         else if(favorites_)
-            note->updateFavoritesDatabase(dataBase_);
+            note->updateFavoritesDatabase(&dataBase_);
         else if(locked_)
-            note->updateLockedDataBase(dataBase_);
+            note->updateLockedDataBase(&dataBase_);*/
         note->save();
         this->memory_.push_back(note);
     }
 
-    void newNote(const string& title, const string& content, const string& locked="false", const string& favorite="false") {
-        Note* newNote = new Note(title, content);
-        if (this->generic_)
-            newNote->updateGenericDataBase(dataBase_);
-        else if(this->favorites_)
-            newNote->updateFavoritesDatabase(dataBase_);
-        else if(this->locked_)
-            newNote->updateLockedDataBase(dataBase_);
-        if(locked == "true")
+    void newNote(const string& title, const string& content) {
+        Note* newNote = new Note(title, content, dataBase_);
+        if(locked_)
             newNote->lock();
-        if(favorite == "true")
+        if(favorites_)
             newNote->favorite();
         newNote->save();
         this->memory_.push_back(newNote);
@@ -49,8 +43,8 @@ public:
         return memory_.size();
     }
 
-    LsmL* getDataBase() const {
-        return this->dataBase_;
+    LsmL* getDataBase() {
+        return &dataBase_;
     }
 
     bool deleteNote(int index){
@@ -68,52 +62,37 @@ public:
         return false;
     }
 
-    bool locallyDeletenote(int index) {
-        if(index >= 0 and index < memory_.size()) {
-            auto end = this->memory_.begin();
-            for(int i = 0; i <= index; i++)
-                end++;
-            auto begin = end;
-            begin--;
-            if (generic_)
-                this->deleteNote(index);
-            else if (favorites_){
-
-            } else if (locked_) {
-                this->memory_[index]->removeFromLocked();
-                this->memory_.erase(begin, end);
-            }
-            return true;
-        }
-        return false;
-    }
-
     bool editNote(int id, const string& title="", const string& content="") {
-        if(id >= 0 and id < memory_.size()){
-            auto& note = this->memory_[id];
-            note->edit(title, content);
-            return true;
+        if(not locked_) {
+            if (id >= 0 and id < memory_.size()) {
+                auto &note = this->memory_[id];
+                note->edit(title, content);
+                return true;
+            }
+            return false;
         }
         return false;
     }
 
-    void transferNote(int index, NotesMemory& newMemory) {
-        auto requestedNote = this->memory_[index];
-        newMemory.addNote(requestedNote);
+    void transferNote(int index, NotesMemory* destination) { // FIXME currently not working
+        cout << "a" << endl;
+        destination->newNote(this->memory_[index]->getTitle(), this->memory_[index]->getContent());
+        cout << "b" << endl;
+        this->deleteNote(index);
+        cout << "c" << endl;
     }
 
     void scan();
 
 private:
+
     string filePath_;
-    bool generic_;
     bool favorites_;
     bool locked_;
 
-    LsmL* dataBase_ = new LsmL(this->filePath_);
+    LsmL dataBase_ = LsmL(this->filePath_);
 
     vector<Note*> memory_;
 };
-
 
 #endif //BLOCCONOTE_NOTESMEMORY_H

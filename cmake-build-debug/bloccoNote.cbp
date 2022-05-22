@@ -106,34 +106,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/FavoritesWindow.cpp">
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/GUI.cpp">
 			<Option target="bloccoNote"/>
 		</Unit>
-		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/FavoritesWindow.h">
-			<Option target="bloccoNote"/>
-		</Unit>
-		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/IdPushButton.cpp">
-			<Option target="bloccoNote"/>
-		</Unit>
-		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/IdPushButton.h">
-			<Option target="bloccoNote"/>
-		</Unit>
-		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/LockedWindow.cpp">
-			<Option target="bloccoNote"/>
-		</Unit>
-		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/LockedWindow.h">
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/GUI.h">
 			<Option target="bloccoNote"/>
 		</Unit>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/LsmL.cpp">
 			<Option target="bloccoNote"/>
 		</Unit>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/LsmL.h">
-			<Option target="bloccoNote"/>
-		</Unit>
-		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/MainWindow.cpp">
-			<Option target="bloccoNote"/>
-		</Unit>
-		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/MainWindow.h">
 			<Option target="bloccoNote"/>
 		</Unit>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/Note.cpp">
@@ -146,12 +128,6 @@
 			<Option target="bloccoNote"/>
 		</Unit>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/NotesMemory.h">
-			<Option target="bloccoNote"/>
-		</Unit>
-		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/db.cpp">
-			<Option target="bloccoNote"/>
-		</Unit>
-		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/db.h">
 			<Option target="bloccoNote"/>
 		</Unit>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/main.cpp">

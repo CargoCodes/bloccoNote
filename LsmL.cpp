@@ -5,6 +5,7 @@ void LsmL::startingContent() {
         throw runtime_error("File extension must be \".lsml\"");
     else {
         file.open(this->filePath, ios::in); // tries to open file to read the content_
+
         if(file.is_open()){
             this->empty = false;
             string fileContent;
@@ -16,6 +17,7 @@ void LsmL::startingContent() {
             this->empty = true;
             this->content = "<#\n#>"; // sets content_ to the empty standard
             file.open(this->filePath, ios::out);
+
             if(file.is_open()){
                 file << this->content; // writes the standard empty content_ in the file
                 file.close();
@@ -160,11 +162,7 @@ void LsmL::write(const vector<map<string, map<string, string>>> &toWriteContent)
         }
         toWrite += "#>"; // EOF
     }
-    file.open(this->filePath, ios::out);
-    if(file.is_open()){ // writes the content_ in the file
-        file << this->content;
-        file.close();
-    }
+    writeFile(this->content);
 }
 
 map<string, string> LsmL::getField(const string &fieldName) {
@@ -210,8 +208,7 @@ string LsmL::getAttr(const string &fieldName, const string &attrName) {
 }
 
 bool LsmL::addField(const string &fieldName) {
-    //string path = this->filePath;
-    file.open(this->filePath, ios::in);
+    file.open(this->filePath_, ios::in);
     if (file.is_open()) {
         string currentContent;
         string fileContent;
@@ -227,16 +224,7 @@ bool LsmL::addField(const string &fieldName) {
 
             this->content =
                     oldContent + "    [$] \"" + fieldName + "\" ::>\n" + eof; // adds the new field and then the EOF
-
-
-            file.open(this->filePath, ios::out);
-            if (file.is_open()) { // writes on the file the new content_
-                file << this->content;
-                file.close();
-                this->empty = false;
-                return true;
-            }
-            return false;
+            return writeFile(this->content);
         }
         return false;
     }
@@ -264,15 +252,7 @@ bool LsmL::addAttr(const string &fieldName, const string &attrName, const string
             this->content = subString(this->content, 0, endIndex) + "        (" + attrName + ") -> \""
                             + attrContent + "\"\n"
                             + subString(this->content, endIndex, this->content.length()); // adds the attribute
-
-            file.open(this->filePath, ios::out);
-            if (file.is_open()) { // writes on the file the new content_
-                file << this->content;
-                file.close();
-                this->empty = false;
-                return true;
-            }
-            return false;
+            return writeFile(this->content);
         }
         return false;
     } else
@@ -287,14 +267,7 @@ bool LsmL::editField(const string &fieldName, const string &newFieldName) {
 
         this->content = this->content.substr(0, startIndex) + "[$] \"" + newFieldName + "\" ::>"
                         + subString(this->content, endIndex, this->content.length()); // edits the field name
-
-        file.open(this->filePath, ios::out);
-        if(file.is_open()){ // writes the new content_ on the file
-            file << this->content;
-            file.close();
-            return true;
-        }
-        return false;
+        return writeFile(this->content);
     } else
         throw FieldNotFoundError("Field \"" + fieldName + "\" not found");
 }
@@ -337,16 +310,7 @@ bool LsmL::editAttr(const string &fieldName, const string &attrName, const strin
                                 + subString(isolatedField, virgEnd, isolatedField.length());
             }
             this->content = preField + isolatedField + afterField;
-
-            file.open(this->filePath, ios::out);
-            if(file.is_open()){ // writes the new content_ in the file
-                file << this->content;
-                file.close();
-
-                return true;
-            }
-            return false;
-
+            return writeFile(this->content);
         } else
             throw AttributeNotFoundError("Attribute \"" + attrName + "\" of field \""
                                          + fieldName + "\" not found");
@@ -372,15 +336,7 @@ bool LsmL::removeField(const string &fieldName) {
             afterField = "#>";
 
         this->content = preField + afterField; // updates the content_
-
-        file.open(this->filePath, ios::out);
-        if (file.is_open()) { // writes the new content_ in the file
-            file << this->content;
-            file.close();
-
-            return true;
-        }
-        return false;
+        return writeFile(this->content);
     } else
         throw FieldNotFoundError("Field \"" + fieldName + "\" not found");
 }
@@ -419,17 +375,7 @@ bool LsmL::removeAttr(const string &fieldName, const string &attrName) {
                             + subString(isolatedField, virgEnd+1, isolatedField.length());
 
             this->content = preField + isolatedField + afterField;
-
-            file.open(this->filePath, ios::out);
-            if(file.is_open()){ // writes the new content_ in the file
-                file.clear();
-                file << this->content;
-                file.close();
-
-                return true;
-            }
-            return false;
-
+            return writeFile(this->content);
         } else
             throw AttributeNotFoundError("Attribute \"" + attrName + "\" of field \""
                                          + fieldName + "\" not found");

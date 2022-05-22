@@ -129,77 +129,29 @@ bloccoNote/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/build
 .PHONY : bloccoNote/fast
 
-FavoritesWindow.o: FavoritesWindow.cpp.o
-.PHONY : FavoritesWindow.o
+GUI.o: GUI.cpp.o
+.PHONY : GUI.o
 
 # target to build an object file
-FavoritesWindow.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/FavoritesWindow.cpp.o
-.PHONY : FavoritesWindow.cpp.o
+GUI.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/GUI.cpp.o
+.PHONY : GUI.cpp.o
 
-FavoritesWindow.i: FavoritesWindow.cpp.i
-.PHONY : FavoritesWindow.i
-
-# target to preprocess a source file
-FavoritesWindow.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/FavoritesWindow.cpp.i
-.PHONY : FavoritesWindow.cpp.i
-
-FavoritesWindow.s: FavoritesWindow.cpp.s
-.PHONY : FavoritesWindow.s
-
-# target to generate assembly for a file
-FavoritesWindow.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/FavoritesWindow.cpp.s
-.PHONY : FavoritesWindow.cpp.s
-
-IdPushButton.o: IdPushButton.cpp.o
-.PHONY : IdPushButton.o
-
-# target to build an object file
-IdPushButton.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/IdPushButton.cpp.o
-.PHONY : IdPushButton.cpp.o
-
-IdPushButton.i: IdPushButton.cpp.i
-.PHONY : IdPushButton.i
+GUI.i: GUI.cpp.i
+.PHONY : GUI.i
 
 # target to preprocess a source file
-IdPushButton.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/IdPushButton.cpp.i
-.PHONY : IdPushButton.cpp.i
+GUI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/GUI.cpp.i
+.PHONY : GUI.cpp.i
 
-IdPushButton.s: IdPushButton.cpp.s
-.PHONY : IdPushButton.s
-
-# target to generate assembly for a file
-IdPushButton.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/IdPushButton.cpp.s
-.PHONY : IdPushButton.cpp.s
-
-LockedWindow.o: LockedWindow.cpp.o
-.PHONY : LockedWindow.o
-
-# target to build an object file
-LockedWindow.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/LockedWindow.cpp.o
-.PHONY : LockedWindow.cpp.o
-
-LockedWindow.i: LockedWindow.cpp.i
-.PHONY : LockedWindow.i
-
-# target to preprocess a source file
-LockedWindow.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/LockedWindow.cpp.i
-.PHONY : LockedWindow.cpp.i
-
-LockedWindow.s: LockedWindow.cpp.s
-.PHONY : LockedWindow.s
+GUI.s: GUI.cpp.s
+.PHONY : GUI.s
 
 # target to generate assembly for a file
-LockedWindow.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/LockedWindow.cpp.s
-.PHONY : LockedWindow.cpp.s
+GUI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/GUI.cpp.s
+.PHONY : GUI.cpp.s
 
 LsmL.o: LsmL.cpp.o
 .PHONY : LsmL.o
@@ -224,30 +176,6 @@ LsmL.s: LsmL.cpp.s
 LsmL.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/LsmL.cpp.s
 .PHONY : LsmL.cpp.s
-
-MainWindow.o: MainWindow.cpp.o
-.PHONY : MainWindow.o
-
-# target to build an object file
-MainWindow.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/MainWindow.cpp.o
-.PHONY : MainWindow.cpp.o
-
-MainWindow.i: MainWindow.cpp.i
-.PHONY : MainWindow.i
-
-# target to preprocess a source file
-MainWindow.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/MainWindow.cpp.i
-.PHONY : MainWindow.cpp.i
-
-MainWindow.s: MainWindow.cpp.s
-.PHONY : MainWindow.s
-
-# target to generate assembly for a file
-MainWindow.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/MainWindow.cpp.s
-.PHONY : MainWindow.cpp.s
 
 Note.o: Note.cpp.o
 .PHONY : Note.o
@@ -296,30 +224,6 @@ NotesMemory.s: NotesMemory.cpp.s
 NotesMemory.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/NotesMemory.cpp.s
 .PHONY : NotesMemory.cpp.s
-
-db.o: db.cpp.o
-.PHONY : db.o
-
-# target to build an object file
-db.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/db.cpp.o
-.PHONY : db.cpp.o
-
-db.i: db.cpp.i
-.PHONY : db.i
-
-# target to preprocess a source file
-db.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/db.cpp.i
-.PHONY : db.cpp.i
-
-db.s: db.cpp.s
-.PHONY : db.s
-
-# target to generate assembly for a file
-db.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/db.cpp.s
-.PHONY : db.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
@@ -378,30 +282,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... bloccoNote"
-	@echo "... FavoritesWindow.o"
-	@echo "... FavoritesWindow.i"
-	@echo "... FavoritesWindow.s"
-	@echo "... IdPushButton.o"
-	@echo "... IdPushButton.i"
-	@echo "... IdPushButton.s"
-	@echo "... LockedWindow.o"
-	@echo "... LockedWindow.i"
-	@echo "... LockedWindow.s"
+	@echo "... GUI.o"
+	@echo "... GUI.i"
+	@echo "... GUI.s"
 	@echo "... LsmL.o"
 	@echo "... LsmL.i"
 	@echo "... LsmL.s"
-	@echo "... MainWindow.o"
-	@echo "... MainWindow.i"
-	@echo "... MainWindow.s"
 	@echo "... Note.o"
 	@echo "... Note.i"
 	@echo "... Note.s"
 	@echo "... NotesMemory.o"
 	@echo "... NotesMemory.i"
 	@echo "... NotesMemory.s"
-	@echo "... db.o"
-	@echo "... db.i"
-	@echo "... db.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

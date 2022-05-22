@@ -11,19 +11,18 @@ using namespace std;
 
 class LsmL {
 public:
-    explicit LsmL(const string& filePath) {
-        this->filePath = filePath;
+    explicit LsmL(const string filePath) : filePath(filePath) , filePath_(filePath){
         cout << this->filePath << endl;
         this->startingContent();
     }
 
     LsmL(const LsmL& other) : filePath(other.filePath), content(other.content) {}
 
-    LsmL& operator=(const LsmL& other) {
+    /*LsmL& operator=(const LsmL& other) {
         this->filePath = other.filePath;
         this->content = other.content;
         return *this;
-    }
+    }*/
 
     vector<map<string, map<string, string>>> read();
 
@@ -49,6 +48,7 @@ public:
 
 private:
     string filePath;
+    string filePath_;
     int pos = 0;
 
     string content;
@@ -70,12 +70,10 @@ private:
 
     static vector<string> split(string str, char separator){
         vector<string> list;
-
         while(str.find(separator)){
             list.push_back(str.substr(0, str.find(separator)));
             str = str.substr(str.find(separator)+1, str.length());
         }
-
         return list;
     }
 
@@ -101,6 +99,17 @@ private:
             return currentContent;
         }
         throw runtime_error("Impossible to read the file");
+    }
+
+    bool writeFile(const string& contentToWrite) {
+        file.open(this->filePath, ios::in);
+        if(file.is_open()) {
+            file << this->content;
+            file.close();
+            this->empty = false;
+            return true;
+        }
+        return false;
     }
 
     class FieldNotFoundError : runtime_error {
