@@ -10,18 +10,18 @@
 
 class IdPushButton : public QPushButton{
 public:
-    explicit IdPushButton(const QString& text, int id) : QPushButton(text), id(id){}
+    explicit IdPushButton(const QString& text, int id) : QPushButton(text), id_(id){}
 
     void setId(int id) {
-        this->id = id;
+        this->id_ = id;
     }
 
     int getId() const {
-        return this->id;
+        return this->id_;
     }
 
 private:
-    int id;
+    int id_;
 
 };
 

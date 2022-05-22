@@ -2,8 +2,8 @@
 // Created by Codes on 20/05/2022.
 //
 
-#ifndef BLOCCONOTE_GUINTERFACE_H
-#define BLOCCONOTE_GUINTERFACE_H
+#ifndef BLOCCONOTE_MAINWINDOW_H
+#define BLOCCONOTE_MAINWINDOW_H
 
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QPushButton>
@@ -14,18 +14,20 @@
 #include <QVBoxLayout>
 #include "NotesMemory.h"
 #include "IdPushButton.h"
+#include "LockedWindow.h"
+#include "db.h"
 
 using namespace std;
 
-class GUInterface : public QMainWindow{
+class MainWindow : public QMainWindow {
 public:
-     GUInterface() {
-        this->setFixedSize(600, 600);
+     MainWindow() {
+        this->setFixedSize(800, 800);
         this->setStyleSheet("background-color: #ABD1C6");
         this->homeWindow();
     }
 
-private slots:
+protected slots:
     void homeWindow();
 
     void newNoteWindow();
@@ -35,11 +37,15 @@ private slots:
     void destroyHomeWindow() {
         addNewNoteBtn->hide();
         scrollArea->hide();
+        favoriteNotes->hide();
+        lockedNotes->hide();
     };
 
     void destroyNewNoteWIndow() {
         saveNote->hide();
         cancel->hide();
+        addToFavorites->hide();
+        addToLocked->hide();
         noteTitle->hide();
         noteContent->hide();
         this->homeWindow();
@@ -49,32 +55,49 @@ private slots:
         editNote->hide();
         deleteNote->hide();
         exitEdit->hide();
+        editAddToFavorites->hide();
+        editAddToLocked->hide();
         this->editNoteTitle->hide();
         this->editNoteContent->hide();
         this->homeWindow();
     }
 
     void saveNewNote() {
-        this->notesMemory.newNote((this->noteTitle->toPlainText()).toStdString(),
-                                  (this->noteContent->toPlainText()).toStdString());
+        db::genericNotesMemory.newNote((this->noteTitle->toPlainText()).toStdString(),
+                                         (this->noteContent->toPlainText()).toStdString());
         destroyNewNoteWIndow();
     }
 
     void removeNote(int index) {
-        this->notesMemory.deleteNote(index);
+        db::genericNotesMemory.deleteNote(index);
         this->destroyEditNoteWindow();
     }
 
     void changeNote(int index, const std::string& title, const std::string& content) {
-        this->notesMemory.editNote(index, title, content);
+        db::genericNotesMemory.editNote(index, title, content);
         this->destroyEditNoteWindow();
     }
 
-private:
-    NotesMemory notesMemory;
+    //void openFavorites();
+    void openLocked() {
+        blockedWindow.show();
+    }
+
+    static void addNoteToFavorites(int index) {
+        db::genericNotesMemory.transferNote(index, db::favoriteNotesMemory);
+    }
+
+    static void addNoteToLocked(int index) {
+        db::genericNotesMemory.transferNote(index, db::lockedNotesMemory);
+    }
+
+protected:
+    LockedWindow blockedWindow;
 
     // home page
     QPushButton* addNewNoteBtn;
+    QPushButton* favoriteNotes;
+    QPushButton* lockedNotes;
     QScrollArea* scrollArea;
     QWidget* widget;
     QVBoxLayout* boxLayout;
@@ -82,6 +105,8 @@ private:
 
     // new note window
     QPushButton* saveNote;
+    QPushButton* addToFavorites;
+    QPushButton* addToLocked;
     QPushButton* cancel;
     QTextEdit* noteTitle;
     QTextEdit* noteContent;
@@ -89,12 +114,12 @@ private:
     // edit note window
     QPushButton* editNote;
     QPushButton* deleteNote;
+    QPushButton* editAddToFavorites;
+    QPushButton* editAddToLocked;
     QPushButton* exitEdit;
     QTextEdit* editNoteTitle;
     QTextEdit* editNoteContent;
-
-
 };
 
 
-#endif //BLOCCONOTE_GUINTERFACE_H
+#endif //BLOCCONOTE_MAINWINDOW_H

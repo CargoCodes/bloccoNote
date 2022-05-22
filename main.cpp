@@ -1,11 +1,11 @@
-#include "GUInterface.h"
+#include "MainWindow.h"
 #include <QtWidgets/QApplication>
 
 using namespace std;
 
 int main(int argc, char **argv) {
     QApplication app(argc, argv);
-    GUInterface GUI;
+    MainWindow GUI;
     GUI.show();
     app.exec();
 }

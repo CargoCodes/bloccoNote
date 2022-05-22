@@ -11,7 +11,9 @@ using namespace std;
 
 class LsmL {
 public:
-    explicit LsmL(const string& filePath) : filePath(filePath) {
+    explicit LsmL(const string& filePath) {
+        this->filePath = filePath;
+        cout << this->filePath << endl;
         this->startingContent();
     }
 
@@ -52,6 +54,8 @@ private:
     string content;
     fstream file;
     string text;
+
+    bool empty = true;
 
     void startingContent();
 
@@ -96,6 +100,7 @@ private:
             file.close();
             return currentContent;
         }
+        throw runtime_error("Impossible to read the file");
     }
 
     class FieldNotFoundError : runtime_error {

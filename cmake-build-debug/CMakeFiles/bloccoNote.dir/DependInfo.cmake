@@ -8,11 +8,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/Codes.py/CLionProjects/bloccoNote/GUInterface.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/GUInterface.cpp.o"
+  "/Users/Codes.py/CLionProjects/bloccoNote/FavoritesWindow.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/FavoritesWindow.cpp.o"
   "/Users/Codes.py/CLionProjects/bloccoNote/IdPushButton.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/IdPushButton.cpp.o"
+  "/Users/Codes.py/CLionProjects/bloccoNote/LockedWindow.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/LockedWindow.cpp.o"
   "/Users/Codes.py/CLionProjects/bloccoNote/LsmL.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/LsmL.cpp.o"
+  "/Users/Codes.py/CLionProjects/bloccoNote/MainWindow.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/MainWindow.cpp.o"
   "/Users/Codes.py/CLionProjects/bloccoNote/Note.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/Note.cpp.o"
   "/Users/Codes.py/CLionProjects/bloccoNote/NotesMemory.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/NotesMemory.cpp.o"
+  "/Users/Codes.py/CLionProjects/bloccoNote/db.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/db.cpp.o"
   "/Users/Codes.py/CLionProjects/bloccoNote/main.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/main.cpp.o"
   "/Users/Codes.py/CLionProjects/bloccoNote/utils.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/utils.cpp.o"
   )

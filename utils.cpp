@@ -2,7 +2,6 @@
 // Created by viato on 12/05/2022.
 //
 #include "utils.h"
-#include <iostream>
 #include <vector>
 
 std::string subString(const std::string& string, int startIndex, int endIndex) {

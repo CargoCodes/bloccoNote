@@ -11,6 +11,6 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 find_package(Qt5Widgets REQUIRED)
 
-add_executable(bloccoNote main.cpp Note.cpp Note.h NotesMemory.cpp NotesMemory.h utils.cpp utils.h LsmL.cpp LsmL.h GUInterface.cpp GUInterface.h IdPushButton.cpp IdPushButton.h)
+add_executable(bloccoNote main.cpp Note.cpp Note.h NotesMemory.cpp NotesMemory.h utils.cpp utils.h LsmL.cpp LsmL.h MainWindow.cpp MainWindow.h IdPushButton.cpp IdPushButton.h FavoritesWindow.cpp FavoritesWindow.h LockedWindow.cpp LockedWindow.h db.cpp db.h)
 
 target_link_libraries(bloccoNote Qt5::Widgets)

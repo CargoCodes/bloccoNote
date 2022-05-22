@@ -131,18 +131,18 @@ CMakeFiles/bloccoNote.dir/LsmL.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bloccoNote.dir/LsmL.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Codes.py/CLionProjects/bloccoNote/LsmL.cpp -o CMakeFiles/bloccoNote.dir/LsmL.cpp.s
 
-CMakeFiles/bloccoNote.dir/GUInterface.cpp.o: CMakeFiles/bloccoNote.dir/flags.make
-CMakeFiles/bloccoNote.dir/GUInterface.cpp.o: ../GUInterface.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/bloccoNote.dir/GUInterface.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bloccoNote.dir/GUInterface.cpp.o -c /Users/Codes.py/CLionProjects/bloccoNote/GUInterface.cpp
+CMakeFiles/bloccoNote.dir/MainWindow.cpp.o: CMakeFiles/bloccoNote.dir/flags.make
+CMakeFiles/bloccoNote.dir/MainWindow.cpp.o: ../MainWindow.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/bloccoNote.dir/MainWindow.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bloccoNote.dir/MainWindow.cpp.o -c /Users/Codes.py/CLionProjects/bloccoNote/MainWindow.cpp
 
-CMakeFiles/bloccoNote.dir/GUInterface.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bloccoNote.dir/GUInterface.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Codes.py/CLionProjects/bloccoNote/GUInterface.cpp > CMakeFiles/bloccoNote.dir/GUInterface.cpp.i
+CMakeFiles/bloccoNote.dir/MainWindow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bloccoNote.dir/MainWindow.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Codes.py/CLionProjects/bloccoNote/MainWindow.cpp > CMakeFiles/bloccoNote.dir/MainWindow.cpp.i
 
-CMakeFiles/bloccoNote.dir/GUInterface.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bloccoNote.dir/GUInterface.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Codes.py/CLionProjects/bloccoNote/GUInterface.cpp -o CMakeFiles/bloccoNote.dir/GUInterface.cpp.s
+CMakeFiles/bloccoNote.dir/MainWindow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bloccoNote.dir/MainWindow.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Codes.py/CLionProjects/bloccoNote/MainWindow.cpp -o CMakeFiles/bloccoNote.dir/MainWindow.cpp.s
 
 CMakeFiles/bloccoNote.dir/IdPushButton.cpp.o: CMakeFiles/bloccoNote.dir/flags.make
 CMakeFiles/bloccoNote.dir/IdPushButton.cpp.o: ../IdPushButton.cpp
@@ -157,6 +157,45 @@ CMakeFiles/bloccoNote.dir/IdPushButton.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bloccoNote.dir/IdPushButton.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Codes.py/CLionProjects/bloccoNote/IdPushButton.cpp -o CMakeFiles/bloccoNote.dir/IdPushButton.cpp.s
 
+CMakeFiles/bloccoNote.dir/FavoritesWindow.cpp.o: CMakeFiles/bloccoNote.dir/flags.make
+CMakeFiles/bloccoNote.dir/FavoritesWindow.cpp.o: ../FavoritesWindow.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/bloccoNote.dir/FavoritesWindow.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bloccoNote.dir/FavoritesWindow.cpp.o -c /Users/Codes.py/CLionProjects/bloccoNote/FavoritesWindow.cpp
+
+CMakeFiles/bloccoNote.dir/FavoritesWindow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bloccoNote.dir/FavoritesWindow.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Codes.py/CLionProjects/bloccoNote/FavoritesWindow.cpp > CMakeFiles/bloccoNote.dir/FavoritesWindow.cpp.i
+
+CMakeFiles/bloccoNote.dir/FavoritesWindow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bloccoNote.dir/FavoritesWindow.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Codes.py/CLionProjects/bloccoNote/FavoritesWindow.cpp -o CMakeFiles/bloccoNote.dir/FavoritesWindow.cpp.s
+
+CMakeFiles/bloccoNote.dir/LockedWindow.cpp.o: CMakeFiles/bloccoNote.dir/flags.make
+CMakeFiles/bloccoNote.dir/LockedWindow.cpp.o: ../LockedWindow.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/bloccoNote.dir/LockedWindow.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bloccoNote.dir/LockedWindow.cpp.o -c /Users/Codes.py/CLionProjects/bloccoNote/LockedWindow.cpp
+
+CMakeFiles/bloccoNote.dir/LockedWindow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bloccoNote.dir/LockedWindow.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Codes.py/CLionProjects/bloccoNote/LockedWindow.cpp > CMakeFiles/bloccoNote.dir/LockedWindow.cpp.i
+
+CMakeFiles/bloccoNote.dir/LockedWindow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bloccoNote.dir/LockedWindow.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Codes.py/CLionProjects/bloccoNote/LockedWindow.cpp -o CMakeFiles/bloccoNote.dir/LockedWindow.cpp.s
+
+CMakeFiles/bloccoNote.dir/db.cpp.o: CMakeFiles/bloccoNote.dir/flags.make
+CMakeFiles/bloccoNote.dir/db.cpp.o: ../db.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/bloccoNote.dir/db.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bloccoNote.dir/db.cpp.o -c /Users/Codes.py/CLionProjects/bloccoNote/db.cpp
+
+CMakeFiles/bloccoNote.dir/db.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bloccoNote.dir/db.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Codes.py/CLionProjects/bloccoNote/db.cpp > CMakeFiles/bloccoNote.dir/db.cpp.i
+
+CMakeFiles/bloccoNote.dir/db.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bloccoNote.dir/db.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Codes.py/CLionProjects/bloccoNote/db.cpp -o CMakeFiles/bloccoNote.dir/db.cpp.s
+
 # Object files for target bloccoNote
 bloccoNote_OBJECTS = \
 "CMakeFiles/bloccoNote.dir/main.cpp.o" \
@@ -164,8 +203,11 @@ bloccoNote_OBJECTS = \
 "CMakeFiles/bloccoNote.dir/NotesMemory.cpp.o" \
 "CMakeFiles/bloccoNote.dir/utils.cpp.o" \
 "CMakeFiles/bloccoNote.dir/LsmL.cpp.o" \
-"CMakeFiles/bloccoNote.dir/GUInterface.cpp.o" \
-"CMakeFiles/bloccoNote.dir/IdPushButton.cpp.o"
+"CMakeFiles/bloccoNote.dir/MainWindow.cpp.o" \
+"CMakeFiles/bloccoNote.dir/IdPushButton.cpp.o" \
+"CMakeFiles/bloccoNote.dir/FavoritesWindow.cpp.o" \
+"CMakeFiles/bloccoNote.dir/LockedWindow.cpp.o" \
+"CMakeFiles/bloccoNote.dir/db.cpp.o"
 
 # External object files for target bloccoNote
 bloccoNote_EXTERNAL_OBJECTS =
@@ -175,14 +217,17 @@ bloccoNote: CMakeFiles/bloccoNote.dir/Note.cpp.o
 bloccoNote: CMakeFiles/bloccoNote.dir/NotesMemory.cpp.o
 bloccoNote: CMakeFiles/bloccoNote.dir/utils.cpp.o
 bloccoNote: CMakeFiles/bloccoNote.dir/LsmL.cpp.o
-bloccoNote: CMakeFiles/bloccoNote.dir/GUInterface.cpp.o
+bloccoNote: CMakeFiles/bloccoNote.dir/MainWindow.cpp.o
 bloccoNote: CMakeFiles/bloccoNote.dir/IdPushButton.cpp.o
+bloccoNote: CMakeFiles/bloccoNote.dir/FavoritesWindow.cpp.o
+bloccoNote: CMakeFiles/bloccoNote.dir/LockedWindow.cpp.o
+bloccoNote: CMakeFiles/bloccoNote.dir/db.cpp.o
 bloccoNote: CMakeFiles/bloccoNote.dir/build.make
 bloccoNote: /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/QtWidgets
 bloccoNote: /usr/local/Cellar/qt@5/5.15.3/lib/QtGui.framework/QtGui
 bloccoNote: /usr/local/Cellar/qt@5/5.15.3/lib/QtCore.framework/QtCore
 bloccoNote: CMakeFiles/bloccoNote.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable bloccoNote"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable bloccoNote"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/bloccoNote.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
