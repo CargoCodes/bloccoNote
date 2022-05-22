@@ -4,7 +4,6 @@
 #include "LsmL.h"
 #include <iostream>
 
-
 class Note {
 public:
 
@@ -26,7 +25,6 @@ public:
     void save() {
         if(this->title_.empty())
             throw EmptyNoteTitleError("You must at least set a title_ for the note");
-
         dataBase.addField(this->title_);
         dataBase.addAttr(this->title_, "content", this->content_);
     }

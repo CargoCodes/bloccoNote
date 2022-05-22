@@ -133,12 +133,6 @@
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/main.cpp">
 			<Option target="bloccoNote"/>
 		</Unit>
-		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/utils.cpp">
-			<Option target="bloccoNote"/>
-		</Unit>
-		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/utils.h">
-			<Option target="bloccoNote"/>
-		</Unit>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

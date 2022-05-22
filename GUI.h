@@ -1,7 +1,3 @@
-//
-// Created by Codes on 20/05/2022.
-//
-
 #ifndef BLOCCONOTE_GUI_H
 #define BLOCCONOTE_GUI_H
 

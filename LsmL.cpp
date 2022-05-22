@@ -145,68 +145,6 @@ vector<map<string, map<string, string>>> LsmL::read() {
         throw runtime_error("Can't open file \"" + this->filePath + "\"");
 }
 
-void LsmL::write(const vector<map<string, map<string, string>>> &toWriteContent) {
-    this->empty = false;
-    string toWrite = "<#\n"; // SOF
-
-    for(auto& fieldcont:toWriteContent){ // for each field container in the vector
-        for(auto& internalField: fieldcont){ // for each pair in field container
-            auto fieldName = internalField.first; // fieldName is the first element of the pair
-            toWrite += "    [$] \"" + fieldName + "\" ::>\n";
-            auto attributeList = internalField.second; // map of attributes
-            for(auto& attribute : attributeList) { // gets pair from map
-                auto attributeName = attribute.first;
-                auto attributeContent = attribute.second; // gets the attribute content_, which is the second element of the pair
-                toWrite += "        (" + attributeName + ") -> \"" + attributeContent + "\"\n";
-            }
-        }
-        toWrite += "#>"; // EOF
-    }
-    writeFile(this->content);
-}
-
-map<string, string> LsmL::getField(const string &fieldName) {
-    this->pos = 0;
-    auto fileContent = this->read(); // reads the file
-
-    try {
-        for(const auto& fieldCont:fileContent){ // scans the field containers
-            for(const auto& fieldname:fieldCont){ // scans the field
-                if(fieldname.first == fieldName){ // if the field name is equal to the wanted one
-                    return fieldname.second; // returns the field content_
-                }
-            }
-        }
-    } catch (...){
-        map<string, string> emptyMap;
-        return emptyMap;
-    }
-    map<string, string> emptyMap;
-    return emptyMap;
-}
-
-string LsmL::getAttr(const string &fieldName, const string &attrName) {
-    this->pos = 0;
-    auto fileContent = this->read();
-
-    try {
-        for(const auto& fieldCont:fileContent){ // scans the field containers
-            for(const auto& fieldname:fieldCont){ // scans the fields
-                if(fieldname.first == fieldName){ // if the field name is equal to the wanted one
-                    auto attrs = fieldname.second;
-                    for(const auto& attr:attrs){ // scans the attributes
-                        if(attr.first == attrName) // if the attribute name is equal to the wanted one
-                            return attr.second; // returns the attribute content_
-                    }
-                }
-            }
-        }
-    } catch (...){
-        return "";
-    }
-    return "";
-}
-
 bool LsmL::addField(const string &fieldName) {
     file.open(this->filePath_, ios::in);
     if (file.is_open()) {

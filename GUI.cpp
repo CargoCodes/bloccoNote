@@ -221,6 +221,7 @@ void GUI::editNoteWindow(int index) {
     editNoteContent->show();
 }
 
+
 /*
  *
  *
@@ -228,6 +229,7 @@ void GUI::editNoteWindow(int index) {
  *
  *
  */
+
 
 void GUI::compileLockedScrollArea() {
     QFont font;

@@ -1,7 +1,3 @@
-//
-// Created by viato on 12/05/2022.
-//
-
 #include "NotesMemory.h"
 
 void NotesMemory::scan() {
@@ -14,10 +10,24 @@ void NotesMemory::scan() {
                 string noteTitle, noteContent;
                 noteTitle = internalClass.first; // notetitle is the first elememt of the pair
                 auto attributeList = internalClass.second; // map of attributes
-                for(auto& attribute : attributeList)  // gets pair from map
+                for (auto &attribute: attributeList)  // gets pair from map
                     noteContent = attribute.second;
                 this->newNote(noteTitle, noteContent); // creates and stores new note
             }
         }
     }
+}
+
+bool NotesMemory::deleteNote(int index) {
+    if (index >= 0 and index < memory_.size()) {
+        auto end = this->memory_.begin();
+        for (int i = 0; i <= index; i++)
+            end++;
+        auto begin = end;
+        begin--;
+        this->memory_[index]->remove();
+        this->memory_.erase(begin, end);
+        return true;
+    }
+    return false;
 }

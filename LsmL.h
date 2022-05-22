@@ -1,7 +1,6 @@
 #ifndef LSMLLIB_LSML_H
 #define LSMLLIB_LSML_H
 
-
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -17,20 +16,7 @@ public:
     }
 
     LsmL(const LsmL& other) : filePath(other.filePath), content(other.content) {}
-
-    /*LsmL& operator=(const LsmL& other) {
-        this->filePath = other.filePath;
-        this->content = other.content;
-        return *this;
-    }*/
-
     vector<map<string, map<string, string>>> read();
-
-    void write(const vector<map<string, map<string, string>>>& content);
-
-    map<string, string> getField(const string &fieldName);
-
-    string getAttr(const string &fieldName, const string &attrName);
 
     bool addField(const string& fieldName);
 
