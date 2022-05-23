@@ -65,12 +65,16 @@ protected slots:
         this->destroyEditNoteWindow();
     }
 
-    void changeNote(int index, const std::string& title, const std::string& content) {
+    void changeNote(int index, const std::string &title, const std::string &content) {
         genericNotesMemory->editNote(index, title, content);
         this->destroyEditNoteWindow();
     }
 
-    // TODO void openFavorites();
+    void openFavorites() {
+        destroyHomeWindow();
+        favoriteHomeWindow();
+    }
+
     void openLocked() {
         destroyHomeWindow();
         lockedHomeWindow();
@@ -81,7 +85,10 @@ protected slots:
         homeWindow();
     }
 
-    // TODO void transferNote(int index);
+    void favoriteToHome() {
+        destroyFavoriteHomeWindow();
+        homeWindow();
+    }
 
     /*
      *
@@ -103,7 +110,7 @@ protected slots:
         returnToMainHome->hide();
     }
 
-    void destroyLockedNewNoteWindow() {
+    void destroyNewLockedNoteWindow() {
         saveLockedNote->hide();
         lockCancel->hide();
         lockedNoteTitle->hide();
@@ -112,7 +119,6 @@ protected slots:
     }
 
     void destroyLockedNoteShowWindow() {
-        deleteLockedNote->hide();
         exitShow->hide();
         showUnlockNote->hide();
         this->showNoteTitle->hide();
@@ -122,26 +128,67 @@ protected slots:
 
     void saveLockedWindow() {
         lockedNotesMemory->newNote((this->lockedNoteTitle->toPlainText()).toStdString(),
-                                         (this->lockedNoteContent->toPlainText()).toStdString());
+                                   (this->lockedNoteContent->toPlainText()).toStdString());
         destroyNewNoteWIndow();
     }
-
-    void removeLockedNote(int index) {
-        lockedNotesMemory->deleteNote(index);
-        this->destroyEditNoteWindow();
-    }
-
-
-protected:
-    // dataBases
-    NotesMemory* genericNotesMemory = new NotesMemory("genericNotes.lsml");
-    NotesMemory* favoriteNotesMemory = new NotesMemory("favoriteNotes.lsml", true);
-    NotesMemory* lockedNotesMemory = new NotesMemory("lockedNotes.lsml", false, true);
 
     /*
      *
      *
-     * Genrric Notes Window
+     * Favorite Notes Window
+     *
+     *
+     */
+
+    void favoriteHomeWindow();
+
+    void newFavoriteNoteWindow();
+
+    void editFavoriteNoteWindow(int index);
+
+    void destroyFavoriteHomeWindow() {
+        addNewFavoriteNoteBtn->hide();
+        returnToHome->hide();
+        favoriteScrollArea->hide();
+    }
+
+    void destroyNewFavoriteNoteWindow() {
+        saveFavoriteNote->hide();
+        cancelFavoriteNote->hide();
+        favoriteNoteTitle->hide();
+        favoriteNoteContent->hide();
+    }
+
+    void destroyEditFavoriteNoteWindow() {
+        editFavoriteNote->hide();
+        deleteFavoriteNote->hide();
+        exitFavoriteEdit->hide();
+        editFavoriteNoteTitle->hide();
+        editFavoriteNoteContent->hide();
+        removeFromFavorites->hide();
+    }
+
+    void saveFavoriteNoteWindow() {
+        favoriteNotesMemory->newNote((this->favoriteNoteTitle->toPlainText()).toStdString(),
+                                     (this->favoriteNoteContent->toPlainText()).toStdString());
+        destroyNewFavoriteNoteWindow();
+        favoriteHomeWindow();
+    }
+
+    void removeFavoriteNote(int index) {
+        favoriteNotesMemory->deleteNote(index);
+    }
+
+protected:
+    // dataBases
+    NotesMemory *genericNotesMemory = new NotesMemory("genericNotes.lsml");
+    NotesMemory *favoriteNotesMemory = new NotesMemory("favoriteNotes.lsml", true);
+    NotesMemory *lockedNotesMemory = new NotesMemory("lockedNotes.lsml", false, true);
+
+    /*
+     *
+     *
+     * Generic Notes Window
      *
      *
      */
@@ -193,7 +240,6 @@ protected:
     QTextEdit* lockedNoteContent;
 
     // show note window
-    QPushButton* deleteLockedNote;
     QPushButton* showUnlockNote;
     QPushButton* exitShow;
     QTextEdit* showNoteTitle;
@@ -208,6 +254,28 @@ protected:
      *
      */
 
+    // home page
+    QPushButton *addNewFavoriteNoteBtn;
+    QPushButton *returnToHome;
+    QScrollArea *favoriteScrollArea;
+    QWidget *favoriteWidget;
+    QVBoxLayout *favoriteBoxLayout;
+
+    void compileFavoriteScrollArea();
+
+    // new note window
+    QPushButton *saveFavoriteNote;
+    QPushButton *cancelFavoriteNote;
+    QTextEdit *favoriteNoteTitle;
+    QTextEdit *favoriteNoteContent;
+
+    // edit note window
+    QPushButton *editFavoriteNote;
+    QPushButton *deleteFavoriteNote;
+    QPushButton *removeFromFavorites;
+    QPushButton *exitFavoriteEdit;
+    QTextEdit *editFavoriteNoteTitle;
+    QTextEdit *editFavoriteNoteContent;
 };
 
 

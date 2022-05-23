@@ -10,23 +10,39 @@ using namespace std;
 
 class LsmL {
 public:
-    explicit LsmL(const string filePath) : filePath(filePath) , filePath_(filePath){
-        cout << this->filePath << endl;
+    explicit LsmL(string filePath) : filePath(filePath) {
         this->startingContent();
     }
 
-    LsmL(const LsmL& other) : filePath(other.filePath), content(other.content) {}
+    LsmL(const LsmL &other) {
+        this->filePath = other.filePath;
+        this->content = other.content;
+    }
+
+    LsmL &operator=(const LsmL &other) {
+        this->filePath = other.filePath;
+        this->content = other.content;
+        return *this;
+    }
+
     vector<map<string, map<string, string>>> read();
 
-    bool addField(const string& fieldName);
+    void write(const vector<map<string, map<string, string>>> &content);
 
-    bool addAttr(const string& fieldName, const string& attrName, const string&attrContent);
+    map<string, string> getField(const string &fieldName);
 
-    bool editAttr(const string& fieldName, const string& attrName, const string& newAttrName, const string& attrContent="");
+    string getAttr(const string &fieldName, const string &attrName);
 
-    bool editField(const string& fieldName, const string& newFieldName);
+    bool addField(const string &fieldName);
 
-    bool removeField(const string& fieldName);
+    bool addAttr(const string &fieldName, const string &attrName, const string &attrContent);
+
+    bool editAttr(const string &fieldName, const string &attrName, const string &newAttrName,
+                  const string &attrContent = "");
+
+    bool editField(const string &fieldName, const string &newFieldName);
+
+    bool removeField(const string &fieldName);
 
     bool removeAttr(const string& fieldName, const string& attrName);
 
@@ -34,14 +50,11 @@ public:
 
 private:
     string filePath;
-    string filePath_;
     int pos = 0;
 
     string content;
     fstream file;
     string text;
-
-    bool empty = true;
 
     void startingContent();
 
@@ -51,15 +64,17 @@ private:
 
     void nullAdvancement() {
         while(this->text[this->pos] == ' ' or this->text[this->pos] == '\t' or this->text[this->pos] == '\n')
-            this->pos++;
+            this->pos += 1;
     }
 
     static vector<string> split(string str, char separator){
         vector<string> list;
+
         while(str.find(separator)){
             list.push_back(str.substr(0, str.find(separator)));
             str = str.substr(str.find(separator)+1, str.length());
         }
+
         return list;
     }
 
@@ -71,31 +86,6 @@ private:
             }
         }
         return returnList;
-    }
-
-    string readFile() {
-        file.open(this->filePath, ios::in);
-        if(file.is_open()){
-            string currentContent;
-            string fileContent;
-            while (getline(file, fileContent)) {
-                currentContent += fileContent + "\n";
-            }
-            file.close();
-            return currentContent;
-        }
-        throw runtime_error("Impossible to read the file");
-    }
-
-    bool writeFile(const string& contentToWrite) {
-        file.open(this->filePath, ios::in);
-        if(file.is_open()) {
-            file << this->content;
-            file.close();
-            this->empty = false;
-            return true;
-        }
-        return false;
     }
 
     class FieldNotFoundError : runtime_error {
@@ -113,15 +103,38 @@ private:
     };
 
     static string subString(const string& string, int startIndex, int endIndex) {
-        if(startIndex >= 0 and startIndex <= string.length() and endIndex >= 0 and endIndex <= string.length()){
+        if (startIndex >= 0 and startIndex <= string.length() and endIndex >= 0 and endIndex <= string.length()) {
             std::string returnstring;
 
-            for(int i = startIndex; i < endIndex; i++){
+            for (int i = startIndex; i < endIndex; i++) {
                 returnstring += string[i];
             }
             return returnstring;
         } else
             throw std::out_of_range("Index out of range");
+    }
+
+    string readFile() {
+        string fileContent;
+        string res;
+        file.open(this->filePath, ios::in);
+        if (file.is_open()) {
+            while (getline(file, fileContent)) {
+                res += fileContent + "\n";
+            }
+            file.close();
+            return res;
+        }
+    }
+
+    bool writeFile(const string &toWrite) {
+        file.open(this->filePath, ios::out);
+        if (file.is_open()) {
+            file << toWrite;
+            file.close();
+            return true;
+        }
+        return false;
     }
 };
 

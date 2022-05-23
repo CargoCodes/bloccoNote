@@ -1,44 +1,36 @@
 #include "LsmL.h"
 
 void LsmL::startingContent() {
-    if (subString(this->filePath, static_cast<int>(this->filePath.length()) -5, static_cast<int>(this->filePath.length())) != ".lsml") // checks the extension of the file
+    if (subString(this->filePath, int(this->filePath.length()) - 5, int(this->filePath.length())) !=
+        ".lsml") // checks the extension of the file
         throw runtime_error("File extension must be \".lsml\"");
     else {
-        file.open(this->filePath, ios::in); // tries to open file to read the content_
-
-        if(file.is_open()){
-            this->empty = false;
+        file.open(this->filePath, ios::in); // tries to open file to read the content
+        if (file.is_open()) {
             string fileContent;
-            while(getline(file, fileContent)){
-                this->content += fileContent + "\n"; // reads the content_ and stores it in "content_"
+            while (getline(file, fileContent)) {
+                this->content += fileContent + "\n"; // reads the content and stores it in "content"
             }
             file.close();
         } else { // if it is impossible to read
-            this->empty = true;
-            this->content = "<#\n#>"; // sets content_ to the empty standard
-            file.open(this->filePath, ios::out);
-
-            if(file.is_open()){
-                file << this->content; // writes the standard empty content_ in the file
-                file.close();
-            }
+            this->content = "<#\n#>"; // sets content to the empty standard
+            writeFile(this->content);
         }
     }
 }
 
 map<string, map<string, string>> LsmL::getField_() {
-    map<string, map<string, string>> tmpDict; // content_ of the field variable
-
+    map<string, map<string, string>> tmpDict; // content of the field variable
     this->pos += 3;
 
-    while(this->text[this->pos] == ' ') // skips blank spaces
+    while (this->text[this->pos] == ' ') // skips blank spaces
         this->pos += 1;
 
-    if(this->text[this->pos] == '"'){ // finds the opening double quotes for field name
+    if (this->text[this->pos] == '"') { // finds the opening double quotes for field name
         this->pos += 1;
         string fieldName;
 
-        while(this->text[this->pos] != '"'){ // scans until the following double quotes to read field name
+        while (this->text[this->pos] != '"') { // scans until the following double quotes to read field name
             fieldName += this->text[this->pos];
             this->pos += 1;
         }
@@ -51,17 +43,19 @@ map<string, map<string, string>> LsmL::getField_() {
         if(this->text.substr(this->pos, 3) == "::>"){ // looks for the attribute list opening tag
             this->pos += 3;
 
-            while(subString(this->text, this->pos, this->text.length()-1) != "#>"
-                  and this->text.substr(this->pos, 3) != "[$]"){ // scans until it finds EOF or new field
+            while (subString(this->text, this->pos, int(this->text.length()) - 1) != "#>"
+                   and this->text.substr(this->pos, 3) != "[$]") { // scans until it finds EOF or new field
                 this->nullAdvancement(); // skips blank spaces, blank lines and tabs
 
-                if(this->text[this->pos] == '('){ // looks for attribute opening parentheses
+                if (this->text[this->pos] == '(') { // looks for attribute opening parentheses
                     vector<string> returnVector = this->getAttr_(); // starts attribute reading, one at the time
-                    insideDict.insert(pair<string, string>(returnVector[0], returnVector[1])); // stores the attribute in the map
+                    insideDict.insert(
+                            pair<string, string>(returnVector[0], returnVector[1])); // stores the attribute in the map
                     this->pos += 1;
                 }
 
-                tmpDict.insert(pair<string, map<string, string>>(fieldName, insideDict)); // pushes the field in the return map
+                tmpDict.insert(
+                        pair<string, map<string, string>>(fieldName, insideDict)); // pushes the field in the return map
             }
             return tmpDict;
         } else
@@ -77,25 +71,25 @@ vector<string> LsmL::getAttr_() {
     this->pos += 1;
     this->nullAdvancement(); // skips blank spaces, blank lines and tabs
 
-    while(this->text[this->pos] != ')'){ // looks for the ending attribute name tag
+    while (this->text[this->pos] != ')') { // looks for the ending attribute name tag
         attrName += this->text[this->pos];
         this->pos += 1;
     }
 
     this->pos += 1;
-    this->nullAdvancement(); // skips lbank lines, blank spaces and tabs
+    this->nullAdvancement(); // skips blank lines, blank spaces and tabs
 
-    if(this->text.substr(this->pos, 2) == "->"){ // looks for the appartenence tag
+    if (this->text.substr(this->pos, 2) == "->") { // looks for the appartenence tag
         this->pos += 2;
 
-        while(this->text[this->pos] == ' ') // skips blank spaces
+        while (this->text[this->pos] == ' ') // skips blank spaces
             this->pos += 1;
 
-        if(this->text[this->pos] == '"'){ // looks for the attribute content_ opening double quote
+        if (this->text[this->pos] == '"') { // looks for the attribute content opening double quote
             string attr;
             this->pos += 1;
 
-            while(this->text[this->pos] != '"'){ // looks for the attribute content_ closing double quote
+            while (this->text[this->pos] != '"') { // looks for the attribute content closing double quote
                 attr += this->text[this->pos];
                 this->pos += 1;
             }
@@ -103,7 +97,7 @@ vector<string> LsmL::getAttr_() {
             res.push_back(attrName);
             res.push_back(attr);
 
-            return res; // returns attribute name and content_
+            return res; // returns attribute name and content
         } else
             throw runtime_error("Attribute must be wrapped with \"\"");
     } else
@@ -112,9 +106,9 @@ vector<string> LsmL::getAttr_() {
 
 vector<map<string, map<string, string>>> LsmL::read() {
     this->pos = 0;
+    this->text.clear();
     file.open(this->filePath, ios::in);
-
-    if(file.is_open()) { // reads the content_ of the file
+    if (file.is_open()) { // reads the content of the file
         string fileContent;
         while (getline(file, fileContent)) {
             this->text += fileContent + "\n";
@@ -122,19 +116,19 @@ vector<map<string, map<string, string>>> LsmL::read() {
         file.close();
 
         vector<map<string, map<string, string>>> res; // return variable
-        if (this->text.substr(this->pos, 2) == "<#"){ // looks for SOF
-
+        if (this->text.substr(this->pos, 2) == "<#") { // looks for SOF
             this->pos += 2;
-            while(this->pos < this->text.length()
-                  and subString(this->text, this->pos, this->text.length()-1) != "#>"){ // scans until the end of the file
+            while (this->pos < this->text.length()
+                   and subString(this->text, this->pos, int(this->text.length()) - 1) !=
+                       "#>") { // scans until the end of the file
                 this->nullAdvancement(); // skips blank spaces, blank lines and tabs
 
-                if(this->text.substr(this->pos, 3) == "[$]"){ // looks for the field tag
-
-                    map<string, map<string, string>> point = getField_(); // starts the field reding process
+                if (this->text.substr(this->pos, 3) == "[$]") { // looks for the field tag
+                    map<string, map<string, string>> point = getField_(); // starts the field reading process
                     res.push_back(point); // stores the field
                 }
-                if(subString(this->text, this->pos, this->text.length()-1) == "#>") // if it find the EOF, stops scan
+                if (subString(this->text, this->pos, int(this->text.length()) - 1) ==
+                    "#>") // if it finds the EOF, stops scan
                     break;
             }
             return res;
@@ -145,26 +139,119 @@ vector<map<string, map<string, string>>> LsmL::read() {
         throw runtime_error("Can't open file \"" + this->filePath + "\"");
 }
 
-bool LsmL::addField(const string &fieldName) {
-    file.open(this->filePath_, ios::in);
-    if (file.is_open()) {
-        string currentContent;
-        string fileContent;
-        while (getline(file, fileContent)) {
-            currentContent += fileContent + "\n";
-        }
-        file.close();
-        int fieldIndex = static_cast<int>(currentContent.find("    [$] \"" + fieldName + "\" ::>"));
-        if (fieldIndex < 0) { // cheks if the field already exists
-            string oldContent = subString(currentContent, 0,
-                                          static_cast<int>(currentContent.length()) - 3); // takes teh content_ but removes the EOF
-            string eof = "#>";
+void LsmL::write(const vector<map<string, map<string, string>>> &toWriteContent) {
+    string toWrite = "<#\n"; // SOF
 
-            this->content =
-                    oldContent + "    [$] \"" + fieldName + "\" ::>\n" + eof; // adds the new field and then the EOF
-            return writeFile(this->content);
+    for (auto &fieldcont: toWriteContent) { // for each field container in the vector
+        for (auto &internalField: fieldcont) { // for each pair in field container
+            auto fieldName = internalField.first; // fieldName is the first element of the pair
+            toWrite += "    [$] \"" + fieldName + "\" ::>\n";
+            auto attributeList = internalField.second; // map of attributes
+            for (auto &attribute: attributeList) { // gets pair from map
+                auto attributeName = attribute.first;
+                auto attributeContent = attribute.second; // gets the attribute content, which is the second element of the pair
+                toWrite += "        (" + attributeName + ") -> \"" + attributeContent + "\"\n";
+            }
         }
-        return false;
+        toWrite += "#>"; // EOF
+    }
+    writeFile(toWrite);
+}
+
+map<string, string> LsmL::getField(const string &fieldName) {
+    map<string, string> res;
+    string fileContent = readFile(); // reads the file
+    int fieldIndex = int(fileContent.find("[$] \"" + fieldName + "\" ::>"));
+    if (fieldIndex > 0) {
+        int endFieldIndex = fieldIndex + ("[$] \"" + fieldName + "\" ::>").length();
+
+        while (subString(fileContent, endFieldIndex, endFieldIndex + 2) != "#>"
+               and subString(fileContent, endFieldIndex, endFieldIndex + 3) != "[$]") {
+
+            endFieldIndex++;
+        }
+
+        string isolatedClass = subString(fileContent, fieldIndex, endFieldIndex);
+        int parenthesesIndex = int(isolatedClass.find("("));
+        if (parenthesesIndex > 0) {
+            int index = parenthesesIndex;
+
+            while (index < isolatedClass.length() and isolatedClass[index] == '(') {
+                string attrName, attrContent;
+                index++;
+                while (isolatedClass[index] != ')') {
+                    attrName += isolatedClass[index];
+                    index++;
+                }
+                index++;
+                while (isolatedClass[index] == ' ' or isolatedClass[index] == '\n' or isolatedClass[index] == '\t')
+                    index++;
+                if (subString(isolatedClass, index, index + 2) != "->") {
+                    throw runtime_error("-> not found");
+                }
+                index += 2;
+                while (isolatedClass[index] == ' ' or isolatedClass[index] == '\n' or isolatedClass[index] == '\t')
+                    index++;
+                if (isolatedClass[index] != '"')
+                    throw runtime_error("\" not found");
+                index++;
+                while (isolatedClass[index] != '"') {
+                    attrContent += isolatedClass[index];
+                    index++;
+                }
+                index++;
+                while (isolatedClass[index] == ' ' or isolatedClass[index] == '\n' or isolatedClass[index] == '\t')
+                    index++;
+                res.insert(pair<string, string>(attrName, attrContent));
+            }
+        } else
+            throw runtime_error("( not found");
+        return res;
+    } else
+        throw runtime_error("Field not found");
+}
+
+string LsmL::getAttr(const string &fieldName, const string &attrName) {
+    string res;
+    string fileContent = readFile(); // reads the file
+    int fieldIndex = int(fileContent.find("[$] \"" + fieldName + "\" ::>"));
+    if (fieldIndex > 0) {
+        int endFieldIndex = fieldIndex + ("[$] \"" + fieldName + "\" ::>").length();
+
+        while (subString(fileContent, endFieldIndex, endFieldIndex + 2) != "#>"
+               and subString(fileContent, endFieldIndex, endFieldIndex + 3) != "[$]") {
+
+            endFieldIndex++;
+        }
+
+        string isolatedClass = subString(fileContent, fieldIndex, endFieldIndex);
+
+        int attributeIndex = isolatedClass.find("(" + attrName + ") -> \"");
+        if (attributeIndex > 0) {
+            int contentStartIndex = attributeIndex + ("(" + attrName + ") -> \"").length();
+            int contentEndIndex = contentStartIndex;
+            while (isolatedClass[contentEndIndex] != '"') {
+                res += isolatedClass[contentEndIndex];
+                contentEndIndex++;
+            }
+        } else
+            throw runtime_error("Attribute not found");
+        return res;
+    } else
+        throw runtime_error("Field not found");
+}
+
+bool LsmL::addField(const string &fieldName) {
+    this->content = readFile();
+    int fieldIndex = this->content.find("    [$] \"" + fieldName + "\" ::>");
+    if (fieldIndex < 0) { // checks if the field already exists
+        string oldContent = subString(this->content, 0,
+                                      this->content.length() - 3); // takes teh content but removes the EOF
+        string eof = "#>";
+
+        this->content = oldContent + "    [$] \"" + fieldName + "\" ::>\n" + eof; // adds the new field and then the EOF
+
+        return writeFile(this->content);
     }
     return false;
 }
@@ -185,69 +272,69 @@ bool LsmL::addAttr(const string &fieldName, const string &attrName, const string
         }
 
         string isolatedField = subString(this->content, index, endFieldIndex); // isolates the wanted field
-        int attrIndex = isolatedField.find("        (" + attrName + ") ->");
+        int attrIndex = isolatedField.find("        (" + attrName + ") -> \"" + attrContent + "\"");
         if (attrIndex < 0) { // checks if attribute already exists
             this->content = subString(this->content, 0, endIndex) + "        (" + attrName + ") -> \""
                             + attrContent + "\"\n"
                             + subString(this->content, endIndex, this->content.length()); // adds the attribute
+
             return writeFile(this->content);
         }
-        return false;
     } else
         throw FieldNotFoundError("Field not found");
 }
 
 bool LsmL::editField(const string &fieldName, const string &newFieldName) {
-    this->content = readFile();
     int startIndex = this->content.find("[$] \"" + fieldName + "\" ::>");
     if(startIndex > 0) { // checks if the field exists
         int endIndex = startIndex + ("[$] \"" + fieldName + "\" ::>").length(); // takes the ending index of teh field declaration
 
         this->content = this->content.substr(0, startIndex) + "[$] \"" + newFieldName + "\" ::>"
                         + subString(this->content, endIndex, this->content.length()); // edits the field name
+
         return writeFile(this->content);
     } else
         throw FieldNotFoundError("Field \"" + fieldName + "\" not found");
 }
 
 bool LsmL::editAttr(const string &fieldName, const string &attrName, const string &newAttrName, const string &attrContent) {
-    this->content = readFile();
     int fieldIndex = this->content.find("[$] \"" + fieldName + "\" ::>");
     if (fieldIndex > 0) { // checks if the field exists
         string preField = this->content.substr(0, fieldIndex); // isolates what's before the field
-        string tmp = subString(this->content, fieldIndex+5, this->content.length());
+        string tmp = subString(this->content, fieldIndex + 5, this->content.length());
 
-        int newFieldIndex = tmp.find("[$]");
-        int eofFieldIndex = tmp.find("#>");
+        int eofFieldIndex = tmp.find("[$]");
+        int endFieldIndex = tmp.find("#>");
 
         int endIndex;
-        if(newFieldIndex > 0)
-            endIndex = newFieldIndex;
-        else
+        if (eofFieldIndex > 0)
             endIndex = eofFieldIndex;
+        else if (endFieldIndex > 0)
+            endIndex = endFieldIndex;
 
-        string isolatedField = subString(this->content, fieldIndex, endIndex+fieldIndex+5); // isolates the field
-        string afterField = tmp.substr(endIndex, tmp.length()); // isolates what's after the field
+        string isolatedField = subString(this->content, fieldIndex, endIndex + fieldIndex + 5); // isolates the field
+        string afterField = tmp.substr(endFieldIndex, tmp.length()); // isolates what's after the field
 
         int oldAttrIndex = isolatedField.find(attrName);
-        if(oldAttrIndex > 0) { // checks if the attribute exists
+        if (oldAttrIndex > 0) { // checks if the attribute exists
             isolatedField = isolatedField.substr(0, oldAttrIndex) + newAttrName + // updates the attribute name
-                            subString(isolatedField, oldAttrIndex+attrName.length(), isolatedField.length());
+                            subString(isolatedField, oldAttrIndex + attrName.length(), isolatedField.length());
 
-            if(not attrContent.empty()){ // if attribute name is not empty
+            if (not attrContent.empty()) { // if attribute name is not empty
                 int virgStart = oldAttrIndex;
 
-                while(isolatedField[virgStart] != '"')
+                while (isolatedField[virgStart] != '"')
                     virgStart += 1;
 
                 int virgEnd = virgStart+1;
                 while(isolatedField[virgEnd] != '"')
                     virgEnd += 1;
 
-                isolatedField = isolatedField.substr(0, virgStart+1) + attrContent // updates the attribute content_
+                isolatedField = isolatedField.substr(0, virgStart + 1) + attrContent // updates the attribute content
                                 + subString(isolatedField, virgEnd, isolatedField.length());
             }
             this->content = preField + isolatedField + afterField;
+
             return writeFile(this->content);
         } else
             throw AttributeNotFoundError("Attribute \"" + attrName + "\" of field \""
@@ -257,7 +344,6 @@ bool LsmL::editAttr(const string &fieldName, const string &attrName, const strin
 }
 
 bool LsmL::removeField(const string &fieldName) {
-    this->content = readFile();
     int fieldIndex = this->content.find("    [$] \"" + fieldName + "\" ::>");
     if (fieldIndex > 0) { // checks if the field exists
         string preField = subString(this->content, 0, fieldIndex); // isolates what's before the field
@@ -273,7 +359,8 @@ bool LsmL::removeField(const string &fieldName) {
         else if (eofFieldIndex > 0)
             afterField = "#>";
 
-        this->content = preField + afterField; // updates the content_
+        this->content = preField + afterField; // updates the content
+
         return writeFile(this->content);
     } else
         throw FieldNotFoundError("Field \"" + fieldName + "\" not found");
@@ -313,6 +400,7 @@ bool LsmL::removeAttr(const string &fieldName, const string &attrName) {
                             + subString(isolatedField, virgEnd+1, isolatedField.length());
 
             this->content = preField + isolatedField + afterField;
+
             return writeFile(this->content);
         } else
             throw AttributeNotFoundError("Attribute \"" + attrName + "\" of field \""
@@ -322,5 +410,8 @@ bool LsmL::removeAttr(const string &fieldName, const string &attrName) {
 }
 
 bool LsmL::isEmpty() {
-    return this->empty;
+    string fileContent = readFile();
+    if (fileContent.find("[$]") < 0 and fileContent.find("::>") < 0 and fileContent.find("->") < 0)
+        return true;
+    return false;
 }
