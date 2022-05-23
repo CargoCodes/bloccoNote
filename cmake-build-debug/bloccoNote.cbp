@@ -106,6 +106,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/FolderManager.cpp">
+			<Option target="bloccoNote"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/FolderManager.h">
+			<Option target="bloccoNote"/>
+		</Unit>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/GUI.cpp">
 			<Option target="bloccoNote"/>
 		</Unit>
@@ -122,6 +128,12 @@
 			<Option target="bloccoNote"/>
 		</Unit>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/Note.h">
+			<Option target="bloccoNote"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/NoteFolder.cpp">
+			<Option target="bloccoNote"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/NoteFolder.h">
 			<Option target="bloccoNote"/>
 		</Unit>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/NotesMemory.cpp">

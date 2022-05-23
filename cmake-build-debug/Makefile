@@ -129,6 +129,30 @@ bloccoNote/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/build
 .PHONY : bloccoNote/fast
 
+FolderManager.o: FolderManager.cpp.o
+.PHONY : FolderManager.o
+
+# target to build an object file
+FolderManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/FolderManager.cpp.o
+.PHONY : FolderManager.cpp.o
+
+FolderManager.i: FolderManager.cpp.i
+.PHONY : FolderManager.i
+
+# target to preprocess a source file
+FolderManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/FolderManager.cpp.i
+.PHONY : FolderManager.cpp.i
+
+FolderManager.s: FolderManager.cpp.s
+.PHONY : FolderManager.s
+
+# target to generate assembly for a file
+FolderManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/FolderManager.cpp.s
+.PHONY : FolderManager.cpp.s
+
 GUI.o: GUI.cpp.o
 .PHONY : GUI.o
 
@@ -201,6 +225,30 @@ Note.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/Note.cpp.s
 .PHONY : Note.cpp.s
 
+NoteFolder.o: NoteFolder.cpp.o
+.PHONY : NoteFolder.o
+
+# target to build an object file
+NoteFolder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/NoteFolder.cpp.o
+.PHONY : NoteFolder.cpp.o
+
+NoteFolder.i: NoteFolder.cpp.i
+.PHONY : NoteFolder.i
+
+# target to preprocess a source file
+NoteFolder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/NoteFolder.cpp.i
+.PHONY : NoteFolder.cpp.i
+
+NoteFolder.s: NoteFolder.cpp.s
+.PHONY : NoteFolder.s
+
+# target to generate assembly for a file
+NoteFolder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/NoteFolder.cpp.s
+.PHONY : NoteFolder.cpp.s
+
 NotesMemory.o: NotesMemory.cpp.o
 .PHONY : NotesMemory.o
 
@@ -258,6 +306,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... bloccoNote"
+	@echo "... FolderManager.o"
+	@echo "... FolderManager.i"
+	@echo "... FolderManager.s"
 	@echo "... GUI.o"
 	@echo "... GUI.i"
 	@echo "... GUI.s"
@@ -267,6 +318,9 @@ help:
 	@echo "... Note.o"
 	@echo "... Note.i"
 	@echo "... Note.s"
+	@echo "... NoteFolder.o"
+	@echo "... NoteFolder.i"
+	@echo "... NoteFolder.s"
 	@echo "... NotesMemory.o"
 	@echo "... NotesMemory.i"
 	@echo "... NotesMemory.s"

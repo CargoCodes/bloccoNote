@@ -80,11 +80,18 @@ void GUI::homeWindow() {
     addNewNoteBtn->setFont(font);
     addNewNoteBtn->show();
 
+    collections = new QPushButton("Collections", this);
+    collections->setStyleSheet("background-color: #7F5AF0");
+    collections->setFixedSize(200, 50);
+    collections->move(50, 30);
+    collections->setFont(font);
+    collections->show();
+
     favoriteNotes = new QPushButton("Favorite Notes", this);
     connect(favoriteNotes, &QPushButton::clicked, this, &GUI::openFavorites);
     favoriteNotes->setStyleSheet("background-color: #7F5AF0");
     favoriteNotes->setFixedSize(200, 50);
-    favoriteNotes->move(125, 30);
+    favoriteNotes->move(300, 30);
     favoriteNotes->setFont(font);
     favoriteNotes->show();
 
@@ -92,7 +99,7 @@ void GUI::homeWindow() {
     connect(lockedNotes, &QPushButton::clicked, this, &GUI::openLocked);
     lockedNotes->setStyleSheet("background-color: #7F5AF0");
     lockedNotes->setFixedSize(200, 50);
-    lockedNotes->move(500, 30);
+    lockedNotes->move(550, 30);
     lockedNotes->setFont(font);
     lockedNotes->show();
 
@@ -572,4 +579,42 @@ void GUI::editFavoriteNoteWindow(int index) {
     editFavoriteNoteContent->setFont(textFont);
     editFavoriteNoteContent->setFixedSize(700, 500);
     editFavoriteNoteContent->show();
+}
+
+/*
+ *
+ *              COMPILATOINS SECTION
+ *
+ */
+
+void GUI::compileCollectionScrollBar() {
+
+}
+
+void GUI::compilationHomeWindow() {
+    QFont btnFont;
+    btnFont.setPointSize(25);
+
+    collectionToHome = new QPushButton("Back To Home", this);
+    connect(collectionToHome, &QPushButton::clicked, this, &GUI::lockedToHome);
+    collectionToHome->setFixedSize(200, 50);
+    collectionToHome->setStyleSheet("background-color: #7F5AF0");
+    collectionToHome->move(300, 30);
+    collectionToHome->setFont(btnFont);
+    collectionToHome->show();
+
+    collectionScrollArea = new QScrollArea(this);
+    collectionScrollArea->setStyleSheet("background-color: #ABD1C6; border: 0;");
+    collectionScrollArea->setWidgetResizable(true);
+    collectionScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+    collectionScrollArea->setGeometry(175, 110, 450, 690);
+
+    collectionWidget = new QWidget();
+    collectionScrollArea->setWidget(collectionWidget);
+
+    collectionBoxLayout = new QVBoxLayout();
+    collectionWidget->setLayout(collectionBoxLayout);
+
+    //this->compileLockedScrollArea();
+    collectionScrollArea->show();
 }

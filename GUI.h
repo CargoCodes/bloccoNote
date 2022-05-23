@@ -9,13 +9,18 @@
 #include <QMainWindow>
 #include <QVBoxLayout>
 #include "NotesMemory.h"
+#include "FolderManager.h"
 #include <QLabel>
+
+/*
+ * TODO implement folders, and their coexistence with locked section and favorite section
+ */
 
 using namespace std;
 
 class GUI : public QMainWindow {
 public:
-     GUI() {
+    GUI() {
         this->setFixedSize(800, 800);
         this->setStyleSheet("background-color: #ABD1C6");
         this->homeWindow();
@@ -33,6 +38,7 @@ protected slots:
         scrollArea->hide();
         favoriteNotes->hide();
         lockedNotes->hide();
+        collections->hide();
     };
 
     void destroyNewNoteWIndow() {
@@ -86,6 +92,10 @@ protected slots:
 
     void favoriteToHome() {
         destroyFavoriteHomeWindow();
+        homeWindow();
+    }
+
+    void collectionToHomeWindow() {
         homeWindow();
     }
 
@@ -182,12 +192,15 @@ protected slots:
         favoriteNotesMemory->editNote(index, title, content);
     }
 
+    void compilationHomeWindow();
+
 protected:
     // dataBases
     NotesMemory *genericNotesMemory = new NotesMemory("genericNotes.lsml");
     NotesMemory *favoriteNotesMemory = new NotesMemory("favoriteNotes.lsml", true);
     NotesMemory *lockedNotesMemory = new NotesMemory("lockedNotes.lsml", false, true);
 
+    FolderManager *folderManager = new FolderManager("foldersDb.lsml");
     /*
      *
      *
@@ -199,8 +212,9 @@ protected:
     // home page
     QPushButton* addNewNoteBtn;
     QPushButton* favoriteNotes;
-    QPushButton* lockedNotes;
-    QScrollArea* scrollArea;
+    QPushButton *lockedNotes;
+    QPushButton *collections;
+    QScrollArea *scrollArea;
     QWidget* widget;
     QVBoxLayout* boxLayout;
     void compileScrollBar();
@@ -263,7 +277,6 @@ protected:
     QScrollArea *favoriteScrollArea;
     QWidget *favoriteWidget;
     QVBoxLayout *favoriteBoxLayout;
-
     void compileFavoriteScrollArea();
 
     // new note window
@@ -279,7 +292,21 @@ protected:
     QPushButton *exitFavoriteEdit;
     QTextEdit *editFavoriteNoteTitle;
     QTextEdit *editFavoriteNoteContent;
-};
 
+    /*
+     *
+     *
+     * Collections Window
+     *
+     *
+     */
+
+    QPushButton *collectionToHome;
+    QScrollArea *collectionScrollArea;
+    QWidget *collectionWidget;
+    QVBoxLayout *collectionBoxLayout;
+
+    void compileCollectionScrollBar();
+};
 
 #endif //BLOCCONOTE_GUI_H

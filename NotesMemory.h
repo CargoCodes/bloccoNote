@@ -14,10 +14,10 @@ public:
     }
 
     void newNote(const string& title, const string& content) {
-        Note* newNote = new Note(title, content, dataBase_);
+        Note *newNote = new Note(title, content, &dataBase_);
         if(locked_)
             newNote->lock();
-        if(favorites_)
+        if (favorites_)
             newNote->favorite();
         newNote->save();
         this->memory_.push_back(newNote);
@@ -27,14 +27,22 @@ public:
         return *memory_[index];
     }
 
+    Note operator[](string title) {
+        for (auto note: memory_) {
+            if (note->getTitle() == title)
+                return *note;
+        }
+        throw runtime_error("Note not found");
+    }
+
     int size() {
         return memory_.size();
     }
 
     bool deleteNote(int index);
 
-    bool editNote(int id, const string& title="", const string& content="") {
-        if(not locked_) {
+    bool editNote(int id, const string &title = "", const string &content = "") {
+        if (not locked_) {
             if (id >= 0 and id < memory_.size()) {
                 auto &note = this->memory_[id];
                 note->edit(title, content);

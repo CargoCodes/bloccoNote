@@ -1,18 +1,1 @@
-Note:
-- contenere titolo e contenuto
-- contenere gli attributi locked e favorite, che sono caratterizzanti
-- salvare nel databadse
-- editare se stessa nel database
-
-NotesMemory:
-- generare il database
-- creare nuove note e aggiungerle alla memoria
-- contenere nella memoria le note
-- modificare le note
-- caratterizzare le note
-
-LsmL:
-- database
-
-MainWindow:
-- superclasse che gestisce l'intera GUI
+1592 code lines

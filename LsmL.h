@@ -125,6 +125,7 @@ private:
             file.close();
             return res;
         }
+        throw runtime_error("Can't read file");
     }
 
     bool writeFile(const string &toWrite) {
