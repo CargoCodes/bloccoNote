@@ -7,7 +7,6 @@ CMakeFiles/bloccoNote.dir/GUI.cpp.o
  /Users/Codes.py/CLionProjects/bloccoNote/LsmL.h
  /Users/Codes.py/CLionProjects/bloccoNote/Note.h
  /Users/Codes.py/CLionProjects/bloccoNote/NotesMemory.h
- /Users/Codes.py/CLionProjects/bloccoNote/utils.h
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QLabel
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QMainWindow
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QVBoxLayout
@@ -26,20 +25,15 @@ CMakeFiles/bloccoNote.dir/NotesMemory.cpp.o
  /Users/Codes.py/CLionProjects/bloccoNote/Note.h
  /Users/Codes.py/CLionProjects/bloccoNote/NotesMemory.cpp
  /Users/Codes.py/CLionProjects/bloccoNote/NotesMemory.h
- /Users/Codes.py/CLionProjects/bloccoNote/utils.h
 CMakeFiles/bloccoNote.dir/main.cpp.o
  /Users/Codes.py/CLionProjects/bloccoNote/GUI.h
  /Users/Codes.py/CLionProjects/bloccoNote/LsmL.h
  /Users/Codes.py/CLionProjects/bloccoNote/Note.h
  /Users/Codes.py/CLionProjects/bloccoNote/NotesMemory.h
  /Users/Codes.py/CLionProjects/bloccoNote/main.cpp
- /Users/Codes.py/CLionProjects/bloccoNote/utils.h
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QLabel
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QMainWindow
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QVBoxLayout
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/qboxlayout.h
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/qlabel.h
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/qmainwindow.h
-CMakeFiles/bloccoNote.dir/utils.cpp.o
- /Users/Codes.py/CLionProjects/bloccoNote/utils.cpp
- /Users/Codes.py/CLionProjects/bloccoNote/utils.h

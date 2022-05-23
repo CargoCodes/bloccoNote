@@ -7,7 +7,6 @@ CMakeFiles/bloccoNote.dir/GUI.cpp.o: \
  ../LsmL.h \
  ../Note.h \
  ../NotesMemory.h \
- ../utils.h \
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QLabel \
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QMainWindow \
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QVBoxLayout \
@@ -25,21 +24,16 @@ CMakeFiles/bloccoNote.dir/NotesMemory.cpp.o: \
  ../LsmL.h \
  ../Note.h \
  ../NotesMemory.cpp \
- ../NotesMemory.h \
- ../utils.h
+ ../NotesMemory.h
 CMakeFiles/bloccoNote.dir/main.cpp.o: \
  ../GUI.h \
  ../LsmL.h \
  ../Note.h \
  ../NotesMemory.h \
  ../main.cpp \
- ../utils.h \
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QLabel \
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QMainWindow \
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QVBoxLayout \
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/qboxlayout.h \
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/qlabel.h \
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/qmainwindow.h
-CMakeFiles/bloccoNote.dir/utils.cpp.o: \
- ../utils.cpp \
- ../utils.h

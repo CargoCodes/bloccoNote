@@ -67,7 +67,6 @@ protected slots:
 
     void changeNote(int index, const std::string &title, const std::string &content) {
         genericNotesMemory->editNote(index, title, content);
-        this->destroyEditNoteWindow();
     }
 
     void openFavorites() {
@@ -129,7 +128,7 @@ protected slots:
     void saveLockedWindow() {
         lockedNotesMemory->newNote((this->lockedNoteTitle->toPlainText()).toStdString(),
                                    (this->lockedNoteContent->toPlainText()).toStdString());
-        destroyNewNoteWIndow();
+        destroyNewLockedNoteWindow();
     }
 
     /*
@@ -177,6 +176,10 @@ protected slots:
 
     void removeFavoriteNote(int index) {
         favoriteNotesMemory->deleteNote(index);
+    }
+
+    void changeFavoriteNote(int index, const std::string &title, const std::string &content) {
+        favoriteNotesMemory->editNote(index, title, content);
     }
 
 protected:

@@ -46,10 +46,6 @@ LsmL.h
 iostream
 -
 
-/Users/Codes.py/CLionProjects/bloccoNote/NotesMemory.cpp
-NotesMemory.h
-/Users/Codes.py/CLionProjects/bloccoNote/NotesMemory.h
-
 /Users/Codes.py/CLionProjects/bloccoNote/NotesMemory.h
 LsmL.h
 /Users/Codes.py/CLionProjects/bloccoNote/LsmL.h
@@ -57,19 +53,11 @@ Note.h
 /Users/Codes.py/CLionProjects/bloccoNote/Note.h
 vector
 -
-utils.h
-/Users/Codes.py/CLionProjects/bloccoNote/utils.h
 
 /Users/Codes.py/CLionProjects/bloccoNote/main.cpp
 GUI.h
 /Users/Codes.py/CLionProjects/bloccoNote/GUI.h
 QtWidgets/QApplication
--
-
-/Users/Codes.py/CLionProjects/bloccoNote/utils.h
-vector
--
-iostream
 -
 
 /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QLabel

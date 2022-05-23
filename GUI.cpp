@@ -2,9 +2,7 @@
 
 /*
  *
- *
  *              GENERIC SECTION
- *
  *
  */
 
@@ -166,9 +164,10 @@ void GUI::editNoteWindow(int index) {
     this->destroyHomeWindow();
     editNote = new QPushButton("Edit", this);
     connect(editNote, &QPushButton::clicked, this, [this, index] {
-        if (not(*genericNotesMemory)[index].isLocked())
-            changeNote(index, (editNoteTitle->toPlainText()).toStdString(),
-                       (editNoteContent->toPlainText()).toStdString());
+        changeNote(index, (editNoteTitle->toPlainText()).toStdString(),
+                   (editNoteContent->toPlainText()).toStdString());
+        destroyEditNoteWindow();
+        homeWindow();
     });
     editNote->move(50, 30);
     editNote->setFixedSize(200, 50);
@@ -237,12 +236,9 @@ void GUI::editNoteWindow(int index) {
     editNoteContent->show();
 }
 
-
 /*
  *
- *
  *              LOCKED SECTION
- *
  *
  */
 
@@ -391,12 +387,9 @@ void GUI::showLockedNoteWindow(int index) {
     showNoteContent->show();
 }
 
-
 /*
  *
- *
  *              FAVORITE SECTION
- *
  *
  */
 
@@ -516,9 +509,10 @@ void GUI::editFavoriteNoteWindow(int index) {
     this->destroyHomeWindow();
     editFavoriteNote = new QPushButton("Edit", this);
     connect(editFavoriteNote, &QPushButton::clicked, this, [this, index] {
-        if (not(*favoriteNotesMemory)[index].isLocked())
-            changeNote(index, (editFavoriteNoteTitle->toPlainText()).toStdString(),
-                       (editFavoriteNoteContent->toPlainText()).toStdString());
+        changeFavoriteNote(index, (editFavoriteNoteTitle->toPlainText()).toStdString(),
+                           (editFavoriteNoteContent->toPlainText()).toStdString());
+        destroyEditFavoriteNoteWindow();
+        favoriteHomeWindow();
     });
     editFavoriteNote->move(50, 30);
     editFavoriteNote->setFixedSize(200, 50);
