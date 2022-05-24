@@ -31,3 +31,20 @@ bool NotesMemory::deleteNote(int index) {
     }
     return false;
 }
+
+bool NotesMemory::deleteNote(string title) {
+    int index;
+    bool found = false;
+    for (int i = 0; i < this->size(); i++) {
+        if (this->memory_[i]->getTitle() == title) {
+            index = i;
+            found = true;
+            break;
+        }
+    }
+    if (found)
+        this->deleteNote(index);
+    else
+        return false;
+    return true;
+}

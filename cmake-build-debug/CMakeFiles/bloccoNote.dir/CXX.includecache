@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+/Users/Codes.py/CLionProjects/bloccoNote/FolderManager.h
+NoteFolder.h
+/Users/Codes.py/CLionProjects/bloccoNote/NoteFolder.h
+LsmL.h
+/Users/Codes.py/CLionProjects/bloccoNote/LsmL.h
+
 /Users/Codes.py/CLionProjects/bloccoNote/GUI.cpp
 GUI.h
 /Users/Codes.py/CLionProjects/bloccoNote/GUI.h
@@ -27,6 +33,8 @@ QVBoxLayout
 -
 NotesMemory.h
 /Users/Codes.py/CLionProjects/bloccoNote/NotesMemory.h
+FolderManager.h
+/Users/Codes.py/CLionProjects/bloccoNote/FolderManager.h
 QLabel
 -
 
@@ -43,6 +51,14 @@ map
 /Users/Codes.py/CLionProjects/bloccoNote/Note.h
 LsmL.h
 /Users/Codes.py/CLionProjects/bloccoNote/LsmL.h
+iostream
+-
+
+/Users/Codes.py/CLionProjects/bloccoNote/NoteFolder.h
+Note.h
+/Users/Codes.py/CLionProjects/bloccoNote/Note.h
+vector
+-
 iostream
 -
 

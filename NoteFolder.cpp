@@ -17,7 +17,7 @@ void NoteFolder::newNote(string title, string content) {
         newNote.favorite();
     } catch (...) {}
 
-    this->notesArray.push_back(Note(title, content));
+    this->notesArray.push_back(newNote);
 }
 
 void NoteFolder::editNote(int index, string title, string content) {

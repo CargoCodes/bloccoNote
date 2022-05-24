@@ -72,7 +72,7 @@ private:
     bool locked_ = false;
     bool favorite_ = false;
 
-    LsmL *dataBase; // FIXME before not pointer
+    LsmL *dataBase;
 
     class EmptyNoteTitleError : public runtime_error {
     public:

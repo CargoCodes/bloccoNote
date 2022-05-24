@@ -23,6 +23,14 @@ public:
 
     void editNote(int index, string title, string content);
 
+    string getFolderName() {
+        return folderName;
+    }
+
+    int size() {
+        return notesArray.size();
+    }
+
 private:
     string folderName;
 

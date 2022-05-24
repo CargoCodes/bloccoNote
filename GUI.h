@@ -12,26 +12,77 @@
 #include "FolderManager.h"
 #include <QLabel>
 
-/*
- * TODO implement folders, and their coexistence with locked section and favorite section
- */
-
 using namespace std;
 
 class GUI : public QMainWindow {
 public:
     GUI() {
         this->setFixedSize(800, 800);
+        this->setWindowTitle("Awesome Notes");
         this->setStyleSheet("background-color: #ABD1C6");
         this->homeWindow();
     }
 
 protected slots:
+
+    /*
+     *
+     *
+     * Window Movements
+     *
+     *
+     */
+
+    void openFavorites() {
+        destroyHomeWindow();
+        favoriteHomeWindow();
+    }
+
+    void openLocked() {
+        destroyHomeWindow();
+        lockedHomeWindow();
+    }
+
+    void lockedToHome() {
+        destroyLockedHomeWindow();
+        homeWindow();
+    }
+
+    void openCollections() {
+        destroyHomeWindow();
+        collectionHomeWindow();
+    }
+
+    void favoriteToHome() {
+        destroyFavoriteHomeWindow();
+        homeWindow();
+    }
+
+    void collectionToHomeWindow() {
+        destroyCollectionHomeWindow();
+        homeWindow();
+    }
+
+    void folderToCollection() {
+        destroyFolderHomeWindow();
+        collectionHomeWindow();
+    }
+
+    /*
+     *
+     *
+     * Generic Windowr
+     *
+     *
+     */
+
     void homeWindow();
 
     void newNoteWindow();
 
     void editNoteWindow(int index);
+
+    void editNoteWindow(std::string title);
 
     void destroyHomeWindow() {
         addNewNoteBtn->hide();
@@ -55,6 +106,7 @@ protected slots:
         exitEdit->hide();
         editAddToFavorites->hide();
         editAddToLocked->hide();
+        editAddToFavorites->hide();
         this->editNoteTitle->hide();
         this->editNoteContent->hide();
         this->homeWindow();
@@ -62,7 +114,7 @@ protected slots:
 
     void saveNewNote() {
         genericNotesMemory->newNote((this->noteTitle->toPlainText()).toStdString(),
-                                         (this->noteContent->toPlainText()).toStdString());
+                                    (this->noteContent->toPlainText()).toStdString());
         destroyNewNoteWIndow();
     }
 
@@ -71,32 +123,17 @@ protected slots:
         this->destroyEditNoteWindow();
     }
 
+    void removeNote(std::string title) {
+        genericNotesMemory->deleteNote(title);
+        this->destroyEditNoteWindow();
+    }
+
     void changeNote(int index, const std::string &title, const std::string &content) {
         genericNotesMemory->editNote(index, title, content);
     }
 
-    void openFavorites() {
-        destroyHomeWindow();
-        favoriteHomeWindow();
-    }
-
-    void openLocked() {
-        destroyHomeWindow();
-        lockedHomeWindow();
-    }
-
-    void lockedToHome() {
-        destroyLockedHomeWindow();
-        homeWindow();
-    }
-
-    void favoriteToHome() {
-        destroyFavoriteHomeWindow();
-        homeWindow();
-    }
-
-    void collectionToHomeWindow() {
-        homeWindow();
+    void changeNote(std::string notetitle, const std::string &title, const std::string &content) {
+        genericNotesMemory->editNote(notetitle, title, content);
     }
 
     /*
@@ -112,6 +149,8 @@ protected slots:
     void lockedNewNoteWindow();
 
     void showLockedNoteWindow(int index);
+
+    void showLockedNoteWindow(std::string title);
 
     void destroyLockedHomeWindow() {
         addNewLockedNoteBtn->hide();
@@ -132,7 +171,7 @@ protected slots:
         showUnlockNote->hide();
         this->showNoteTitle->hide();
         this->showNoteContent->hide();
-        this->lockedHomeWindow();
+        lockedHomeWindow();
     }
 
     void saveLockedWindow() {
@@ -154,6 +193,8 @@ protected slots:
     void newFavoriteNoteWindow();
 
     void editFavoriteNoteWindow(int index);
+
+    void editFavoriteNoteWindow(std::string title);
 
     void destroyFavoriteHomeWindow() {
         addNewFavoriteNoteBtn->hide();
@@ -188,19 +229,83 @@ protected slots:
         favoriteNotesMemory->deleteNote(index);
     }
 
+    void removeFavoriteNote(std::string title) {
+        favoriteNotesMemory->deleteNote(title);
+    }
+
     void changeFavoriteNote(int index, const std::string &title, const std::string &content) {
         favoriteNotesMemory->editNote(index, title, content);
     }
 
-    void compilationHomeWindow();
+    void changeFavoriteNote(std::string notetitle, const std::string &title, const std::string &content) {
+        favoriteNotesMemory->editNote(notetitle, title, content);
+    }
+
+    /*
+     *
+     * Copilations
+     *
+     */
+
+    void collectionHomeWindow();
+
+    void destroyCollectionHomeWindow() {
+        collectionToHome->hide();
+        newCollection->hide();
+        collectionScrollArea->hide();
+    }
+
+    void newCollectionPopUp();
+
+    void saveCollection(std::string folderName) {
+        folderManager->addNewFolder(folderName);
+    }
+
+    /*
+     *
+     * Folders
+     *
+     */
+
+    void folderHomeWindow(int index);
+
+    void destroyFolderHomeWindow() {
+        backToCollections->hide();
+        folderScrollArea->hide();
+    }
+
+    /*
+     *
+     * Add To Collection PopUp
+     *
+     */
+
+    void addToCollectionPopUp(int noteIndex, NotesMemory *dataBase);
+
+    void addToCollectionPopUp(std::string title, NotesMemory *dataBase);
+
+    void addNoteToCollection(int collectionIndex, int noteIndex, NotesMemory *provenienceDataBase) {
+        (*folderManager)[collectionIndex].newNote((*provenienceDataBase)[noteIndex].getTitle(),
+                                                  (*provenienceDataBase)[noteIndex].getContent());
+    }
+
+    void addNoteToCollection(int collectionIndex, std::string title, NotesMemory *provenienceDataBase) {
+        (*folderManager)[collectionIndex].newNote((*provenienceDataBase)[title].getTitle(),
+                                                  (*provenienceDataBase)[title].getContent());
+    }
+
+    void destroyAddtoCollectionPopUp() {
+        addToCollectionBasePopUp->hide();
+    }
+
 
 protected:
     // dataBases
     NotesMemory *genericNotesMemory = new NotesMemory("genericNotes.lsml");
     NotesMemory *favoriteNotesMemory = new NotesMemory("favoriteNotes.lsml", true);
     NotesMemory *lockedNotesMemory = new NotesMemory("lockedNotes.lsml", false, true);
-
     FolderManager *folderManager = new FolderManager("foldersDb.lsml");
+
     /*
      *
      *
@@ -229,8 +334,9 @@ protected:
     QPushButton* editNote;
     QPushButton* deleteNote;
     QPushButton* editAddToFavorites;
-    QPushButton* editAddToLocked;
-    QPushButton* exitEdit;
+    QPushButton *editAddToLocked;
+    QPushButton *addToCollection;
+    QPushButton *exitEdit;
     QTextEdit* editNoteTitle;
     QTextEdit* editNoteContent;
 
@@ -257,8 +363,9 @@ protected:
     QTextEdit* lockedNoteContent;
 
     // show note window
-    QPushButton* showUnlockNote;
-    QPushButton* exitShow;
+    QPushButton *showUnlockNote;
+    QPushButton *addLockedToCollection;
+    QPushButton *exitShow;
     QTextEdit* showNoteTitle;
     QTextEdit* showNoteContent;
 
@@ -289,6 +396,7 @@ protected:
     QPushButton *editFavoriteNote;
     QPushButton *deleteFavoriteNote;
     QPushButton *removeFromFavorites;
+    QPushButton *addFavoriteToCollection;
     QPushButton *exitFavoriteEdit;
     QTextEdit *editFavoriteNoteTitle;
     QTextEdit *editFavoriteNoteContent;
@@ -305,8 +413,49 @@ protected:
     QScrollArea *collectionScrollArea;
     QWidget *collectionWidget;
     QVBoxLayout *collectionBoxLayout;
+    QPushButton *newCollection;
 
     void compileCollectionScrollBar();
+
+    /*
+     *
+     * Collection PopUp
+     *
+     */
+
+    QLabel *popUpBaseLabel;
+    QLabel *titleLabel;
+    QTextEdit *newCollectionName;
+    QPushButton *saveNewCollection;
+    QPushButton *exitNewCollectionPopUp;
+
+    /*
+     *
+     * Folder Window
+     *
+     */
+
+    QPushButton *backToCollections;
+    QWidget *folderWidget;
+    QVBoxLayout *folderBoxLayout;
+    QScrollArea *folderScrollArea;
+
+    void compileFolderScrollArea(int index);
+
+    /*
+     *
+     * Add To Collection PopUp
+     *
+     */
+
+    QWidget *addToCollectionBasePopUp;
+    QWidget *addToCollectionWidget;
+    QVBoxLayout *addToCollectionBoxLayout;
+    QScrollArea *addToCollectionScrollArea;
+
+    void compileAddToCollectionPopUp(int noteIndex, NotesMemory *dataBase);
+
+    void compileAddToCollectionPopUp(string title, NotesMemory *dataBase);
 };
 
 #endif //BLOCCONOTE_GUI_H

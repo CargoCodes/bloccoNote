@@ -10,10 +10,10 @@
 
 class FolderManager {
 public:
-    FolderManager(string filePath) : filePath(filePath) {}
+    FolderManager(string filePath);
 
     NoteFolder operator[](int index) {
-        return folders[0];
+        return folders[index];
     }
 
     void addNote(int folderIndex, string title, string content) {
@@ -22,6 +22,20 @@ public:
 
     void editNote(int folderIndex, int noteIndex, string title, string content) {
         (folders[folderIndex]).editNote(noteIndex, title, content);
+    }
+
+    void addNewFolder(string folderName) {
+        folderDataBase.addField(folderName);
+        auto newFolder = NoteFolder(folderName);
+        folders.push_back(newFolder);
+    }
+
+    void removeFolder(int index) {
+
+    }
+
+    int size() {
+        return folders.size();
     }
 
 private:

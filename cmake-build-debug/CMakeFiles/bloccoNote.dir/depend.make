@@ -8,10 +8,12 @@ CMakeFiles/bloccoNote.dir/FolderManager.cpp.o: \
  ../Note.h \
  ../NoteFolder.h
 CMakeFiles/bloccoNote.dir/GUI.cpp.o: \
+ ../FolderManager.h \
  ../GUI.cpp \
  ../GUI.h \
  ../LsmL.h \
  ../Note.h \
+ ../NoteFolder.h \
  ../NotesMemory.h \
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QLabel \
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QMainWindow \
@@ -37,9 +39,11 @@ CMakeFiles/bloccoNote.dir/NotesMemory.cpp.o: \
  ../NotesMemory.cpp \
  ../NotesMemory.h
 CMakeFiles/bloccoNote.dir/main.cpp.o: \
+ ../FolderManager.h \
  ../GUI.h \
  ../LsmL.h \
  ../Note.h \
+ ../NoteFolder.h \
  ../NotesMemory.h \
  ../main.cpp \
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QLabel \

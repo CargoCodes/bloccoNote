@@ -27,6 +27,7 @@ public:
         return *memory_[index];
     }
 
+
     Note operator[](string title) {
         for (auto note: memory_) {
             if (note->getTitle() == title)
@@ -41,6 +42,8 @@ public:
 
     bool deleteNote(int index);
 
+    bool deleteNote(string title);
+
     bool editNote(int id, const string &title = "", const string &content = "") {
         if (not locked_) {
             if (id >= 0 and id < memory_.size()) {
@@ -53,9 +56,31 @@ public:
         return false;
     }
 
-    void transferNote(int index, NotesMemory* destination) { // FIXME currently not working
+    bool editNote(const std::string &noteTitle, const string &title = "", const string &content = "") {
+        int index;
+        bool found = false;
+        for (int i = 0; i < this->size(); i++) {
+            if (this->memory_[i]->getTitle() == noteTitle) {
+                found = true;
+                index = i;
+                break;
+            }
+        }
+        if (found)
+            editNote(index, title, content);
+        else
+            return false;
+        return true;
+    }
+
+    void transferNote(int index, NotesMemory *destination) {
         destination->newNote(this->memory_[index]->getTitle(), this->memory_[index]->getContent());
         this->deleteNote(index);
+    }
+
+    void transferNote(string title, NotesMemory *destination) {
+        destination->newNote(this->operator[](title).getTitle(), this->operator[](title).getContent());
+        this->deleteNote(title);
     }
 
     void scan();
