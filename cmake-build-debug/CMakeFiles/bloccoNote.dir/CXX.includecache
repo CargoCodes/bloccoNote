@@ -70,12 +70,6 @@ Note.h
 vector
 -
 
-/Users/Codes.py/CLionProjects/bloccoNote/main.cpp
-GUI.h
-/Users/Codes.py/CLionProjects/bloccoNote/GUI.h
-QtWidgets/QApplication
--
-
 /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QLabel
 qlabel.h
 /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/qlabel.h

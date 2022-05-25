@@ -20,232 +20,93 @@ public:
         this->setFixedSize(800, 800);
         this->setWindowTitle("Awesome Notes");
         this->setStyleSheet("background-color: #ABD1C6");
-        this->homeWindow();
+        //this->homeWindow();
+        this->tryHomeWindow(true, false, false);
     }
 
 protected slots:
 
-    /*
-     *
-     *
-     * Window Movements
-     *
-     *
-     */
+    void tryHomeWindow(bool generic, bool locked, bool favorites);
 
-    void openFavorites() {
-        destroyHomeWindow();
-        favoriteHomeWindow();
+    void tryCompileScrollArea(bool generic, bool locked, bool favorites);
+
+    void tryDestroyHome(bool generic, bool locked, bool favorites) {
+        addNewNoteBtn->hide();
+        if (generic) {
+            collections->hide();
+            favoriteNotes->hide();
+            lockedNotes->hide();
+        }
+        if (locked or favorites) {
+            backToHome->hide();
+        }
+        scrollArea->hide();
     }
 
-    void openLocked() {
-        destroyHomeWindow();
-        lockedHomeWindow();
+    void tryAddNewNote(bool generic, bool locked, bool favorites);
+
+    void tryDestroyAddNewNote() {
+        saveNote->hide();
+        cancel->hide();
+        noteTitle->hide();
+        noteContent->hide();
     }
 
-    void lockedToHome() {
-        destroyLockedHomeWindow();
-        homeWindow();
+    void tryEditGenericNote(int index, bool generic, bool locked, bool favorites);
+
+    void tryEditLockedNote(int index, bool generic, bool locked, bool favorites);
+
+    void tryEditFavoriteNote(int index, bool generic, bool locked, bool favorites);
+
+    void tryDestroyEditNote(bool generic, bool locked, bool favorites) {
+        if (generic or favorites) {
+            deleteNote->hide();
+            editNote->hide();
+        }
+        if (generic) {
+            editAddToLocked->hide();
+            editAddToFavorites->hide();
+        }
+        if (favorites)
+            removeFromFavorites->hide();
+        if (locked)
+            showUnlockNote->hide();
+        exitEdit->hide();
+        addToCollection->hide();
+        editNoteTitle->hide();
+        editNoteContent->hide();
+    }
+
+    void tryChangeNote(int index, std::string title, std::string content,
+                       bool generic, bool favorites) {
+        if (generic)
+            genericNotesMemory->editNote(index, title, content);
+        else if (favorites) {
+            favoriteNotesMemory->editNote(index, title, content);
+        }
+    }
+
+    void tryRemoveNote(int index, bool generic, bool favorites) {
+        if (generic)
+            (*genericNotesMemory)[index].remove();
+        else if (favorites)
+            (*favoriteNotesMemory)[index].remove();
     }
 
     void openCollections() {
-        destroyHomeWindow();
+        //destroyHomeWindow();
         collectionHomeWindow();
-    }
-
-    void favoriteToHome() {
-        destroyFavoriteHomeWindow();
-        homeWindow();
     }
 
     void collectionToHomeWindow() {
         destroyCollectionHomeWindow();
-        homeWindow();
+        //homeWindow();
     }
 
     void folderToCollection() {
         destroyFolderHomeWindow();
         collectionHomeWindow();
     }
-
-    /*
-     *
-     *
-     * Generic Windowr
-     *
-     *
-     */
-
-    void homeWindow();
-
-    void newNoteWindow();
-
-    void editNoteWindow(int index);
-
-    void editNoteWindow(std::string title);
-
-    void destroyHomeWindow() {
-        addNewNoteBtn->hide();
-        scrollArea->hide();
-        favoriteNotes->hide();
-        lockedNotes->hide();
-        collections->hide();
-    };
-
-    void destroyNewNoteWIndow() {
-        saveNote->hide();
-        cancel->hide();
-        noteTitle->hide();
-        noteContent->hide();
-        this->homeWindow();
-    }
-
-    void destroyEditNoteWindow() {
-        editNote->hide();
-        deleteNote->hide();
-        exitEdit->hide();
-        editAddToFavorites->hide();
-        editAddToLocked->hide();
-        editAddToFavorites->hide();
-        this->editNoteTitle->hide();
-        this->editNoteContent->hide();
-        this->homeWindow();
-    }
-
-    void saveNewNote() {
-        genericNotesMemory->newNote((this->noteTitle->toPlainText()).toStdString(),
-                                    (this->noteContent->toPlainText()).toStdString());
-        destroyNewNoteWIndow();
-    }
-
-    void removeNote(int index) {
-        genericNotesMemory->deleteNote(index);
-        this->destroyEditNoteWindow();
-    }
-
-    void removeNote(std::string title) {
-        genericNotesMemory->deleteNote(title);
-        this->destroyEditNoteWindow();
-    }
-
-    void changeNote(int index, const std::string &title, const std::string &content) {
-        genericNotesMemory->editNote(index, title, content);
-    }
-
-    void changeNote(std::string notetitle, const std::string &title, const std::string &content) {
-        genericNotesMemory->editNote(notetitle, title, content);
-    }
-
-    /*
-     *
-     *
-     * Locked Notes Window
-     *
-     *
-     */
-
-    void lockedHomeWindow();
-
-    void lockedNewNoteWindow();
-
-    void showLockedNoteWindow(int index);
-
-    void showLockedNoteWindow(std::string title);
-
-    void destroyLockedHomeWindow() {
-        addNewLockedNoteBtn->hide();
-        lockedScrollArea->hide();
-        returnToMainHome->hide();
-    }
-
-    void destroyNewLockedNoteWindow() {
-        saveLockedNote->hide();
-        lockCancel->hide();
-        lockedNoteTitle->hide();
-        lockedNoteContent->hide();
-        this->lockedHomeWindow();
-    }
-
-    void destroyLockedNoteShowWindow() {
-        exitShow->hide();
-        showUnlockNote->hide();
-        this->showNoteTitle->hide();
-        this->showNoteContent->hide();
-        lockedHomeWindow();
-    }
-
-    void saveLockedWindow() {
-        lockedNotesMemory->newNote((this->lockedNoteTitle->toPlainText()).toStdString(),
-                                   (this->lockedNoteContent->toPlainText()).toStdString());
-        destroyNewLockedNoteWindow();
-    }
-
-    /*
-     *
-     *
-     * Favorite Notes Window
-     *
-     *
-     */
-
-    void favoriteHomeWindow();
-
-    void newFavoriteNoteWindow();
-
-    void editFavoriteNoteWindow(int index);
-
-    void editFavoriteNoteWindow(std::string title);
-
-    void destroyFavoriteHomeWindow() {
-        addNewFavoriteNoteBtn->hide();
-        returnToHome->hide();
-        favoriteScrollArea->hide();
-    }
-
-    void destroyNewFavoriteNoteWindow() {
-        saveFavoriteNote->hide();
-        cancelFavoriteNote->hide();
-        favoriteNoteTitle->hide();
-        favoriteNoteContent->hide();
-    }
-
-    void destroyEditFavoriteNoteWindow() {
-        editFavoriteNote->hide();
-        deleteFavoriteNote->hide();
-        exitFavoriteEdit->hide();
-        editFavoriteNoteTitle->hide();
-        editFavoriteNoteContent->hide();
-        removeFromFavorites->hide();
-    }
-
-    void saveFavoriteNoteWindow() {
-        favoriteNotesMemory->newNote((this->favoriteNoteTitle->toPlainText()).toStdString(),
-                                     (this->favoriteNoteContent->toPlainText()).toStdString());
-        destroyNewFavoriteNoteWindow();
-        favoriteHomeWindow();
-    }
-
-    void removeFavoriteNote(int index) {
-        favoriteNotesMemory->deleteNote(index);
-    }
-
-    void removeFavoriteNote(std::string title) {
-        favoriteNotesMemory->deleteNote(title);
-    }
-
-    void changeFavoriteNote(int index, const std::string &title, const std::string &content) {
-        favoriteNotesMemory->editNote(index, title, content);
-    }
-
-    void changeFavoriteNote(std::string notetitle, const std::string &title, const std::string &content) {
-        favoriteNotesMemory->editNote(notetitle, title, content);
-    }
-
-    /*
-     *
-     * Copilations
-     *
-     */
 
     void collectionHomeWindow();
 
@@ -306,23 +167,15 @@ protected:
     NotesMemory *lockedNotesMemory = new NotesMemory("lockedNotes.lsml", false, true);
     FolderManager *folderManager = new FolderManager("foldersDb.lsml");
 
-    /*
-     *
-     *
-     * Generic Notes Window
-     *
-     *
-     */
-
     // home page
     QPushButton* addNewNoteBtn;
     QPushButton* favoriteNotes;
     QPushButton *lockedNotes;
     QPushButton *collections;
     QScrollArea *scrollArea;
-    QWidget* widget;
+    QPushButton *backToHome;
+    QWidget *widget;
     QVBoxLayout* boxLayout;
-    void compileScrollBar();
 
     // new note window
     QPushButton* saveNote;
@@ -339,67 +192,8 @@ protected:
     QPushButton *exitEdit;
     QTextEdit* editNoteTitle;
     QTextEdit* editNoteContent;
-
-    /*
-     *
-     *
-     * Locked Notes Window
-     *
-     *
-     */
-
-    // home page
-    QPushButton* returnToMainHome;
-    QPushButton* addNewLockedNoteBtn;
-    QScrollArea* lockedScrollArea;
-    QWidget* lockedWidget;
-    QVBoxLayout* lockedBoxLayout;
-    void compileLockedScrollArea();
-
-    // new note window
-    QPushButton* saveLockedNote;
-    QPushButton* lockCancel;
-    QTextEdit* lockedNoteTitle;
-    QTextEdit* lockedNoteContent;
-
-    // show note window
     QPushButton *showUnlockNote;
-    QPushButton *addLockedToCollection;
-    QPushButton *exitShow;
-    QTextEdit* showNoteTitle;
-    QTextEdit* showNoteContent;
-
-
-    /*
-     *
-     *
-     * Favorite Notes Window
-     *
-     *
-     */
-
-    // home page
-    QPushButton *addNewFavoriteNoteBtn;
-    QPushButton *returnToHome;
-    QScrollArea *favoriteScrollArea;
-    QWidget *favoriteWidget;
-    QVBoxLayout *favoriteBoxLayout;
-    void compileFavoriteScrollArea();
-
-    // new note window
-    QPushButton *saveFavoriteNote;
-    QPushButton *cancelFavoriteNote;
-    QTextEdit *favoriteNoteTitle;
-    QTextEdit *favoriteNoteContent;
-
-    // edit note window
-    QPushButton *editFavoriteNote;
-    QPushButton *deleteFavoriteNote;
     QPushButton *removeFromFavorites;
-    QPushButton *addFavoriteToCollection;
-    QPushButton *exitFavoriteEdit;
-    QTextEdit *editFavoriteNoteTitle;
-    QTextEdit *editFavoriteNoteContent;
 
     /*
      *
