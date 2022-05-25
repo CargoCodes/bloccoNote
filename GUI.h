@@ -20,17 +20,16 @@ public:
         this->setFixedSize(800, 800);
         this->setWindowTitle("Awesome Notes");
         this->setStyleSheet("background-color: #ABD1C6");
-        //this->homeWindow();
-        this->tryHomeWindow(true, false, false);
+        this->homeWindow(true, false, false);
     }
 
 protected slots:
 
-    void tryHomeWindow(bool generic, bool locked, bool favorites);
+    void homeWindow(bool generic, bool locked, bool favorites);
 
-    void tryCompileScrollArea(bool generic, bool locked, bool favorites);
+    void compileScrollArea(bool generic, bool locked, bool favorites);
 
-    void tryDestroyHome(bool generic, bool locked, bool favorites) {
+    void destroyHome(bool generic, bool locked, bool favorites) {
         addNewNoteBtn->hide();
         if (generic) {
             collections->hide();
@@ -43,22 +42,22 @@ protected slots:
         scrollArea->hide();
     }
 
-    void tryAddNewNote(bool generic, bool locked, bool favorites);
+    void addNewNote(bool generic, bool locked, bool favorites);
 
-    void tryDestroyAddNewNote() {
+    void destroyAddNewNote() {
         saveNote->hide();
         cancel->hide();
         noteTitle->hide();
         noteContent->hide();
     }
 
-    void tryEditGenericNote(int index, bool generic, bool locked, bool favorites);
+    void editGenericNote(int index, bool generic, bool locked, bool favorites);
 
-    void tryEditLockedNote(int index, bool generic, bool locked, bool favorites);
+    void editLockedNote(int index, bool generic, bool locked, bool favorites);
 
-    void tryEditFavoriteNote(int index, bool generic, bool locked, bool favorites);
+    void editFavoriteNote(int index, bool generic, bool locked, bool favorites);
 
-    void tryDestroyEditNote(bool generic, bool locked, bool favorites) {
+    void destroyEditNote(bool generic, bool locked, bool favorites) {
         if (generic or favorites) {
             deleteNote->hide();
             editNote->hide();
@@ -77,8 +76,8 @@ protected slots:
         editNoteContent->hide();
     }
 
-    void tryChangeNote(int index, std::string title, std::string content,
-                       bool generic, bool favorites) {
+    void changeNote(int index, std::string title, std::string content,
+                    bool generic, bool favorites) {
         if (generic)
             genericNotesMemory->editNote(index, title, content);
         else if (favorites) {
@@ -86,41 +85,29 @@ protected slots:
         }
     }
 
-    void tryRemoveNote(int index, bool generic, bool favorites) {
+    void removeNote(int index, bool generic, bool favorites) {
         if (generic)
             (*genericNotesMemory)[index].remove();
         else if (favorites)
             (*favoriteNotesMemory)[index].remove();
     }
 
-    void openCollections() {
-        //destroyHomeWindow();
-        collectionHomeWindow();
-    }
-
-    void collectionToHomeWindow() {
-        destroyCollectionHomeWindow();
-        //homeWindow();
-    }
-
-    void folderToCollection() {
-        destroyFolderHomeWindow();
-        collectionHomeWindow();
-    }
+    /*
+     *
+     * Collections Window
+     *
+     */
 
     void collectionHomeWindow();
 
     void destroyCollectionHomeWindow() {
         collectionToHome->hide();
         newCollection->hide();
+        delete newCollection;
         collectionScrollArea->hide();
     }
 
     void newCollectionPopUp();
-
-    void saveCollection(std::string folderName) {
-        folderManager->addNewFolder(folderName);
-    }
 
     /*
      *
@@ -143,17 +130,15 @@ protected slots:
 
     void addToCollectionPopUp(int noteIndex, NotesMemory *dataBase);
 
-    void addToCollectionPopUp(std::string title, NotesMemory *dataBase);
-
     void addNoteToCollection(int collectionIndex, int noteIndex, NotesMemory *provenienceDataBase) {
         (*folderManager)[collectionIndex].newNote((*provenienceDataBase)[noteIndex].getTitle(),
                                                   (*provenienceDataBase)[noteIndex].getContent());
     }
 
-    void addNoteToCollection(int collectionIndex, std::string title, NotesMemory *provenienceDataBase) {
+    /*void addNoteToCollection(int collectionIndex, std::string title, NotesMemory *provenienceDataBase) {
         (*folderManager)[collectionIndex].newNote((*provenienceDataBase)[title].getTitle(),
                                                   (*provenienceDataBase)[title].getContent());
-    }
+    }*/
 
     void destroyAddtoCollectionPopUp() {
         addToCollectionBasePopUp->hide();
@@ -176,13 +161,11 @@ protected:
     QPushButton *backToHome;
     QWidget *widget;
     QVBoxLayout* boxLayout;
-
     // new note window
     QPushButton* saveNote;
     QPushButton* cancel;
     QTextEdit* noteTitle;
     QTextEdit* noteContent;
-
     // edit note window
     QPushButton* editNote;
     QPushButton* deleteNote;
@@ -249,7 +232,12 @@ protected:
 
     void compileAddToCollectionPopUp(int noteIndex, NotesMemory *dataBase);
 
-    void compileAddToCollectionPopUp(string title, NotesMemory *dataBase);
+
+    void errorPopUp(const string &errorMessage);
+
+    QWidget *popUpBase;
+    QLabel *message;
+    QPushButton *okBtn;
 };
 
 #endif //BLOCCONOTE_GUI_H

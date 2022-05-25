@@ -27,6 +27,13 @@ public:
         return *memory_[index];
     }
 
+    int indexOf(string title) {
+        for (int i = 0; i < memory_.size(); i++) {
+            if (memory_[i]->getTitle() == title)
+                return i;
+        }
+        return -1;
+    }
 
     Note operator[](string title) {
         for (auto note: memory_) {

@@ -18,6 +18,7 @@ public:
 
     void addNote(int folderIndex, string title, string content) {
         folders[folderIndex].newNote(title, content);
+        folderDataBase.addAttr(folders[folderIndex].getFolderName(), title, content);
     }
 
     void editNote(int folderIndex, int noteIndex, string title, string content) {
