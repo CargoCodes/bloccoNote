@@ -14,7 +14,7 @@ CMakeFiles/bloccoNote.dir/GUI.cpp.o: \
  ../LsmL.h \
  ../Note.h \
  ../NoteFolder.h \
- ../NotesMemory.h \
+ ../NotesManager.h \
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QLabel \
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QMainWindow \
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QVBoxLayout \
@@ -33,18 +33,18 @@ CMakeFiles/bloccoNote.dir/NoteFolder.cpp.o: \
  ../Note.h \
  ../NoteFolder.cpp \
  ../NoteFolder.h
-CMakeFiles/bloccoNote.dir/NotesMemory.cpp.o: \
+CMakeFiles/bloccoNote.dir/NotesManager.cpp.o: \
  ../LsmL.h \
  ../Note.h \
- ../NotesMemory.cpp \
- ../NotesMemory.h
+ ../NotesManager.cpp \
+ ../NotesManager.h
 CMakeFiles/bloccoNote.dir/main.cpp.o: \
  ../FolderManager.h \
  ../GUI.h \
  ../LsmL.h \
  ../Note.h \
  ../NoteFolder.h \
- ../NotesMemory.h \
+ ../NotesManager.h \
  ../main.cpp \
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QLabel \
  /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QMainWindow \

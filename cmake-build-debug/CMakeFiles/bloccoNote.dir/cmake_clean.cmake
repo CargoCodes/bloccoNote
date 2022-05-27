@@ -4,7 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/bloccoNote.dir/LsmL.cpp.o"
   "CMakeFiles/bloccoNote.dir/Note.cpp.o"
   "CMakeFiles/bloccoNote.dir/NoteFolder.cpp.o"
-  "CMakeFiles/bloccoNote.dir/NotesMemory.cpp.o"
+  "CMakeFiles/bloccoNote.dir/NotesManager.cpp.o"
   "CMakeFiles/bloccoNote.dir/main.cpp.o"
   "bloccoNote"
   "bloccoNote.pdb"

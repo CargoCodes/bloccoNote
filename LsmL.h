@@ -8,6 +8,12 @@
 
 using namespace std;
 
+/* DataBase class
+ * Responsabilities:
+ * - locally store data
+ * - interact with the stored data (add, remove, edit, read)
+ */
+
 class LsmL {
 public:
     explicit LsmL(string filePath) : filePath(filePath) {

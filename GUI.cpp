@@ -5,47 +5,32 @@ void GUI::compileScrollArea(bool generic, bool locked, bool favorites) {
     font.setPointSize(20);
 
     if (generic) {
-        delete genericNotesMemory;
-        genericNotesMemory = new NotesMemory("genericNotes.lsml");
-        if (genericNotesMemory->size() > 0) { // verifies if the memory is not empty
-            for (int i = 0; i < genericNotesMemory->size(); i++) { // for each note in the database creates a idButton
-                auto note = (*genericNotesMemory)[i];
-
-                QPushButton *btn = new QPushButton((note.getTitle()).c_str());
-                int index = i;
-
-                connect(btn, &QPushButton::clicked, this, [this, index, generic, locked, favorites] {
-                    destroyHome(generic, locked, favorites);
-                    editGenericNote(index, generic, locked, favorites);
-                });
-
-                btn->setStyleSheet("background-color: #2CB67D; color: black;");
-                btn->setFixedSize(400, 40);
-                btn->move(50, 0);
-                btn->setFont(font);
-                boxLayout->addWidget(btn);
-            }
+        if (notesManager->isUpdated()) {
+            delete notesManager;
+            notesManager = new NotesManager();
         }
-    }
+        if (notesManager->size() > 0) { // verifies if the memory is not empty
+            for (int i = 0; i < notesManager->size(); i++) { // for each note in the database creates a idButton
+                auto note = (*notesManager)[i];
 
-    if (generic or locked) {
-        delete lockedNotesMemory;
-        lockedNotesMemory = new NotesMemory("lockedNotes.lsml", false, true);
-        if (lockedNotesMemory->size() > 0) { // verifies if the memory is not empty
-            for (int i = 0; i < lockedNotesMemory->size(); i++) { // for each note in the database creates a idButton
-
-                auto note = (*lockedNotesMemory)[i];
                 string title = note.getTitle();
 
-                if (generic)
+                if (note.isFavorite())
+                    title += " [★]";
+                else if (note.isLocked())
                     title += " [✖]";
 
                 QPushButton *btn = new QPushButton(title.c_str());
                 int index = i;
 
-                connect(btn, &QPushButton::clicked, this, [this, index, generic, locked, favorites] {
+                connect(btn, &QPushButton::clicked, this, [this, index, note, generic, locked, favorites] {
                     destroyHome(generic, locked, favorites);
-                    editLockedNote(index, generic, locked, favorites);
+                    if (note.isLocked())
+                        editLockedNote(index, generic, locked, favorites);
+                    else if (note.isFavorite())
+                        editFavoriteNote(index, generic, locked, favorites);
+                    else
+                        editGenericNote(index, generic, locked, favorites);
                 });
 
                 btn->setStyleSheet("background-color: #2CB67D; color: black;");
@@ -57,31 +42,58 @@ void GUI::compileScrollArea(bool generic, bool locked, bool favorites) {
         }
     }
 
-    if (generic or favorites) {
-        delete favoriteNotesMemory;
-        favoriteNotesMemory = new NotesMemory("favoriteNotes.lsml", true);
-        if (favoriteNotesMemory->size() > 0) { // verifies if the memory is not empty
-            for (int i = 0; i < favoriteNotesMemory->size(); i++) { // for each note in the database creates a idButton
+    if (locked) {
+        if (notesManager->isUpdated()) {
+            delete notesManager;
+            notesManager = new NotesManager();
+        }
+        if (notesManager->size() > 0) { // verifies if the memory is not empty
+            for (int i = 0; i < notesManager->size(); i++) { // for each note in the database creates a idButton
 
-                auto note = (*favoriteNotesMemory)[i];
-                string title = note.getTitle();
+                auto note = (*notesManager)[i];
+                if (note.isLocked()) {
+                    QPushButton *btn = new QPushButton((note.getTitle()).c_str());
+                    int index = i;
 
-                if (generic)
-                    title += " [★]";
+                    connect(btn, &QPushButton::clicked, this, [this, index, generic, locked, favorites] {
+                        destroyHome(generic, locked, favorites);
+                        editLockedNote(index, generic, locked, favorites);
+                    });
 
-                QPushButton *btn = new QPushButton((title.c_str()));
-                int index = i;
+                    btn->setStyleSheet("background-color: #2CB67D; color: black;");
+                    btn->setFixedSize(400, 40);
+                    btn->move(50, 0);
+                    btn->setFont(font);
+                    boxLayout->addWidget(btn);
+                }
+            }
+        }
+    }
 
-                connect(btn, &QPushButton::clicked, this, [this, index, generic, locked, favorites] {
-                    destroyHome(generic, locked, favorites);
-                    editFavoriteNote(index, generic, locked, favorites);
-                });
+    if (favorites) {
+        if (notesManager->isUpdated()) {
+            delete notesManager;
+            notesManager = new NotesManager();
+        }
+        if (notesManager->size() > 0) { // verifies if the memory is not empty
+            for (int i = 0; i < notesManager->size(); i++) { // for each note in the database creates a idButton
 
-                btn->setStyleSheet("background-color: #2CB67D; color: black;");
-                btn->setFixedSize(400, 40);
-                btn->move(50, 0);
-                btn->setFont(font);
-                boxLayout->addWidget(btn);
+                auto note = (*notesManager)[i];
+                if (note.isFavorite()) {
+                    QPushButton *btn = new QPushButton((note.getTitle()).c_str());
+                    int index = i;
+
+                    connect(btn, &QPushButton::clicked, this, [this, index, generic, locked, favorites] {
+                        destroyHome(generic, locked, favorites);
+                        editFavoriteNote(index, generic, locked, favorites);
+                    });
+
+                    btn->setStyleSheet("background-color: #2CB67D; color: black;");
+                    btn->setFixedSize(400, 40);
+                    btn->move(50, 0);
+                    btn->setFont(font);
+                    boxLayout->addWidget(btn);
+                }
             }
         }
     }
@@ -178,26 +190,24 @@ void GUI::addNewNote(bool generic, bool locked, bool favorites) {
 
     saveNote = new QPushButton("Save", this);
     connect(saveNote, &QPushButton::clicked, this, [this, generic, locked, favorites] {
-        cout << (noteTitle->toPlainText()).toStdString() << endl;
-        cout << genericNotesMemory->indexOf((noteTitle->toPlainText()).toStdString()) << endl;
-        if ((genericNotesMemory->indexOf((noteTitle->toPlainText()).toStdString())) >= 0)
-            errorPopUp("You can't add a note with \nthe same title as another one");
-        else if ((lockedNotesMemory->indexOf((noteTitle->toPlainText()).toStdString())) >= 0)
-            errorPopUp("You can't add a note with \nthe same title as another one");
-        else if ((favoriteNotesMemory->indexOf((noteTitle->toPlainText()).toStdString())) >= 0)
+        if ((notesManager->indexOf((noteTitle->toPlainText()).toStdString())) >= 0)
             errorPopUp("You can't add a note with \nthe same title as another one");
         else {
-            if (generic)
-                genericNotesMemory->newNote((noteTitle->toPlainText()).toStdString(),
-                                            (noteContent->toPlainText()).toStdString());
-            else if (locked)
-                lockedNotesMemory->newNote((noteTitle->toPlainText()).toStdString(),
-                                           (noteContent->toPlainText()).toStdString());
-            else if (favorites)
-                favoriteNotesMemory->newNote((noteTitle->toPlainText()).toStdString(),
-                                             (noteContent->toPlainText()).toStdString());
-            destroyAddNewNote();
-            homeWindow(generic, locked, favorites);
+            if (((noteTitle->toPlainText()).toStdString()).empty())
+                errorPopUp("Can't add a note without title");
+            else {
+                if (generic) {
+                    notesManager->newNote((noteTitle->toPlainText()).toStdString(),
+                                          (noteContent->toPlainText()).toStdString());
+                } else if (locked)
+                    notesManager->newNote((noteTitle->toPlainText()).toStdString(),
+                                          (noteContent->toPlainText()).toStdString(), true);
+                else if (favorites)
+                    notesManager->newNote((noteTitle->toPlainText()).toStdString(),
+                                          (noteContent->toPlainText()).toStdString(), false, true);
+                destroyAddNewNote();
+                homeWindow(generic, locked, favorites);
+            }
         }
     });
     saveNote->setStyleSheet("background-color: #7F5AF0");
@@ -243,7 +253,7 @@ void GUI::editGenericNote(int index, bool generic, bool locked, bool favorites) 
 
     deleteNote = new QPushButton("Delete", this);
     connect(deleteNote, &QPushButton::clicked, this, [this, index, generic, locked, favorites] {
-        removeNote(index, true, false);
+        removeNote(index);
         destroyEditNote(true, false, false);
         homeWindow(generic, locked, favorites);
     });
@@ -266,10 +276,14 @@ void GUI::editGenericNote(int index, bool generic, bool locked, bool favorites) 
 
     editNote = new QPushButton("Edit", this);
     connect(editNote, &QPushButton::clicked, this, [this, index, generic, locked, favorites] {
-        changeNote(index, (editNoteTitle->toPlainText()).toStdString(),
-                   (editNoteContent->toPlainText()).toStdString(), true, false);
-        destroyEditNote(true, false, false);
-        homeWindow(generic, locked, favorites);
+        if (((editNoteTitle->toPlainText()).toStdString()).empty())
+            errorPopUp("Can't edit a note without title");
+        else {
+            changeNote(index, (editNoteTitle->toPlainText()).toStdString(),
+                       (editNoteContent->toPlainText()).toStdString());
+            destroyEditNote(true, false, false);
+            homeWindow(generic, locked, favorites);
+        }
     });
     editNote->move(50, 30);
     editNote->setFixedSize(200, 50);
@@ -279,7 +293,7 @@ void GUI::editGenericNote(int index, bool generic, bool locked, bool favorites) 
 
     editAddToFavorites = new QPushButton("Add To Favorites", this);
     connect(editAddToFavorites, &QPushButton::clicked, this, [this, index, generic, locked, favorites] { // FIXME
-        genericNotesMemory->transferNote(index, favoriteNotesMemory);
+        notesManager->favorite(index);
         destroyEditNote(true, false, false);
         homeWindow(generic, locked, favorites);
     });
@@ -291,8 +305,7 @@ void GUI::editGenericNote(int index, bool generic, bool locked, bool favorites) 
 
     editAddToLocked = new QPushButton("Add To Locked", this);
     connect(editAddToLocked, &QPushButton::clicked, this, [this, index, generic, locked, favorites] { // FIXME
-        (*genericNotesMemory)[index].lock();
-        genericNotesMemory->transferNote(index, lockedNotesMemory);
+        notesManager->lock(index);
         destroyEditNote(true, false, false);
         homeWindow(generic, locked, favorites);
     });
@@ -304,7 +317,7 @@ void GUI::editGenericNote(int index, bool generic, bool locked, bool favorites) 
 
     addToCollection = new QPushButton("Add To Collection", this);
     connect(addToCollection, &QPushButton::clicked, this, [this, index] { // FIXME
-        addToCollectionPopUp(index, genericNotesMemory);
+        addToCollectionPopUp(index);
     });
     addToCollection->move(550, 100);
     addToCollection->setFixedSize(200, 50);
@@ -314,7 +327,7 @@ void GUI::editGenericNote(int index, bool generic, bool locked, bool favorites) 
 
     editNoteTitle = new QTextEdit(this);
     editNoteTitle->setPlaceholderText("Note Title");
-    editNoteTitle->setText(((*genericNotesMemory)[index].getTitle()).c_str());
+    editNoteTitle->setText(((*notesManager)[index].getTitle()).c_str());
     editNoteTitle->move(50, 190);
     editNoteTitle->setStyleSheet("background-color: #004643");
     editNoteTitle->setFont(textFont);
@@ -323,7 +336,7 @@ void GUI::editGenericNote(int index, bool generic, bool locked, bool favorites) 
 
     editNoteContent = new QTextEdit(this);
     editNoteContent->setPlaceholderText("Note Content");
-    editNoteContent->setText(((*genericNotesMemory)[index].getContent()).c_str());
+    editNoteContent->setText(((*notesManager)[index].getContent()).c_str());
     editNoteContent->move(50, 270);
     editNoteContent->setStyleSheet("background-color: #004643");
     editNoteContent->setFont(textFont);
@@ -340,7 +353,7 @@ void GUI::editLockedNote(int index, bool generic, bool locked, bool favorites) {
 
     showUnlockNote = new QPushButton("Unlock", this);
     connect(showUnlockNote, &QPushButton::clicked, this, [this, index, generic, locked, favorites] { // FIXME
-        this->lockedNotesMemory->transferNote(index, genericNotesMemory);
+        this->notesManager->unlock(index);
         destroyEditNote(false, true, false);
         homeWindow(generic, locked, favorites);
     });
@@ -352,7 +365,7 @@ void GUI::editLockedNote(int index, bool generic, bool locked, bool favorites) {
 
     addToCollection = new QPushButton("Add To Collection", this);
     connect(addToCollection, &QPushButton::clicked, this, [this, index] { // FIXME
-        addToCollectionPopUp(index, genericNotesMemory);
+        addToCollectionPopUp(index);
     });
     addToCollection->move(300, 30);
     addToCollection->setFixedSize(200, 50);
@@ -373,19 +386,21 @@ void GUI::editLockedNote(int index, bool generic, bool locked, bool favorites) {
 
     editNoteTitle = new QTextEdit(this);
     editNoteTitle->setPlaceholderText("Note Title");
-    editNoteTitle->setText(((*lockedNotesMemory)[index].getTitle()).c_str());
+    editNoteTitle->setText(((*notesManager)[index].getTitle()).c_str());
     editNoteTitle->move(50, 120);
     editNoteTitle->setStyleSheet("background-color: #004643");
     editNoteTitle->setFont(textFont);
+    editNoteTitle->setReadOnly(true);
     editNoteTitle->setFixedSize(700, 50);
     editNoteTitle->show();
 
     editNoteContent = new QTextEdit(this);
     editNoteContent->setPlaceholderText("Note Content");
-    editNoteContent->setText(((*lockedNotesMemory)[index].getContent()).c_str());
+    editNoteContent->setText(((*notesManager)[index].getContent()).c_str());
     editNoteContent->move(50, 200);
     editNoteContent->setStyleSheet("background-color: #004643");
     editNoteContent->setFont(textFont);
+    editNoteContent->setReadOnly(true);
     editNoteContent->setFixedSize(700, 570);
     editNoteContent->show();
 }
@@ -399,7 +414,7 @@ void GUI::editFavoriteNote(int index, bool generic, bool locked, bool favorites)
 
     deleteNote = new QPushButton("Delete", this);
     connect(deleteNote, &QPushButton::clicked, this, [this, index, generic, locked, favorites] {
-        removeNote(index, false, true);
+        removeNote(index);
         destroyEditNote(false, false, true);
         homeWindow(generic, locked, favorites);
     });
@@ -422,10 +437,14 @@ void GUI::editFavoriteNote(int index, bool generic, bool locked, bool favorites)
 
     editNote = new QPushButton("Edit", this);
     connect(editNote, &QPushButton::clicked, this, [this, index, generic, locked, favorites] {
-        changeNote(index, (editNoteTitle->toPlainText()).toStdString(),
-                   (editNoteContent->toPlainText()).toStdString(), false, true);
-        destroyEditNote(false, false, true);
-        homeWindow(generic, locked, favorites);
+        if (((editNoteTitle->toPlainText()).toStdString()).empty())
+            errorPopUp("Can't add a note without title");
+        else {
+            changeNote(index, (editNoteTitle->toPlainText()).toStdString(),
+                       (editNoteContent->toPlainText()).toStdString());
+            destroyEditNote(false, false, true);
+            homeWindow(generic, locked, favorites);
+        }
     });
     editNote->move(50, 30);
     editNote->setFixedSize(200, 50);
@@ -435,7 +454,7 @@ void GUI::editFavoriteNote(int index, bool generic, bool locked, bool favorites)
 
     removeFromFavorites = new QPushButton("Remove From Favorites", this);
     connect(removeFromFavorites, &QPushButton::clicked, this, [this, index, generic, locked, favorites] { // FIXME
-        favoriteNotesMemory->transferNote(index, genericNotesMemory);
+        this->notesManager->removeFromFavorites(index);
         destroyEditNote(false, false, true);
         homeWindow(generic, locked, favorites);
     });
@@ -447,7 +466,7 @@ void GUI::editFavoriteNote(int index, bool generic, bool locked, bool favorites)
 
     addToCollection = new QPushButton("Add To Collection", this);
     connect(addToCollection, &QPushButton::clicked, this, [this, index] { // FIXME
-        addToCollectionPopUp(index, genericNotesMemory);
+        addToCollectionPopUp(index);
     });
     addToCollection->move(425, 100);
     addToCollection->setFixedSize(200, 50);
@@ -457,7 +476,7 @@ void GUI::editFavoriteNote(int index, bool generic, bool locked, bool favorites)
 
     editNoteTitle = new QTextEdit(this);
     editNoteTitle->setPlaceholderText("Note Title");
-    editNoteTitle->setText(((*favoriteNotesMemory)[index].getTitle()).c_str());
+    editNoteTitle->setText(((*notesManager)[index].getTitle()).c_str());
     editNoteTitle->move(50, 190);
     editNoteTitle->setStyleSheet("background-color: #004643");
     editNoteTitle->setFont(textFont);
@@ -466,7 +485,7 @@ void GUI::editFavoriteNote(int index, bool generic, bool locked, bool favorites)
 
     editNoteContent = new QTextEdit(this);
     editNoteContent->setPlaceholderText("Note Content");
-    editNoteContent->setText(((*favoriteNotesMemory)[index].getContent()).c_str());
+    editNoteContent->setText(((*notesManager)[index].getContent()).c_str());
     editNoteContent->move(50, 270);
     editNoteContent->setStyleSheet("background-color: #004643");
     editNoteContent->setFont(textFont);
@@ -484,8 +503,10 @@ void GUI::compileCollectionScrollBar() {
     QFont font; // font definition
     font.setPointSize(20);
 
-    delete folderManager;
-    folderManager = new FolderManager("foldersDb.lsml");
+    if (folderManager->isUpdated()) {
+        delete folderManager;
+        folderManager = new FolderManager();
+    }
 
     if (folderManager->size() > 0) { // verifies if the memory is not empty
         for (int i = 0; i < folderManager->size(); i++) { // for each note in the database creates a idButton
@@ -601,11 +622,16 @@ void GUI::compileFolderScrollArea(int index) {
     QFont font; // font definition
     font.setPointSize(20);
     delete folderManager;
-    folderManager = new FolderManager("foldersDb.lsml");
+    folderManager = new FolderManager();
     NoteFolder folder = (*folderManager)[index];
     if (folder.size() > 0) { // verifies if the memory is not empty
         for (int i = 0; i < folder.size(); i++) { // for each note in the database creates a idButton
-            auto note = folder[i];
+            auto noteName = folder[i];
+
+            int noteIndex = notesManager->indexOf(noteName);
+
+            auto note = (*notesManager)[noteIndex];
+
             string title;
             if (note.isLocked())
                 title = note.getTitle() + "[✖]";
@@ -614,14 +640,15 @@ void GUI::compileFolderScrollArea(int index) {
             else
                 title = note.getTitle();
             QPushButton *btn = new QPushButton((title).c_str());
-            connect(btn, &QPushButton::clicked, this, [this, note] {
+            connect(btn, &QPushButton::clicked, this, [this, note, noteIndex] {
                 destroyFolderHomeWindow();
-                //if (note.isLocked())
-                //showLockedNoteWindow(note.getTitle());
-                //else if (note.isFavorite())
-                //editFavoriteNoteWindow(note.getTitle());
-                //else
-                //editNoteWindow(note.getTitle());
+                if (note.isLocked()) {
+                    editLockedNote(noteIndex, false, true, false);
+                } else if (note.isFavorite()) {
+                    editFavoriteNote(noteIndex, false, false, true);
+                } else {
+                    editGenericNote(noteIndex, true, false, false);
+                }
             });
             btn->setStyleSheet("background-color: #2CB67D; color: black;");
             btn->setFixedSize(400, 40);
@@ -636,6 +663,12 @@ void GUI::folderHomeWindow(int index) {
     QFont font; // font definition
     font.setPointSize(20);
 
+    QWidget *topCover = new QWidget(this);
+    topCover->setStyleSheet("background-color: #ABD1C6");
+    topCover->move(300, 30);
+    topCover->setFixedSize(200, 50);
+    topCover->show();
+
     backToCollections = new QPushButton("Back To Collections", this);
     connect(backToCollections, &QPushButton::clicked, this, [this] {
         destroyFolderHomeWindow();
@@ -644,10 +677,22 @@ void GUI::folderHomeWindow(int index) {
     backToCollections->setStyleSheet("background-color: #7F5AF0");
     backToCollections->setFixedSize(200, 50);
     backToCollections->setFont(font);
-    backToCollections->move(300, 30);
+    backToCollections->move(125, 30);
     backToCollections->show();
 
-    QLabel *cover = new QLabel(this);
+    removeFolder = new QPushButton("Remove Collection", this);
+    connect(removeFolder, &QPushButton::clicked, this, [this, index] {
+        folderManager->removeFolder(index);
+        this->destroyFolderHomeWindow();
+        collectionHomeWindow();
+    });
+    removeFolder->setStyleSheet("background-color: #7F5AF0");
+    removeFolder->setFixedSize(200, 50);
+    removeFolder->setFont(font);
+    removeFolder->move(500, 30);
+    removeFolder->show();
+
+    cover = new QLabel(this);
     cover->setFixedSize(80, 80);
     cover->move(670, 670);
     cover->setStyleSheet("background-color: #ABD1C6");
@@ -676,22 +721,21 @@ void GUI::folderHomeWindow(int index) {
  *
  */
 
-void GUI::compileAddToCollectionPopUp(int noteIndex, NotesMemory *dataBase) {
+void GUI::compileAddToCollectionPopUp(int noteIndex) {
     QFont font; // font definition
     font.setPointSize(20);
 
     delete folderManager;
-    folderManager = new FolderManager("foldersDb.lsml");
+    folderManager = new FolderManager();
 
     if (folderManager->size() > 0) { // verifies if the memory is not empty
         for (int i = 0; i < folderManager->size(); i++) { // for each note in the database creates a idButton
             auto folder = (*folderManager)[i];
             QPushButton *btn = new QPushButton((folder.getFolderName()).c_str());
             int index = i;
-            connect(btn, &QPushButton::clicked, this, [this, index, noteIndex, dataBase] {
-                addNoteToCollection(index, noteIndex, dataBase);
-                folderManager->addNote(index, (*dataBase)[noteIndex].getTitle(),
-                                       (*dataBase)[index].getContent());
+            connect(btn, &QPushButton::clicked, this, [this, index, noteIndex] {
+                addNoteToCollection(index, noteIndex);
+                folderManager->addNote(index, (*notesManager)[noteIndex].getTitle());
                 destroyAddtoCollectionPopUp();
             });
             btn->setStyleSheet("background-color: #2CB67D; color: black;");
@@ -703,7 +747,7 @@ void GUI::compileAddToCollectionPopUp(int noteIndex, NotesMemory *dataBase) {
     }
 }
 
-void GUI::addToCollectionPopUp(int noteIndex, NotesMemory *dataBase) {
+void GUI::addToCollectionPopUp(int noteIndex) {
     addToCollectionBasePopUp = new QWidget();
     addToCollectionBasePopUp->setFixedSize(500, 250);
     addToCollectionBasePopUp->setStyleSheet("background-color: #ABD1C6");
@@ -722,7 +766,7 @@ void GUI::addToCollectionPopUp(int noteIndex, NotesMemory *dataBase) {
     addToCollectionBoxLayout = new QVBoxLayout();
     addToCollectionWidget->setLayout(addToCollectionBoxLayout);
 
-    this->compileAddToCollectionPopUp(noteIndex, dataBase);
+    this->compileAddToCollectionPopUp(noteIndex);
     addToCollectionScrollArea->show();
 }
 

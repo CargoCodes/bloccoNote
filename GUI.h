@@ -8,7 +8,7 @@
 #include <QtWidgets/QScrollArea>
 #include <QMainWindow>
 #include <QVBoxLayout>
-#include "NotesMemory.h"
+#include "NotesManager.h"
 #include "FolderManager.h"
 #include <QLabel>
 
@@ -76,20 +76,21 @@ protected slots:
         editNoteContent->hide();
     }
 
-    void changeNote(int index, std::string title, std::string content,
-                    bool generic, bool favorites) {
-        if (generic)
-            genericNotesMemory->editNote(index, title, content);
-        else if (favorites) {
-            favoriteNotesMemory->editNote(index, title, content);
+    void changeNote(int index, std::string title, std::string content) {
+        if (folderManager->contains((*notesManager)[index].getTitle())) {
+            auto folderName = folderManager->isIn((*notesManager)[index].getTitle());
+            folderManager->editNote(folderName, (*notesManager)[index].getTitle(), title);
         }
+        notesManager->editNote(index, title, content);
     }
 
-    void removeNote(int index, bool generic, bool favorites) {
-        if (generic)
-            (*genericNotesMemory)[index].remove();
-        else if (favorites)
-            (*favoriteNotesMemory)[index].remove();
+    void removeNote(int index) {
+        string notetitle = (*notesManager)[index].getTitle();
+        if (folderManager->contains(notetitle)) {
+            auto folderName = folderManager->isIn(notetitle);
+            folderManager->deleteNote(notetitle);
+        }
+        notesManager->deleteNote(index);
     }
 
     /*
@@ -102,8 +103,8 @@ protected slots:
 
     void destroyCollectionHomeWindow() {
         collectionToHome->hide();
+        delete collectionToHome;
         newCollection->hide();
-        delete newCollection;
         collectionScrollArea->hide();
     }
 
@@ -119,6 +120,8 @@ protected slots:
 
     void destroyFolderHomeWindow() {
         backToCollections->hide();
+        removeFolder->hide();
+        cover->hide();
         folderScrollArea->hide();
     }
 
@@ -128,17 +131,16 @@ protected slots:
      *
      */
 
-    void addToCollectionPopUp(int noteIndex, NotesMemory *dataBase);
+    void addToCollectionPopUp(int noteIndex);
 
-    void addNoteToCollection(int collectionIndex, int noteIndex, NotesMemory *provenienceDataBase) {
-        (*folderManager)[collectionIndex].newNote((*provenienceDataBase)[noteIndex].getTitle(),
-                                                  (*provenienceDataBase)[noteIndex].getContent());
+    void addNoteToCollection(int collectionIndex, int noteIndex) {
+        if ((*folderManager)[collectionIndex].isIn((*notesManager)[noteIndex].getTitle()))
+            errorPopUp("Note \"" + (*notesManager)[noteIndex].getTitle() +
+                       "\" is altready\npart of \"" + (*folderManager)[collectionIndex].getFolderName() +
+                       "\" collection");
+        else
+            (*folderManager)[collectionIndex].newNote((*notesManager)[noteIndex].getTitle());
     }
-
-    /*void addNoteToCollection(int collectionIndex, std::string title, NotesMemory *provenienceDataBase) {
-        (*folderManager)[collectionIndex].newNote((*provenienceDataBase)[title].getTitle(),
-                                                  (*provenienceDataBase)[title].getContent());
-    }*/
 
     void destroyAddtoCollectionPopUp() {
         addToCollectionBasePopUp->hide();
@@ -147,20 +149,19 @@ protected slots:
 
 protected:
     // dataBases
-    NotesMemory *genericNotesMemory = new NotesMemory("genericNotes.lsml");
-    NotesMemory *favoriteNotesMemory = new NotesMemory("favoriteNotes.lsml", true);
-    NotesMemory *lockedNotesMemory = new NotesMemory("lockedNotes.lsml", false, true);
-    FolderManager *folderManager = new FolderManager("foldersDb.lsml");
+    NotesManager *notesManager = new NotesManager();
+
+    FolderManager *folderManager = new FolderManager();
 
     // home page
-    QPushButton* addNewNoteBtn;
-    QPushButton* favoriteNotes;
+    QPushButton *addNewNoteBtn;
+    QPushButton *favoriteNotes;
     QPushButton *lockedNotes;
     QPushButton *collections;
     QScrollArea *scrollArea;
     QPushButton *backToHome;
     QWidget *widget;
-    QVBoxLayout* boxLayout;
+    QVBoxLayout *boxLayout;
     // new note window
     QPushButton* saveNote;
     QPushButton* cancel;
@@ -192,6 +193,7 @@ protected:
     QVBoxLayout *collectionBoxLayout;
     QPushButton *newCollection;
 
+
     void compileCollectionScrollBar();
 
     /*
@@ -214,6 +216,8 @@ protected:
 
     QPushButton *backToCollections;
     QWidget *folderWidget;
+    QLabel *cover;
+    QPushButton *removeFolder;
     QVBoxLayout *folderBoxLayout;
     QScrollArea *folderScrollArea;
 
@@ -230,8 +234,13 @@ protected:
     QVBoxLayout *addToCollectionBoxLayout;
     QScrollArea *addToCollectionScrollArea;
 
-    void compileAddToCollectionPopUp(int noteIndex, NotesMemory *dataBase);
+    void compileAddToCollectionPopUp(int noteIndex);
 
+    /*
+     *
+     * Error PopUp
+     *
+     */
 
     void errorPopUp(const string &errorMessage);
 

@@ -11,17 +11,31 @@
 
 using namespace std;
 
+/*
+ * This class is only a container for informations about a folder.
+ * It doesn't interact with the database, and do not perform any action on the notes.
+ * Just an interface carrying variables.
+ */
+
 class NoteFolder {
 public:
     NoteFolder(string folderName) : folderName(folderName) {}
 
-    void newNote(string title, string content);
+    void newNote(string title) {
+        notesArray.push_back(title);
+    }
 
-    Note operator[](int index) {
+    string operator[](int index) {
         return notesArray[index];
     }
 
-    void editNote(int index, string title, string content);
+    void editNote(string noteTitle, string newTitle) {
+        for (int i = 0; i < notesArray.size(); i++) {
+            if (notesArray[i] == noteTitle) {
+                notesArray[i] = newTitle;
+            }
+        }
+    }
 
     string getFolderName() {
         return folderName;
@@ -31,15 +45,19 @@ public:
         return notesArray.size();
     }
 
+    bool isIn(string noteTitle) {
+        for (auto note: notesArray) {
+            if (note == noteTitle) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 private:
     string folderName;
 
-    LsmL genericDb = LsmL("genericNotes.lsml");
-    LsmL lockedDb = LsmL("lockedNotes.lsml");
-    LsmL favoritesDb = LsmL("favoriteNotes.lsml");
-
-    vector<Note> notesArray;
-
+    vector<string> notesArray;
 };
 
 

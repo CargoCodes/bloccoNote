@@ -136,10 +136,10 @@
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/NoteFolder.h">
 			<Option target="bloccoNote"/>
 		</Unit>
-		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/NotesMemory.cpp">
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/NotesManager.cpp">
 			<Option target="bloccoNote"/>
 		</Unit>
-		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/NotesMemory.h">
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/NotesManager.h">
 			<Option target="bloccoNote"/>
 		</Unit>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/main.cpp">

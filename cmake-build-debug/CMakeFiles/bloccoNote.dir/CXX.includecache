@@ -31,8 +31,8 @@ QMainWindow
 -
 QVBoxLayout
 -
-NotesMemory.h
-/Users/Codes.py/CLionProjects/bloccoNote/NotesMemory.h
+NotesManager.h
+/Users/Codes.py/CLionProjects/bloccoNote/NotesManager.h
 FolderManager.h
 /Users/Codes.py/CLionProjects/bloccoNote/FolderManager.h
 QLabel
@@ -62,12 +62,20 @@ vector
 iostream
 -
 
-/Users/Codes.py/CLionProjects/bloccoNote/NotesMemory.h
+/Users/Codes.py/CLionProjects/bloccoNote/NotesManager.h
 LsmL.h
 /Users/Codes.py/CLionProjects/bloccoNote/LsmL.h
 Note.h
 /Users/Codes.py/CLionProjects/bloccoNote/Note.h
 vector
+-
+iostream
+-
+
+/Users/Codes.py/CLionProjects/bloccoNote/main.cpp
+GUI.h
+/Users/Codes.py/CLionProjects/bloccoNote/GUI.h
+QtWidgets/QApplication
 -
 
 /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers/QLabel

@@ -4,7 +4,7 @@
 
 #include "FolderManager.h"
 
-FolderManager::FolderManager(string filePath) : filePath(filePath) {
+FolderManager::FolderManager() {
     auto dbContent = this->folderDataBase.read();
 
     for (auto fieldContainer: dbContent) {
@@ -15,9 +15,8 @@ FolderManager::FolderManager(string filePath) : filePath(filePath) {
                 auto notes = this->folderDataBase.getField(folderName);
                 for (auto note: notes) {
                     string noteName = note.first;
-                    string noteContent = note.second;
 
-                    folder.newNote(noteName, noteContent);
+                    folder.newNote(noteName);
                 }
             } catch (...) {}
 

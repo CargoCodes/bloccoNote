@@ -298,6 +298,7 @@ bool LsmL::editField(const string &fieldName, const string &newFieldName) {
 }
 
 bool LsmL::editAttr(const string &fieldName, const string &attrName, const string &newAttrName, const string &attrContent) {
+    this->content = readFile();
     int fieldIndex = this->content.find("[$] \"" + fieldName + "\" ::>");
     if (fieldIndex > 0) { // checks if the field exists
         string preField = this->content.substr(0, fieldIndex); // isolates what's before the field
@@ -309,11 +310,11 @@ bool LsmL::editAttr(const string &fieldName, const string &attrName, const strin
         int endIndex;
         if (eofFieldIndex > 0)
             endIndex = eofFieldIndex;
-        else if (endFieldIndex > 0)
+        else
             endIndex = endFieldIndex;
 
         string isolatedField = subString(this->content, fieldIndex, endIndex + fieldIndex + 5); // isolates the field
-        string afterField = tmp.substr(endFieldIndex, tmp.length()); // isolates what's after the field
+        string afterField = tmp.substr(endIndex, tmp.length()); // isolates what's after the field
 
         int oldAttrIndex = isolatedField.find(attrName);
         if (oldAttrIndex > 0) { // checks if the attribute exists

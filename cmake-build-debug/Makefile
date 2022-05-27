@@ -249,29 +249,29 @@ NoteFolder.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/NoteFolder.cpp.s
 .PHONY : NoteFolder.cpp.s
 
-NotesMemory.o: NotesMemory.cpp.o
-.PHONY : NotesMemory.o
+NotesManager.o: NotesManager.cpp.o
+.PHONY : NotesManager.o
 
 # target to build an object file
-NotesMemory.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/NotesMemory.cpp.o
-.PHONY : NotesMemory.cpp.o
+NotesManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/NotesManager.cpp.o
+.PHONY : NotesManager.cpp.o
 
-NotesMemory.i: NotesMemory.cpp.i
-.PHONY : NotesMemory.i
+NotesManager.i: NotesManager.cpp.i
+.PHONY : NotesManager.i
 
 # target to preprocess a source file
-NotesMemory.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/NotesMemory.cpp.i
-.PHONY : NotesMemory.cpp.i
+NotesManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/NotesManager.cpp.i
+.PHONY : NotesManager.cpp.i
 
-NotesMemory.s: NotesMemory.cpp.s
-.PHONY : NotesMemory.s
+NotesManager.s: NotesManager.cpp.s
+.PHONY : NotesManager.s
 
 # target to generate assembly for a file
-NotesMemory.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/NotesMemory.cpp.s
-.PHONY : NotesMemory.cpp.s
+NotesManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/NotesManager.cpp.s
+.PHONY : NotesManager.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
@@ -321,9 +321,9 @@ help:
 	@echo "... NoteFolder.o"
 	@echo "... NoteFolder.i"
 	@echo "... NoteFolder.s"
-	@echo "... NotesMemory.o"
-	@echo "... NotesMemory.i"
-	@echo "... NotesMemory.s"
+	@echo "... NotesManager.o"
+	@echo "... NotesManager.i"
+	@echo "... NotesManager.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
