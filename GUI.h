@@ -8,9 +8,10 @@
 #include <QtWidgets/QScrollArea>
 #include <QMainWindow>
 #include <QVBoxLayout>
+#include <QLabel>
 #include "NotesManager.h"
 #include "FolderManager.h"
-#include <QLabel>
+
 
 using namespace std;
 
@@ -24,6 +25,14 @@ public:
     }
 
 protected slots:
+
+    /*
+     * Every method regarding the home window
+     * is based on ints provenience, specified
+     * by the three parameters:
+     * generic(:bool), locked(:bool), favorite(:bool)
+     *
+     */
 
     void homeWindow(bool generic, bool locked, bool favorites);
 
@@ -149,9 +158,9 @@ protected slots:
 
 protected:
     // dataBases
-    NotesManager *notesManager = new NotesManager();
-
-    FolderManager *folderManager = new FolderManager();
+    NotesManager *notesManager = new NotesManager(); // dataBase which contains all the notes (saved locally by LsmL system)
+    FolderManager *folderManager = new FolderManager(); // dataBase which contains all the folders an the notes
+    // which they contain (saved locally by LsmL system)
 
     // home page
     QPushButton *addNewNoteBtn;
@@ -202,7 +211,7 @@ protected:
      *
      */
 
-    QLabel *popUpBaseLabel;
+    QWidget *popUpBaseWidget;
     QLabel *titleLabel;
     QTextEdit *newCollectionName;
     QPushButton *saveNewCollection;

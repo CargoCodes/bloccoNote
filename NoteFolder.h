@@ -21,6 +21,8 @@ class NoteFolder {
 public:
     NoteFolder(string folderName) : folderName(folderName) {}
 
+    // all the methods are only getters and setters
+
     void newNote(string title) {
         notesArray.push_back(title);
     }

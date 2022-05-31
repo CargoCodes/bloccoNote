@@ -8,31 +8,32 @@ void NotesManager::scan() {
     if (this->size() > 0)
         this->notes.clear();
 
-    if (not this->mainDataBase.isEmpty()) {
-        auto content = this->mainDataBase.read();
+    if (not this->mainDataBase.isEmpty()) { // reads if the dataBase is not empty
+        auto content = this->mainDataBase.read(); // reads the database
 
-        for (auto &fieldContainer: content) {
-            for (auto &internalField: fieldContainer) {
-                string noteTitle = internalField.first;
+        for (auto &fieldContainer: content) { // goes through all the fields
+            for (auto &internalField: fieldContainer) { // goes through the pairs in the field
+                string noteTitle = internalField.first; // gets the note title
                 string noteContent;
                 bool locked = false;
                 bool favorite = false;
 
-                noteContent = this->mainDataBase.getAttr(noteTitle, "content");
+                noteContent = this->mainDataBase.getAttr(noteTitle, "content"); // sets content
 
-                if (this->mainDataBase.getAttr(noteTitle, "locked") == "true")
+                if (this->mainDataBase.getAttr(noteTitle, "locked") == "true") // sets locked attribute
                     locked = true;
 
-                if (this->mainDataBase.getAttr(noteTitle, "favorite") == "true")
+                if (this->mainDataBase.getAttr(noteTitle, "favorite") == "true") // sets the favorite attribute
                     favorite = true;
 
-                this->addNote(noteTitle, noteContent, locked, favorite);
+                this->addNote(noteTitle, noteContent, locked, favorite); // adds note with attributes to memory
             }
         }
     }
 }
 
 void NotesManager::addNote(const string &title, const string &content, bool locked, bool favorite) {
+    // adds the note to memory without adding it to the dataBase
     Note newNote = Note(title, content);
 
     if (locked)
@@ -44,6 +45,7 @@ void NotesManager::addNote(const string &title, const string &content, bool lock
 }
 
 void NotesManager::newNote(const string &title, const string &content, bool locked, bool favorite) {
+    // adds the note to memory also adding it to the dataBase
     this->mainDataBase.addField(title);
     this->mainDataBase.addAttr(title, "content", content);
 
@@ -67,6 +69,7 @@ void NotesManager::newNote(const string &title, const string &content, bool lock
 }
 
 void NotesManager::editNote(int index, const string &newTitle, const string &newContent) {
+    // edits the note to both memory and dataBase
     if (this->checkIndex(index)) {
         if (not this->notes[index].isLocked()) {
             auto note = this->notes[index];
@@ -82,6 +85,7 @@ void NotesManager::editNote(int index, const string &newTitle, const string &new
 }
 
 void NotesManager::deleteNote(int index) {
+    // removes note from both memory and dataBase
     if (this->checkIndex(index)) {
         this->mainDataBase.removeField(this->notes[index].getTitle());
         if (this->notes.size() > 1) {

@@ -18,6 +18,8 @@ public:
     explicit Note(const string &title, const string &content, LsmL *dataBase = nullptr)
             : title_(title), content_(content) {}
 
+    // methods are only getters and setters
+
     string getTitle() const {
         return title_;
     }

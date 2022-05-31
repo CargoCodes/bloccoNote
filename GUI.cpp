@@ -13,6 +13,7 @@ void GUI::compileScrollArea(bool generic, bool locked, bool favorites) {
             for (int i = 0; i < notesManager->size(); i++) { // for each note in the database creates a idButton
                 auto note = (*notesManager)[i];
 
+                // adds a character to the displayed title if note is locked or favorite
                 string title = note.getTitle();
 
                 if (note.isFavorite())
@@ -292,7 +293,7 @@ void GUI::editGenericNote(int index, bool generic, bool locked, bool favorites) 
     editNote->show();
 
     editAddToFavorites = new QPushButton("Add To Favorites", this);
-    connect(editAddToFavorites, &QPushButton::clicked, this, [this, index, generic, locked, favorites] { // FIXME
+    connect(editAddToFavorites, &QPushButton::clicked, this, [this, index, generic, locked, favorites] {
         notesManager->favorite(index);
         destroyEditNote(true, false, false);
         homeWindow(generic, locked, favorites);
@@ -304,7 +305,7 @@ void GUI::editGenericNote(int index, bool generic, bool locked, bool favorites) 
     editAddToFavorites->show();
 
     editAddToLocked = new QPushButton("Add To Locked", this);
-    connect(editAddToLocked, &QPushButton::clicked, this, [this, index, generic, locked, favorites] { // FIXME
+    connect(editAddToLocked, &QPushButton::clicked, this, [this, index, generic, locked, favorites] {
         notesManager->lock(index);
         destroyEditNote(true, false, false);
         homeWindow(generic, locked, favorites);
@@ -352,7 +353,7 @@ void GUI::editLockedNote(int index, bool generic, bool locked, bool favorites) {
     textFont.setPointSize(20);
 
     showUnlockNote = new QPushButton("Unlock", this);
-    connect(showUnlockNote, &QPushButton::clicked, this, [this, index, generic, locked, favorites] { // FIXME
+    connect(showUnlockNote, &QPushButton::clicked, this, [this, index, generic, locked, favorites] {
         this->notesManager->unlock(index);
         destroyEditNote(false, true, false);
         homeWindow(generic, locked, favorites);
@@ -453,7 +454,7 @@ void GUI::editFavoriteNote(int index, bool generic, bool locked, bool favorites)
     editNote->show();
 
     removeFromFavorites = new QPushButton("Remove From Favorites", this);
-    connect(removeFromFavorites, &QPushButton::clicked, this, [this, index, generic, locked, favorites] { // FIXME
+    connect(removeFromFavorites, &QPushButton::clicked, this, [this, index, generic, locked, favorites] {
         this->notesManager->removeFromFavorites(index);
         destroyEditNote(false, false, true);
         homeWindow(generic, locked, favorites);
@@ -567,20 +568,20 @@ void GUI::collectionHomeWindow() {
 void GUI::newCollectionPopUp() {
     QFont font;
     font.setPointSize(18);
-    popUpBaseLabel = new QLabel();
-    popUpBaseLabel->setFixedSize(400, 200);
-    popUpBaseLabel->setStyleSheet("background-color: #ABD1C6");
-    popUpBaseLabel->setWindowTitle("Create New Collection");
-    popUpBaseLabel->show();
+    popUpBaseWidget = new QWidget();
+    popUpBaseWidget->setFixedSize(400, 200);
+    popUpBaseWidget->setStyleSheet("background-color: #ABD1C6");
+    popUpBaseWidget->setWindowTitle("Create New Collection");
+    popUpBaseWidget->show();
 
-    titleLabel = new QLabel("New Collection", popUpBaseLabel);
+    titleLabel = new QLabel("New Collection", popUpBaseWidget);
     titleLabel->setStyleSheet("color: black;");
     titleLabel->setAlignment(Qt::AlignCenter);
     titleLabel->move(150, 10);
     titleLabel->setFont(font);
     titleLabel->show();
 
-    newCollectionName = new QTextEdit(popUpBaseLabel);
+    newCollectionName = new QTextEdit(popUpBaseWidget);
     newCollectionName->setPlaceholderText("New Collection Name");
     newCollectionName->setStyleSheet("background-color: #004643");
     newCollectionName->setFixedSize(350, 50);
@@ -588,10 +589,10 @@ void GUI::newCollectionPopUp() {
     newCollectionName->move(25, 50);
     newCollectionName->show();
 
-    saveNewCollection = new QPushButton("Save", popUpBaseLabel);
+    saveNewCollection = new QPushButton("Save", popUpBaseWidget);
     connect(saveNewCollection, &QPushButton::clicked, this, [this] {
         folderManager->addNewFolder((newCollectionName->toPlainText()).toStdString());
-        popUpBaseLabel->hide();
+        popUpBaseWidget->hide();
         destroyCollectionHomeWindow();
         collectionHomeWindow();
     });
@@ -601,9 +602,9 @@ void GUI::newCollectionPopUp() {
     saveNewCollection->setFont(font);
     saveNewCollection->show();
 
-    exitNewCollectionPopUp = new QPushButton("Cancel", popUpBaseLabel);
+    exitNewCollectionPopUp = new QPushButton("Cancel", popUpBaseWidget);
     connect(exitNewCollectionPopUp, &QPushButton::clicked, this, [this] {
-        popUpBaseLabel->hide();
+        popUpBaseWidget->hide();
     });
     exitNewCollectionPopUp->setStyleSheet("background-color: #7F5AF0");
     exitNewCollectionPopUp->setFixedSize(125, 50);

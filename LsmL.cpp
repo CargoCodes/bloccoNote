@@ -162,7 +162,9 @@ map<string, string> LsmL::getField(const string &fieldName) {
     map<string, string> res;
     string fileContent = readFile(); // reads the file
     int fieldIndex = int(fileContent.find("[$] \"" + fieldName + "\" ::>"));
-    if (fieldIndex > 0) {
+    if (fieldIndex > 0) { // checks if the field is in the db
+        // isolates the field from the rest of the file
+
         int endFieldIndex = fieldIndex + ("[$] \"" + fieldName + "\" ::>").length();
 
         while (subString(fileContent, endFieldIndex, endFieldIndex + 2) != "#>"
@@ -172,6 +174,8 @@ map<string, string> LsmL::getField(const string &fieldName) {
         }
 
         string isolatedClass = subString(fileContent, fieldIndex, endFieldIndex);
+
+        // reads the field and puts the attributes in a map
         int parenthesesIndex = int(isolatedClass.find("("));
         if (parenthesesIndex > 0) {
             int index = parenthesesIndex;
@@ -368,6 +372,7 @@ bool LsmL::removeField(const string &fieldName) {
 }
 
 bool LsmL::removeAttr(const string &fieldName, const string &attrName) {
+    this->content = readFile();
     int fieldIndex = this->content.find("[$] \"" + fieldName + "\" ::>");
     if (fieldIndex > 0) { // checks if the field exists
         string preField = subString(this->content, 0, fieldIndex); // isolates what's after the field
@@ -378,23 +383,23 @@ bool LsmL::removeAttr(const string &fieldName, const string &attrName) {
 
         int endIndex;
 
-        if(endFieldIndex > 0 and endFieldIndex < eofFieldIndex)
+        if (endFieldIndex > 0 and endFieldIndex < eofFieldIndex)
             endIndex = endFieldIndex;
         else
             endIndex = eofFieldIndex;
 
-        string isolatedField = subString(this->content, fieldIndex, endIndex+fieldIndex+5); // isolates the field
-        string afterField = subString(tmp, endFieldIndex, tmp.length()); // isolates what's after the field
+        string isolatedField = subString(this->content, fieldIndex, endIndex + fieldIndex + 5); // isolates the field
+        string afterField = subString(tmp, endIndex, tmp.length()); // isolates what's after the field
 
         int oldAttrIndex = isolatedField.find("(" + attrName + ")");
 
-        if(oldAttrIndex >= 0) { // checks if the attribute exists
+        if (oldAttrIndex >= 0) { // checks if the attribute exists
             int virgStart = oldAttrIndex;
-            while(isolatedField[virgStart] != '"')
+            while (isolatedField[virgStart] != '"')
                 virgStart += 1;
 
-            int virgEnd = virgStart+1;
-            while(isolatedField[virgEnd] != '"')
+            int virgEnd = virgStart + 1;
+            while (isolatedField[virgEnd] != '"')
                 virgEnd += 1;
 
             isolatedField = subString(isolatedField, 0, oldAttrIndex) // updates the field
@@ -412,7 +417,10 @@ bool LsmL::removeAttr(const string &fieldName, const string &attrName) {
 
 bool LsmL::isEmpty() {
     string fileContent = readFile();
+    // checks for the presence of fields and/or attributes
     if (fileContent.find("[$]") < 0 and fileContent.find("::>") < 0 and fileContent.find("->") < 0)
+        // if not found, returns true
         return true;
+    // otherways returns false
     return false;
 }

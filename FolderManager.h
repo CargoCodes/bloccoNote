@@ -53,12 +53,15 @@ public:
     void deleteNote(string title) {
         auto folderName = this->isIn(title);
         if (not folderName.empty()) {
+
             folderDataBase.removeAttr(folderName, title);
+            cout << "removed" << endl;
             updated = true;
         }
     }
 
     void addNewFolder(string folderName) {
+        // adds folder to both memory and dataBase
         folderDataBase.addField(folderName);
         auto newFolder = NoteFolder(folderName);
         folders.push_back(newFolder);
@@ -66,6 +69,7 @@ public:
     }
 
     void removeFolder(int index) {
+        // removes folder from both memory and dataBase
         if (checkIndex(index)) {
             auto end = this->folders.begin();
             for (int i = 0; i <= index; i++)
