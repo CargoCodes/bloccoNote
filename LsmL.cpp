@@ -104,6 +104,7 @@ vector<string> LsmL::getAttr_() {
         throw runtime_error("\"->\" must between attribute name and attribute");
 }
 
+/*
 vector<map<string, map<string, string>>> LsmL::read() {
     this->pos = 0;
     this->text.clear();
@@ -139,6 +140,7 @@ vector<map<string, map<string, string>>> LsmL::read() {
         throw runtime_error("Can't open file \"" + this->filePath + "\"");
 }
 
+
 void LsmL::write(const vector<map<string, map<string, string>>> &toWriteContent) {
     string toWrite = "<#\n"; // SOF
 
@@ -157,6 +159,7 @@ void LsmL::write(const vector<map<string, map<string, string>>> &toWriteContent)
     }
     writeFile(toWrite);
 }
+*/
 
 map<string, string> LsmL::getField(const string &fieldName) {
     map<string, string> res;
@@ -212,7 +215,7 @@ map<string, string> LsmL::getField(const string &fieldName) {
             throw runtime_error("( not found");
         return res;
     } else
-        throw runtime_error("Field not found");
+        throw FieldNotFoundError("Field \"" + fieldName + "\" not found");
 }
 
 string LsmL::getAttr(const string &fieldName, const string &attrName) {
@@ -239,10 +242,10 @@ string LsmL::getAttr(const string &fieldName, const string &attrName) {
                 contentEndIndex++;
             }
         } else
-            throw runtime_error("Attribute not found");
+            throw AttributeNotFoundError("Attribute \"" + attrName + "\" not found");
         return res;
     } else
-        throw runtime_error("Field not found");
+        throw FieldNotFoundError("Field \"" + fieldName + "\" not found");
 }
 
 bool LsmL::addField(const string &fieldName) {
@@ -284,8 +287,9 @@ bool LsmL::addAttr(const string &fieldName, const string &attrName, const string
 
             return writeFile(this->content);
         }
+        return false;
     } else
-        throw FieldNotFoundError("Field not found");
+        throw FieldNotFoundError("Field \"" + fieldName + "\" not found");
 }
 
 bool LsmL::editField(const string &fieldName, const string &newFieldName) {
@@ -417,8 +421,12 @@ bool LsmL::removeAttr(const string &fieldName, const string &attrName) {
 
 bool LsmL::isEmpty() {
     string fileContent = readFile();
+    auto fieldIndex = fileContent.find("[$]");
+    auto endFieldIndex = fileContent.find("::>");
+    auto attrIndex = fileContent.find("->");
     // checks for the presence of fields and/or attributes
-    if (fileContent.find("[$]") < 0 and fileContent.find("::>") < 0 and fileContent.find("->") < 0)
+    if ((fieldIndex > fileContent.length()) and (endFieldIndex > fileContent.length()) and
+        (attrIndex > fileContent.length()))
         // if not found, returns true
         return true;
     // otherways returns false

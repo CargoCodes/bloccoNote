@@ -1,3 +1,11 @@
 /Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/core.dir
 /Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir
+/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/CMakeFiles/rebuild_cache.dir
+/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/CMakeFiles/edit_cache.dir
+/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/CMakeFiles/bloccoNoteTest.dir
+/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/CMakeFiles/rebuild_cache.dir
+/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/CMakeFiles/edit_cache.dir
+/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/CMakeFiles/gtest_main.dir
+/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/CMakeFiles/gtest.dir

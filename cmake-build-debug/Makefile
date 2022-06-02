@@ -117,6 +117,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named core
+
+# Build rule for target.
+core: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 core
+.PHONY : core
+
+# fast build rule for target.
+core/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/build
+.PHONY : core/fast
+
+#=============================================================================
 # Target rules for targets named bloccoNote
 
 # Build rule for target.
@@ -128,6 +141,45 @@ bloccoNote: cmake_check_build_system
 bloccoNote/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/build
 .PHONY : bloccoNote/fast
+
+#=============================================================================
+# Target rules for targets named bloccoNoteTest
+
+# Build rule for target.
+bloccoNoteTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bloccoNoteTest
+.PHONY : bloccoNoteTest
+
+# fast build rule for target.
+bloccoNoteTest/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/bloccoNoteTest.dir/build.make test/CMakeFiles/bloccoNoteTest.dir/build
+.PHONY : bloccoNoteTest/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) $(MAKESILENT) -f test/lib/googletest/CMakeFiles/gtest_main.dir/build.make test/lib/googletest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) $(MAKESILENT) -f test/lib/googletest/CMakeFiles/gtest.dir/build.make test/lib/googletest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
 
 FolderManager.o: FolderManager.cpp.o
 .PHONY : FolderManager.o
@@ -182,6 +234,7 @@ LsmL.o: LsmL.cpp.o
 
 # target to build an object file
 LsmL.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/LsmL.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/LsmL.cpp.o
 .PHONY : LsmL.cpp.o
 
@@ -190,6 +243,7 @@ LsmL.i: LsmL.cpp.i
 
 # target to preprocess a source file
 LsmL.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/LsmL.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/LsmL.cpp.i
 .PHONY : LsmL.cpp.i
 
@@ -198,6 +252,7 @@ LsmL.s: LsmL.cpp.s
 
 # target to generate assembly for a file
 LsmL.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/LsmL.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/LsmL.cpp.s
 .PHONY : LsmL.cpp.s
 
@@ -297,6 +352,78 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+test/LsmLFixture.o: test/LsmLFixture.cpp.o
+.PHONY : test/LsmLFixture.o
+
+# target to build an object file
+test/LsmLFixture.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/test/LsmLFixture.cpp.o
+.PHONY : test/LsmLFixture.cpp.o
+
+test/LsmLFixture.i: test/LsmLFixture.cpp.i
+.PHONY : test/LsmLFixture.i
+
+# target to preprocess a source file
+test/LsmLFixture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/test/LsmLFixture.cpp.i
+.PHONY : test/LsmLFixture.cpp.i
+
+test/LsmLFixture.s: test/LsmLFixture.cpp.s
+.PHONY : test/LsmLFixture.s
+
+# target to generate assembly for a file
+test/LsmLFixture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/test/LsmLFixture.cpp.s
+.PHONY : test/LsmLFixture.cpp.s
+
+test/LsmLTest.o: test/LsmLTest.cpp.o
+.PHONY : test/LsmLTest.o
+
+# target to build an object file
+test/LsmLTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/test/LsmLTest.cpp.o
+.PHONY : test/LsmLTest.cpp.o
+
+test/LsmLTest.i: test/LsmLTest.cpp.i
+.PHONY : test/LsmLTest.i
+
+# target to preprocess a source file
+test/LsmLTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/test/LsmLTest.cpp.i
+.PHONY : test/LsmLTest.cpp.i
+
+test/LsmLTest.s: test/LsmLTest.cpp.s
+.PHONY : test/LsmLTest.s
+
+# target to generate assembly for a file
+test/LsmLTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/test/LsmLTest.cpp.s
+.PHONY : test/LsmLTest.cpp.s
+
+test/runAllTests.o: test/runAllTests.cpp.o
+.PHONY : test/runAllTests.o
+
+# target to build an object file
+test/runAllTests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/test/runAllTests.cpp.o
+.PHONY : test/runAllTests.cpp.o
+
+test/runAllTests.i: test/runAllTests.cpp.i
+.PHONY : test/runAllTests.i
+
+# target to preprocess a source file
+test/runAllTests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/test/runAllTests.cpp.i
+.PHONY : test/runAllTests.cpp.i
+
+test/runAllTests.s: test/runAllTests.cpp.s
+.PHONY : test/runAllTests.s
+
+# target to generate assembly for a file
+test/runAllTests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/test/runAllTests.cpp.s
+.PHONY : test/runAllTests.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -306,6 +433,10 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... bloccoNote"
+	@echo "... bloccoNoteTest"
+	@echo "... core"
+	@echo "... gtest"
+	@echo "... gtest_main"
 	@echo "... FolderManager.o"
 	@echo "... FolderManager.i"
 	@echo "... FolderManager.s"
@@ -327,6 +458,15 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... test/LsmLFixture.o"
+	@echo "... test/LsmLFixture.i"
+	@echo "... test/LsmLFixture.s"
+	@echo "... test/LsmLTest.o"
+	@echo "... test/LsmLTest.i"
+	@echo "... test/LsmLTest.s"
+	@echo "... test/runAllTests.o"
+	@echo "... test/runAllTests.i"
+	@echo "... test/runAllTests.s"
 .PHONY : help
 
 

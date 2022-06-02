@@ -5,7 +5,7 @@
 		<Option title="bloccoNote"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\Cellar\;CMake Files\..\..\..\..\usr\local\Cellar\qt@5\;CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\;CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\;CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\;CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Widgets\;CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\;CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Core\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\Cellar\;CMake Files\..\..\..\..\usr\local\Cellar\qt@5\;CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\;CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\;CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\;CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Widgets\;CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Gui\;CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Core\;CMake Files\test\;CMake Files\test\lib\;CMake Files\test\lib\googletest\;CMake Files\test\lib\googletest\cmake\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug"/>
@@ -32,6 +32,52 @@
 				<Option type="4"/>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="core">
+				<Option output="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/libcore.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug"/>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 core"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="core/fast">
+				<Option output="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/libcore.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug"/>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 core/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -105,6 +151,152 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="bloccoNoteTest">
+				<Option output="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/bloccoNoteTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test"/>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/test"/>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/test/lib/googletest"/>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/test/lib/googletest/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 bloccoNoteTest"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="bloccoNoteTest/fast">
+				<Option output="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/bloccoNoteTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test"/>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/test"/>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/test/lib/googletest"/>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/test/lib/googletest/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 bloccoNoteTest/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest_main">
+				<Option output="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/libgtest_maind.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest"/>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/test/lib/googletest"/>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/test/lib/googletest/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/Makefile&quot;  VERBOSE=1 gtest_main"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest_main/fast">
+				<Option output="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/libgtest_maind.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest"/>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/test/lib/googletest"/>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/test/lib/googletest/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/Makefile&quot;  VERBOSE=1 gtest_main/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest">
+				<Option output="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/libgtestd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest"/>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/test/lib/googletest"/>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/test/lib/googletest/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/Makefile&quot;  VERBOSE=1 gtest"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest/fast">
+				<Option output="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/libgtestd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest"/>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/test/lib/googletest"/>
+					<Add directory="/Users/Codes.py/CLionProjects/bloccoNote/test/lib/googletest/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/Makefile&quot;  VERBOSE=1 gtest/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/test/lib/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/FolderManager.cpp">
 			<Option target="bloccoNote"/>
@@ -119,9 +311,11 @@
 			<Option target="bloccoNote"/>
 		</Unit>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/LsmL.cpp">
+			<Option target="core"/>
 			<Option target="bloccoNote"/>
 		</Unit>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/LsmL.h">
+			<Option target="core"/>
 			<Option target="bloccoNote"/>
 		</Unit>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/Note.cpp">
@@ -144,6 +338,23 @@
 		</Unit>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/main.cpp">
 			<Option target="bloccoNote"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/test/LsmLFixture.cpp">
+			<Option target="bloccoNote"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/test/LsmLTest.cpp">
+			<Option target="bloccoNote"/>
+			<Option target="bloccoNoteTest"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/test/lib/googletest/src/gtest-all.cc">
+			<Option target="gtest"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/test/lib/googletest/src/gtest_main.cc">
+			<Option target="gtest_main"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/test/runAllTests.cpp">
+			<Option target="bloccoNote"/>
+			<Option target="bloccoNoteTest"/>
 		</Unit>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
@@ -246,6 +457,15 @@
 		</Unit>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/../../../../usr/local/Cellar/qt@5/5.15.3/lib/cmake/Qt5Core/Qt5CoreMacros.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\Cellar\qt@5\5.15.3\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\test\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/test/lib/googletest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\test\lib\googletest\"/>
+		</Unit>
+		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/test/lib/googletest/cmake/internal_utils.cmake">
+			<Option virtualFolder="CMake Files\test\lib\googletest\cmake\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

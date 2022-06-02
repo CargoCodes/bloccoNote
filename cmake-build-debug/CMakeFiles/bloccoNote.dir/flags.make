@@ -6,5 +6,5 @@ CXX_DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
 
 CXX_INCLUDES = -I/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug -I/Users/Codes.py/CLionProjects/bloccoNote -iframework /usr/local/Cellar/qt@5/5.15.3/lib -isystem /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/Headers -isystem /usr/local/Cellar/qt@5/5.15.3/lib/QtGui.framework/Headers -isystem /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers -isystem /usr/local/Cellar/qt@5/5.15.3/lib/QtCore.framework/Headers -isystem /usr/local/Cellar/qt@5/5.15.3/./mkspecs/macx-clang
 
-CXX_FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIC -std=gnu++14
+CXX_FLAGS =  -std=c++11 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fPIC -std=gnu++14
 

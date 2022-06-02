@@ -31,9 +31,9 @@ public:
         return *this;
     }
 
-    vector<map<string, map<string, string>>> read();
+    //vector<map<string, map<string, string>>> read();
 
-    void write(const vector<map<string, map<string, string>>> &content);
+    //void write(const vector<map<string, map<string, string>>> &content);
 
     map<string, string> getField(const string &fieldName);
 
@@ -50,9 +50,30 @@ public:
 
     bool removeField(const string &fieldName);
 
-    bool removeAttr(const string& fieldName, const string& attrName);
+    bool removeAttr(const string &fieldName, const string &attrName);
 
     bool isEmpty();
+
+    bool clearFile() {
+        this->pos = 0;
+        this->content = "<#\n#>";
+        this->text = "<#\n#>";
+        return writeFile("<#\n#>");
+    }
+
+    class FieldNotFoundError : runtime_error {
+    public:
+        explicit FieldNotFoundError(const string &message) : runtime_error(message.c_str()) {
+            cerr << message << endl;
+        }
+    };
+
+    class AttributeNotFoundError : runtime_error {
+    public:
+        explicit AttributeNotFoundError(const string &message) : runtime_error(message) {
+            cerr << message << endl;
+        }
+    };
 
 private:
     string filePath;
@@ -93,20 +114,6 @@ private:
         }
         return returnList;
     }
-
-    class FieldNotFoundError : runtime_error {
-    public:
-        explicit FieldNotFoundError(const string& message) : runtime_error(message.c_str()) {
-            cerr << message << endl;
-        }
-    };
-
-    class AttributeNotFoundError : runtime_error {
-    public:
-        explicit AttributeNotFoundError(const string& message) : runtime_error(message) {
-            cerr << message << endl;
-        }
-    };
 
     static string subString(const string& string, int startIndex, int endIndex) {
         if (startIndex >= 0 and startIndex <= string.length() and endIndex >= 0 and endIndex <= string.length()) {
