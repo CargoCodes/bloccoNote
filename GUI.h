@@ -40,24 +40,34 @@ protected slots:
 
     void destroyHome(bool generic, bool locked, bool favorites) {
         addNewNoteBtn->hide();
+        delete addNewNoteBtn;
         if (generic) {
             collections->hide();
+            delete collections;
             favoriteNotes->hide();
+            delete favoriteNotes;
             lockedNotes->hide();
+            delete lockedNotes;
         }
         if (locked or favorites) {
             backToHome->hide();
+            delete bachToHome;
         }
         scrollArea->hide();
+        delete scrollArea;
     }
 
     void addNewNote(bool generic, bool locked, bool favorites);
 
     void destroyAddNewNote() {
         saveNote->hide();
+        delete saveNte;
         cancel->hide();
+        delete cancel;
         noteTitle->hide();
+        delete noteTitle;
         noteContent->hide();
+        delete noteContent;
     }
 
     void editGenericNote(int index, bool generic, bool locked, bool favorites);
@@ -65,24 +75,35 @@ protected slots:
     void editLockedNote(int index, bool generic, bool locked, bool favorites);
 
     void editFavoriteNote(int index, bool generic, bool locked, bool favorites);
-
     void destroyEditNote(bool generic, bool locked, bool favorites) {
         if (generic or favorites) {
             deleteNote->hide();
+            delete deleteNote;
             editNote->hide();
+            delete editNote;
         }
         if (generic) {
             editAddToLocked->hide();
+            delete editNoteContent;
             editAddToFavorites->hide();
+            delete editAddToFavorites;
         }
-        if (favorites)
+        if (favorites) {
             removeFromFavorites->hide();
-        if (locked)
+            delete removeFromFavorites;
+        }
+        if (locked) {
             showUnlockNote->hide();
+            delete showUnlockNote;
+        }
         exitEdit->hide();
+        delete exitEdit;
         addToCollection->hide();
+        delete addToCollection;
         editNoteTitle->hide();
+        delete editNoteTitle;
         editNoteContent->hide();
+        delete editNoteContent;
     }
 
     void changeNote(int index, std::string title, std::string content) {
@@ -114,7 +135,9 @@ protected slots:
         collectionToHome->hide();
         delete collectionToHome;
         newCollection->hide();
+        delete newCollection;
         collectionScrollArea->hide();
+        delete collectionScrollArea;
     }
 
     void newCollectionPopUp();
@@ -129,9 +152,13 @@ protected slots:
 
     void destroyFolderHomeWindow() {
         backToCollections->hide();
+        delete backToCollection;
         removeFolder->hide();
+        delete removeFolder;
         cover->hide();
+        delete cover;
         folderScrollArea->hide();
+        delete folderScrollArea;
     }
 
     /*
@@ -153,6 +180,7 @@ protected slots:
 
     void destroyAddtoCollectionPopUp() {
         addToCollectionBasePopUp->hide();
+        delete addToCollectionBasePopUp;
     }
 
 
