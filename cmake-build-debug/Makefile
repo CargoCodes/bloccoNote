@@ -352,78 +352,6 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-test/LsmLFixture.o: test/LsmLFixture.cpp.o
-.PHONY : test/LsmLFixture.o
-
-# target to build an object file
-test/LsmLFixture.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/test/LsmLFixture.cpp.o
-.PHONY : test/LsmLFixture.cpp.o
-
-test/LsmLFixture.i: test/LsmLFixture.cpp.i
-.PHONY : test/LsmLFixture.i
-
-# target to preprocess a source file
-test/LsmLFixture.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/test/LsmLFixture.cpp.i
-.PHONY : test/LsmLFixture.cpp.i
-
-test/LsmLFixture.s: test/LsmLFixture.cpp.s
-.PHONY : test/LsmLFixture.s
-
-# target to generate assembly for a file
-test/LsmLFixture.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/test/LsmLFixture.cpp.s
-.PHONY : test/LsmLFixture.cpp.s
-
-test/LsmLTest.o: test/LsmLTest.cpp.o
-.PHONY : test/LsmLTest.o
-
-# target to build an object file
-test/LsmLTest.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/test/LsmLTest.cpp.o
-.PHONY : test/LsmLTest.cpp.o
-
-test/LsmLTest.i: test/LsmLTest.cpp.i
-.PHONY : test/LsmLTest.i
-
-# target to preprocess a source file
-test/LsmLTest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/test/LsmLTest.cpp.i
-.PHONY : test/LsmLTest.cpp.i
-
-test/LsmLTest.s: test/LsmLTest.cpp.s
-.PHONY : test/LsmLTest.s
-
-# target to generate assembly for a file
-test/LsmLTest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/test/LsmLTest.cpp.s
-.PHONY : test/LsmLTest.cpp.s
-
-test/runAllTests.o: test/runAllTests.cpp.o
-.PHONY : test/runAllTests.o
-
-# target to build an object file
-test/runAllTests.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/test/runAllTests.cpp.o
-.PHONY : test/runAllTests.cpp.o
-
-test/runAllTests.i: test/runAllTests.cpp.i
-.PHONY : test/runAllTests.i
-
-# target to preprocess a source file
-test/runAllTests.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/test/runAllTests.cpp.i
-.PHONY : test/runAllTests.cpp.i
-
-test/runAllTests.s: test/runAllTests.cpp.s
-.PHONY : test/runAllTests.s
-
-# target to generate assembly for a file
-test/runAllTests.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/test/runAllTests.cpp.s
-.PHONY : test/runAllTests.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -458,15 +386,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... test/LsmLFixture.o"
-	@echo "... test/LsmLFixture.i"
-	@echo "... test/LsmLFixture.s"
-	@echo "... test/LsmLTest.o"
-	@echo "... test/LsmLTest.i"
-	@echo "... test/LsmLTest.s"
-	@echo "... test/runAllTests.o"
-	@echo "... test/runAllTests.i"
-	@echo "... test/runAllTests.s"
 .PHONY : help
 
 

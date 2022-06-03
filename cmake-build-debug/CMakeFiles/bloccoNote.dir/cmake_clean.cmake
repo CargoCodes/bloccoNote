@@ -6,9 +6,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/bloccoNote.dir/NoteFolder.cpp.o"
   "CMakeFiles/bloccoNote.dir/NotesManager.cpp.o"
   "CMakeFiles/bloccoNote.dir/main.cpp.o"
-  "CMakeFiles/bloccoNote.dir/test/LsmLFixture.cpp.o"
-  "CMakeFiles/bloccoNote.dir/test/LsmLTest.cpp.o"
-  "CMakeFiles/bloccoNote.dir/test/runAllTests.cpp.o"
   "bloccoNote"
   "bloccoNote.pdb"
 )

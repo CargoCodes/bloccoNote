@@ -157,45 +157,6 @@ CMakeFiles/bloccoNote.dir/NotesManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bloccoNote.dir/NotesManager.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Codes.py/CLionProjects/bloccoNote/NotesManager.cpp -o CMakeFiles/bloccoNote.dir/NotesManager.cpp.s
 
-CMakeFiles/bloccoNote.dir/test/runAllTests.cpp.o: CMakeFiles/bloccoNote.dir/flags.make
-CMakeFiles/bloccoNote.dir/test/runAllTests.cpp.o: ../test/runAllTests.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/bloccoNote.dir/test/runAllTests.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bloccoNote.dir/test/runAllTests.cpp.o -c /Users/Codes.py/CLionProjects/bloccoNote/test/runAllTests.cpp
-
-CMakeFiles/bloccoNote.dir/test/runAllTests.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bloccoNote.dir/test/runAllTests.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Codes.py/CLionProjects/bloccoNote/test/runAllTests.cpp > CMakeFiles/bloccoNote.dir/test/runAllTests.cpp.i
-
-CMakeFiles/bloccoNote.dir/test/runAllTests.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bloccoNote.dir/test/runAllTests.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Codes.py/CLionProjects/bloccoNote/test/runAllTests.cpp -o CMakeFiles/bloccoNote.dir/test/runAllTests.cpp.s
-
-CMakeFiles/bloccoNote.dir/test/LsmLFixture.cpp.o: CMakeFiles/bloccoNote.dir/flags.make
-CMakeFiles/bloccoNote.dir/test/LsmLFixture.cpp.o: ../test/LsmLFixture.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/bloccoNote.dir/test/LsmLFixture.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bloccoNote.dir/test/LsmLFixture.cpp.o -c /Users/Codes.py/CLionProjects/bloccoNote/test/LsmLFixture.cpp
-
-CMakeFiles/bloccoNote.dir/test/LsmLFixture.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bloccoNote.dir/test/LsmLFixture.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Codes.py/CLionProjects/bloccoNote/test/LsmLFixture.cpp > CMakeFiles/bloccoNote.dir/test/LsmLFixture.cpp.i
-
-CMakeFiles/bloccoNote.dir/test/LsmLFixture.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bloccoNote.dir/test/LsmLFixture.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Codes.py/CLionProjects/bloccoNote/test/LsmLFixture.cpp -o CMakeFiles/bloccoNote.dir/test/LsmLFixture.cpp.s
-
-CMakeFiles/bloccoNote.dir/test/LsmLTest.cpp.o: CMakeFiles/bloccoNote.dir/flags.make
-CMakeFiles/bloccoNote.dir/test/LsmLTest.cpp.o: ../test/LsmLTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/bloccoNote.dir/test/LsmLTest.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bloccoNote.dir/test/LsmLTest.cpp.o -c /Users/Codes.py/CLionProjects/bloccoNote/test/LsmLTest.cpp
-
-CMakeFiles/bloccoNote.dir/test/LsmLTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bloccoNote.dir/test/LsmLTest.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Codes.py/CLionProjects/bloccoNote/test/LsmLTest.cpp > CMakeFiles/bloccoNote.dir/test/LsmLTest.cpp.i
-
-CMakeFiles/bloccoNote.dir/test/LsmLTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bloccoNote.dir/test/LsmLTest.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Codes.py/CLionProjects/bloccoNote/test/LsmLTest.cpp -o CMakeFiles/bloccoNote.dir/test/LsmLTest.cpp.s
-
 # Object files for target bloccoNote
 bloccoNote_OBJECTS = \
 "CMakeFiles/bloccoNote.dir/main.cpp.o" \
@@ -204,10 +165,7 @@ bloccoNote_OBJECTS = \
 "CMakeFiles/bloccoNote.dir/GUI.cpp.o" \
 "CMakeFiles/bloccoNote.dir/NoteFolder.cpp.o" \
 "CMakeFiles/bloccoNote.dir/FolderManager.cpp.o" \
-"CMakeFiles/bloccoNote.dir/NotesManager.cpp.o" \
-"CMakeFiles/bloccoNote.dir/test/runAllTests.cpp.o" \
-"CMakeFiles/bloccoNote.dir/test/LsmLFixture.cpp.o" \
-"CMakeFiles/bloccoNote.dir/test/LsmLTest.cpp.o"
+"CMakeFiles/bloccoNote.dir/NotesManager.cpp.o"
 
 # External object files for target bloccoNote
 bloccoNote_EXTERNAL_OBJECTS =
@@ -219,16 +177,13 @@ bloccoNote: CMakeFiles/bloccoNote.dir/GUI.cpp.o
 bloccoNote: CMakeFiles/bloccoNote.dir/NoteFolder.cpp.o
 bloccoNote: CMakeFiles/bloccoNote.dir/FolderManager.cpp.o
 bloccoNote: CMakeFiles/bloccoNote.dir/NotesManager.cpp.o
-bloccoNote: CMakeFiles/bloccoNote.dir/test/runAllTests.cpp.o
-bloccoNote: CMakeFiles/bloccoNote.dir/test/LsmLFixture.cpp.o
-bloccoNote: CMakeFiles/bloccoNote.dir/test/LsmLTest.cpp.o
 bloccoNote: CMakeFiles/bloccoNote.dir/build.make
 bloccoNote: /usr/local/Cellar/qt@5/5.15.3/lib/QtWidgets.framework/QtWidgets
 bloccoNote: libcore.a
 bloccoNote: /usr/local/Cellar/qt@5/5.15.3/lib/QtGui.framework/QtGui
 bloccoNote: /usr/local/Cellar/qt@5/5.15.3/lib/QtCore.framework/QtCore
 bloccoNote: CMakeFiles/bloccoNote.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable bloccoNote"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable bloccoNote"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/bloccoNote.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

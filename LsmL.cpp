@@ -104,7 +104,6 @@ vector<string> LsmL::getAttr_() {
         throw runtime_error("\"->\" must between attribute name and attribute");
 }
 
-/*
 vector<map<string, map<string, string>>> LsmL::read() {
     this->pos = 0;
     this->text.clear();
@@ -140,7 +139,7 @@ vector<map<string, map<string, string>>> LsmL::read() {
         throw runtime_error("Can't open file \"" + this->filePath + "\"");
 }
 
-
+/*
 void LsmL::write(const vector<map<string, map<string, string>>> &toWriteContent) {
     string toWrite = "<#\n"; // SOF
 
@@ -242,7 +241,7 @@ string LsmL::getAttr(const string &fieldName, const string &attrName) {
                 contentEndIndex++;
             }
         } else
-            throw AttributeNotFoundError("Attribute \"" + attrName + "\" not found");
+            throw AttributeNotFoundError("Attribute \"" + attrName + "\" -- - not found");
         return res;
     } else
         throw FieldNotFoundError("Field \"" + fieldName + "\" not found");

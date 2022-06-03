@@ -13,7 +13,7 @@ add_subdirectory(test)
 
 find_package(Qt5Widgets REQUIRED)
 
-add_executable(bloccoNote main.cpp Note.cpp Note.h LsmL.cpp LsmL.h GUI.cpp GUI.h NoteFolder.cpp NoteFolder.h FolderManager.cpp FolderManager.h NotesManager.cpp NotesManager.h test/runAllTests.cpp test/LsmLFixture.cpp test/LsmLTest.cpp)
+add_executable(bloccoNote main.cpp Note.cpp Note.h LsmL.cpp LsmL.h GUI.cpp GUI.h NoteFolder.cpp NoteFolder.h FolderManager.cpp FolderManager.h NotesManager.cpp NotesManager.h)
 
 add_library(core ${SOURCE_FILES})
 

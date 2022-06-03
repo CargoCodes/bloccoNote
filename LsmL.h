@@ -31,7 +31,7 @@ public:
         return *this;
     }
 
-    //vector<map<string, map<string, string>>> read();
+    vector<map<string, map<string, string>>> read();
 
     //void write(const vector<map<string, map<string, string>>> &content);
 

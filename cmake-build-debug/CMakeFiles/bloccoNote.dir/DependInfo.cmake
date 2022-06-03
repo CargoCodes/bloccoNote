@@ -15,9 +15,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/Codes.py/CLionProjects/bloccoNote/NoteFolder.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/NoteFolder.cpp.o"
   "/Users/Codes.py/CLionProjects/bloccoNote/NotesManager.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/NotesManager.cpp.o"
   "/Users/Codes.py/CLionProjects/bloccoNote/main.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/main.cpp.o"
-  "/Users/Codes.py/CLionProjects/bloccoNote/test/LsmLFixture.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/test/LsmLFixture.cpp.o"
-  "/Users/Codes.py/CLionProjects/bloccoNote/test/LsmLTest.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/test/LsmLTest.cpp.o"
-  "/Users/Codes.py/CLionProjects/bloccoNote/test/runAllTests.cpp" "/Users/Codes.py/CLionProjects/bloccoNote/cmake-build-debug/CMakeFiles/bloccoNote.dir/test/runAllTests.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

@@ -339,11 +339,7 @@
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/main.cpp">
 			<Option target="bloccoNote"/>
 		</Unit>
-		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/test/LsmLFixture.cpp">
-			<Option target="bloccoNote"/>
-		</Unit>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/test/LsmLTest.cpp">
-			<Option target="bloccoNote"/>
 			<Option target="bloccoNoteTest"/>
 		</Unit>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/test/lib/googletest/src/gtest-all.cc">
@@ -353,7 +349,6 @@
 			<Option target="gtest_main"/>
 		</Unit>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/test/runAllTests.cpp">
-			<Option target="bloccoNote"/>
 			<Option target="bloccoNoteTest"/>
 		</Unit>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/CMakeLists.txt">

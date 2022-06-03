@@ -51,7 +51,7 @@ protected slots:
         }
         if (locked or favorites) {
             backToHome->hide();
-            delete bachToHome;
+            delete backToHome;
         }
         scrollArea->hide();
         delete scrollArea;
@@ -61,7 +61,7 @@ protected slots:
 
     void destroyAddNewNote() {
         saveNote->hide();
-        delete saveNte;
+        delete saveNote;
         cancel->hide();
         delete cancel;
         noteTitle->hide();
@@ -84,7 +84,7 @@ protected slots:
         }
         if (generic) {
             editAddToLocked->hide();
-            delete editNoteContent;
+            delete editAddToLocked;
             editAddToFavorites->hide();
             delete editAddToFavorites;
         }
@@ -152,7 +152,7 @@ protected slots:
 
     void destroyFolderHomeWindow() {
         backToCollections->hide();
-        delete backToCollection;
+        delete backToCollections;
         removeFolder->hide();
         delete removeFolder;
         cover->hide();
