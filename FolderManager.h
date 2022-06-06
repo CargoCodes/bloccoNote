@@ -32,13 +32,13 @@ public:
         }
     }
 
-    void editNote(int folderIndex, string noteTitle, string newTitle) {
+    /*void editNote(int folderIndex, string noteTitle, string newTitle) {
         if (checkIndex(folderIndex)) {
             string folderName = folders[folderIndex].getFolderName();
             folderDataBase.editAttr(folderName, noteTitle, newTitle);
             updated = true;
         }
-    }
+    }*/
 
     void editNote(string folderName, string noteTitle, string newTitle) {
         for (auto folder: folders) {

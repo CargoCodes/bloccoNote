@@ -15,7 +15,7 @@
 class Note {
 public:
 
-    explicit Note(const string &title, const string &content, LsmL *dataBase = nullptr)
+    explicit Note(const string &title, const string &content)
             : title_(title), content_(content) {}
 
     // methods are only getters and setters

@@ -75,6 +75,7 @@ protected slots:
     void editLockedNote(int index, bool generic, bool locked, bool favorites);
 
     void editFavoriteNote(int index, bool generic, bool locked, bool favorites);
+
     void destroyEditNote(bool generic, bool locked, bool favorites) {
         if (generic or favorites) {
             deleteNote->hide();
@@ -116,10 +117,7 @@ protected slots:
 
     void removeNote(int index) {
         string notetitle = (*notesManager)[index].getTitle();
-        if (folderManager->contains(notetitle)) {
-            auto folderName = folderManager->isIn(notetitle);
-            folderManager->deleteNote(notetitle);
-        }
+        folderManager->deleteNote(notetitle);
         notesManager->deleteNote(index);
     }
 
@@ -229,7 +227,6 @@ protected:
     QWidget *collectionWidget;
     QVBoxLayout *collectionBoxLayout;
     QPushButton *newCollection;
-
 
     void compileCollectionScrollBar();
 
