@@ -128,24 +128,6 @@ TEST(LsmL, removeField) {
     }
 }
 
-/*
-TEST(LsmL, read) {
-    std::map<std::string, std::string> attrs;
-    std::map<std::string, std::map<std::string, std::string>> fields;
-    std::vector<std::map<std::string, std::map<std::string, std::string>>> fieldConts;
-    attrs.insert(std::pair<std::string, std::string>("content", "theContent"));
-    attrs.insert(std::pair<std::string, std::string>("attribute", "theAttribute"));
-    fields.insert(std::pair<std::string, std::map<std::string, std::string>>("field", attrs));
-    fieldConts.push_back(fields);
-
-    lsml.addField("field");
-    lsml.addAttr("field", "content", "theContent");
-    lsml.addAttr("field", "attribute", "theAttribute");
-
-    EXPECT_EQ(lsml.read(), fieldConts);
-}
-*/
-
 TEST(LsmL, clearFile) {
     EXPECT_TRUE(lsml.clearFile());
 }

@@ -64,3 +64,5 @@ private:
 
 
 #endif //BLOCCONOTE_NOTEFOLDER_H
+
+/*\..{[|<->_<'>]|}../*/

@@ -7,3 +7,5 @@ int main(int argc, char **argv) {
     GUI.show();
     app.exec();
 }
+
+/*\..{[|<->_<'>]|}../*/

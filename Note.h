@@ -67,3 +67,5 @@ private:
 
 
 #endif //BLOCCONOTE_NOTE_H
+
+/*\..{[|<->_<'>]|}../*/

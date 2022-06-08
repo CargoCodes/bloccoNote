@@ -125,3 +125,5 @@ private:
 
 
 #endif //BLOCCONOTE_FOLDERMANAGER_H
+
+/*\..{[|<->_<'>]|}../*/

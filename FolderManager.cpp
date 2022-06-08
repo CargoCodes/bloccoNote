@@ -29,3 +29,5 @@ FolderManager::FolderManager() {
         }
     }
 }
+
+/*\..{[|<->_<'>]|}../*/

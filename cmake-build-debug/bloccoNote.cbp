@@ -318,13 +318,7 @@
 			<Option target="core"/>
 			<Option target="bloccoNote"/>
 		</Unit>
-		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/Note.cpp">
-			<Option target="bloccoNote"/>
-		</Unit>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/Note.h">
-			<Option target="bloccoNote"/>
-		</Unit>
-		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/NoteFolder.cpp">
 			<Option target="bloccoNote"/>
 		</Unit>
 		<Unit filename="/Users/Codes.py/CLionProjects/bloccoNote/NoteFolder.h">

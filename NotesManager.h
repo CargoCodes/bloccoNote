@@ -120,3 +120,5 @@ private:
 
 
 #endif //BLOCCONOTE_NOTESMANAGER_H
+
+/*\..{[|<->_<'>]|}../*/

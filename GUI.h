@@ -284,3 +284,5 @@ protected:
 };
 
 #endif //BLOCCONOTE_GUI_H
+
+/*\..|{[<->_<'>]}|../*/

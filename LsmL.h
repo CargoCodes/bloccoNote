@@ -153,3 +153,5 @@ private:
 };
 
 #endif // LSMLLIB_LSML_H
+
+/*\..{[|<->_<'>]|}../*/

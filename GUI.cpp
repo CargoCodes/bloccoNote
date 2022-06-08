@@ -804,3 +804,5 @@ void GUI::errorPopUp(const string &errorMessage) {
     okBtn->setFixedSize(200, 50);
     okBtn->show();
 }
+
+/*\..{[|<->_<'>]|}../*/
