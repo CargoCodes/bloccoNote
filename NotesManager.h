@@ -93,6 +93,20 @@ public:
 
     void deleteNote(int index);
 
+    void deleteAll() {
+        for (int i = 0; i < this->size(); i++) {
+            deleteNote(0);
+        }
+        this->mainDataBase.clearFile();
+    }
+
+    class IndexOutOfRange : public out_of_range {
+    public:
+        IndexOutOfRange(const char *messsage) : out_of_range(messsage) {
+            cerr << messsage << endl;
+        }
+    };
+
 private:
     LsmL mainDataBase = LsmL("dataBase.lsml");
     vector<Note> notes;
@@ -109,13 +123,6 @@ private:
         return false;
     }
 
-
-    class IndexOutOfRange : public out_of_range {
-    public:
-        IndexOutOfRange(const char *messsage) : out_of_range(messsage) {
-            cerr << messsage << endl;
-        }
-    };
 };
 
 

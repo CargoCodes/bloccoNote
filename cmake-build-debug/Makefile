@@ -261,6 +261,7 @@ NotesManager.o: NotesManager.cpp.o
 
 # target to build an object file
 NotesManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/NotesManager.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/NotesManager.cpp.o
 .PHONY : NotesManager.cpp.o
 
@@ -269,6 +270,7 @@ NotesManager.i: NotesManager.cpp.i
 
 # target to preprocess a source file
 NotesManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/NotesManager.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/NotesManager.cpp.i
 .PHONY : NotesManager.cpp.i
 
@@ -277,6 +279,7 @@ NotesManager.s: NotesManager.cpp.s
 
 # target to generate assembly for a file
 NotesManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/NotesManager.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloccoNote.dir/build.make CMakeFiles/bloccoNote.dir/NotesManager.cpp.s
 .PHONY : NotesManager.cpp.s
 

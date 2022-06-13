@@ -718,7 +718,7 @@ void GUI::folderHomeWindow(int index) {
 
 /*
  *
- *              POPUP SECTION
+ *               ADD TO COLLECTION POPUP SECTION
  *
  */
 

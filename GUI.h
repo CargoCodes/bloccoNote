@@ -276,11 +276,11 @@ protected:
      *
      */
 
-    void errorPopUp(const string &errorMessage);
-
     QWidget *popUpBase;
     QLabel *message;
     QPushButton *okBtn;
+
+    void errorPopUp(const string &errorMessage);
 };
 
 #endif //BLOCCONOTE_GUI_H
