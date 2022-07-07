@@ -1,7 +1,3 @@
-//
-// Created by Codes on 23/05/2022.
-//
-
 #ifndef BLOCCONOTE_FOLDERMANAGER_H
 #define BLOCCONOTE_FOLDERMANAGER_H
 
@@ -18,7 +14,7 @@
 
 class FolderManager {
 public:
-    FolderManager();
+    FolderManager() = default;
 
     NoteFolder operator[](int index) {
         return folders[index];
@@ -31,14 +27,6 @@ public:
             updated = true;
         }
     }
-
-    /*void editNote(int folderIndex, string noteTitle, string newTitle) {
-        if (checkIndex(folderIndex)) {
-            string folderName = folders[folderIndex].getFolderName();
-            folderDataBase.editAttr(folderName, noteTitle, newTitle);
-            updated = true;
-        }
-    }*/
 
     void editNote(string folderName, string noteTitle, string newTitle) {
         for (auto folder: folders) {
@@ -55,7 +43,6 @@ public:
         if (not folderName.empty()) {
 
             folderDataBase.removeAttr(folderName, title);
-            cout << "removed" << endl;
             updated = true;
         }
     }
@@ -94,6 +81,10 @@ public:
         return "";
     }
 
+    int countNotes(int index) {
+        return this->folders[index].size();
+    }
+
     bool contains(string title) {
         for (auto folder: folders) {
             if (folder.isIn(title))
@@ -106,6 +97,10 @@ public:
         return this->updated;
     }
 
+    void deleteAll() {
+        folderDataBase.clearFile();
+        folders.clear();
+    }
 private:
     vector<NoteFolder> folders;
 
