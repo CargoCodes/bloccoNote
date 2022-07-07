@@ -129,8 +129,8 @@ void GUI::homeWindow(bool generic, bool locked, bool favorites) {
 
         favoriteNotes = new QPushButton("Favorite Notes", this);
         connect(favoriteNotes, &QPushButton::clicked, this, [this] {
-            this->destroyHome(true, false, false);
-            this->homeWindow(false, false, true);
+            destroyHome(true, false, false);
+            homeWindow(false, false, true);
         });
         favoriteNotes->setStyleSheet("background-color: #7F5AF0");
         favoriteNotes->setFixedSize(200, 50);
@@ -140,8 +140,8 @@ void GUI::homeWindow(bool generic, bool locked, bool favorites) {
 
         lockedNotes = new QPushButton("Locked Notes", this);
         connect(lockedNotes, &QPushButton::clicked, this, [this] {
-            this->destroyHome(true, false, false);
-            this->homeWindow(false, true, false);
+            destroyHome(true, false, false);
+            homeWindow(false, true, false);
         });
         lockedNotes->setStyleSheet("background-color: #7F5AF0");
         lockedNotes->setFixedSize(200, 50);
@@ -179,7 +179,7 @@ void GUI::homeWindow(bool generic, bool locked, bool favorites) {
     boxLayout = new QVBoxLayout();
     widget->setLayout(boxLayout);
 
-    this->compileScrollArea(generic, locked, favorites);
+    compileScrollArea(generic, locked, favorites);
     scrollArea->show();
 }
 
@@ -354,7 +354,7 @@ void GUI::editLockedNote(int index, bool generic, bool locked, bool favorites) {
 
     showUnlockNote = new QPushButton("Unlock", this);
     connect(showUnlockNote, &QPushButton::clicked, this, [this, index, generic, locked, favorites] {
-        this->notesManager->unlock(index);
+        notesManager->unlock(index);
         destroyEditNote(false, true, false);
         homeWindow(generic, locked, favorites);
     });
@@ -455,7 +455,7 @@ void GUI::editFavoriteNote(int index, bool generic, bool locked, bool favorites)
 
     removeFromFavorites = new QPushButton("Remove From Favorites", this);
     connect(removeFromFavorites, &QPushButton::clicked, this, [this, index, generic, locked, favorites] {
-        this->notesManager->removeFromFavorites(index);
+        notesManager->removeFromFavorites(index);
         destroyEditNote(false, false, true);
         homeWindow(generic, locked, favorites);
     });
@@ -561,7 +561,7 @@ void GUI::collectionHomeWindow() {
     collectionBoxLayout = new QVBoxLayout();
     collectionWidget->setLayout(collectionBoxLayout);
 
-    this->compileCollectionScrollBar();
+    compileCollectionScrollBar();
     collectionScrollArea->show();
 }
 
@@ -684,7 +684,7 @@ void GUI::folderHomeWindow(int index) {
     removeFolder = new QPushButton("Remove Collection", this);
     connect(removeFolder, &QPushButton::clicked, this, [this, index] {
         folderManager->removeFolder(index);
-        this->destroyFolderHomeWindow();
+        destroyFolderHomeWindow();
         collectionHomeWindow();
     });
     removeFolder->setStyleSheet("background-color: #7F5AF0");
@@ -712,7 +712,7 @@ void GUI::folderHomeWindow(int index) {
     folderBoxLayout = new QVBoxLayout();
     folderWidget->setLayout(folderBoxLayout);
 
-    this->compileFolderScrollArea(index);
+    compileFolderScrollArea(index);
     folderScrollArea->show();
 }
 
@@ -767,7 +767,7 @@ void GUI::addToCollectionPopUp(int noteIndex) {
     addToCollectionBoxLayout = new QVBoxLayout();
     addToCollectionWidget->setLayout(addToCollectionBoxLayout);
 
-    this->compileAddToCollectionPopUp(noteIndex);
+    compileAddToCollectionPopUp(noteIndex);
     addToCollectionScrollArea->show();
 }
 

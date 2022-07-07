@@ -185,7 +185,7 @@ protected slots:
 protected:
     // dataBases
     NotesManager *notesManager = new NotesManager(); // dataBase which contains all the notes (saved locally by LsmL system)
-    FolderManager *folderManager = new FolderManager(); // dataBase which contains all the folders an the notes
+    FolderManager *folderManager = new FolderManager(); // dataBase which contains all the folders and the notes
     // which they contain (saved locally by LsmL system)
 
     // home page

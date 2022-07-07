@@ -14,7 +14,7 @@
 
 class FolderManager {
 public:
-    FolderManager() = default;
+    FolderManager();
 
     NoteFolder operator[](int index) {
         return folders[index];
@@ -39,7 +39,7 @@ public:
     }
 
     void deleteNote(string title) {
-        auto folderName = this->isIn(title);
+        auto folderName = isIn(title);
         if (not folderName.empty()) {
 
             folderDataBase.removeAttr(folderName, title);
@@ -58,22 +58,22 @@ public:
     void removeFolder(int index) {
         // removes folder from both memory and dataBase
         if (checkIndex(index)) {
-            auto end = this->folders.begin();
+            auto end = folders.begin();
             for (int i = 0; i <= index; i++)
                 end++;
             auto begin = end;
             begin--;
             folderDataBase.removeField(folders[index].getFolderName());
-            this->folders.erase(begin, end);
-            this->updated = true;
+            folders.erase(begin, end);
+            updated = true;
         }
     }
 
-    int size() {
+    int size() const {
         return folders.size();
     }
 
-    string isIn(string noteTitle) {
+    string isIn(string noteTitle) const {
         for (auto folder: folders) {
             if (folder.isIn(noteTitle))
                 return folder.getFolderName();
@@ -82,10 +82,10 @@ public:
     }
 
     int countNotes(int index) {
-        return this->folders[index].size();
+        return folders[index].size();
     }
 
-    bool contains(string title) {
+    bool contains(string title) const {
         for (auto folder: folders) {
             if (folder.isIn(title))
                 return true;
@@ -93,8 +93,8 @@ public:
         return false;
     }
 
-    bool isUpdated() {
-        return this->updated;
+    bool isUpdated() const {
+        return updated;
     }
 
     void deleteAll() {
@@ -108,7 +108,7 @@ private:
 
     bool updated = false;
 
-    LsmL folderDataBase = LsmL(this->filePath);
+    LsmL folderDataBase = LsmL(filePath);
 
     bool checkIndex(int index) {
         if (index >= 0 and index < folders.size()) {

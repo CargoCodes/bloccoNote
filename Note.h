@@ -29,16 +29,16 @@ public:
     }
 
     void edit(const string &newtitle, const string &newContent) {
-        this->title_ = newtitle;
-        this->content_ = newContent;
+        title_ = newtitle;
+        content_ = newContent;
     }
 
     void lock() {
-        this->locked_ = true;
+        locked_ = true;
     }
 
     void unlock() {
-        this->locked_ = false;
+        locked_ = false;
     }
 
     bool isLocked() const {
@@ -46,15 +46,15 @@ public:
     }
 
     void favorite() {
-        this->favorite_ = true;
+        favorite_ = true;
     }
 
     void removeFromFavorites() {
-        this->favorite_ = false;
+        favorite_ = false;
     }
 
     bool isFavorite() const {
-        return this->favorite_;
+        return favorite_;
     }
 
 private:

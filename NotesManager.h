@@ -24,38 +24,38 @@ using namespace std;
 class NotesManager {
 public:
     NotesManager() {
-        this->scan();
+        scan();
     }
 
     Note operator[](int index) {
-        if (this->checkIndex(index)) {
-            return this->notes[index];
+        if (checkIndex(index)) {
+            return notes[index];
         }
         throw IndexOutOfRange("Index out of range");
     }
 
     void newNote(const string &title, const string &content, bool locked = false, bool favorite = false);
 
-    int indexOf(string title) {
-        for (int i = 0; i < this->notes.size(); i++) {
-            if (this->notes[i].getTitle() == title) {
+    int indexOf(string title) const {
+        for (int i = 0; i < notes.size(); i++) {
+            if (notes[i].getTitle() == title) {
                 return i;
             }
         }
         return -1;
     }
 
-    void print() {
-        for(auto note : this->notes) {
+    void print() const {
+        for(auto note : notes) {
             cout << note.getTitle() << " " << note.isLocked() << " " << note.isFavorite() << endl;
         }
     }
 
-    int size() {
-        return this->notes.size();
+    int size() const {
+        return notes.size();
     }
 
-    int countFavoriteNotes() {
+    int countFavoriteNotes() const {
         int counter = 0;
         for (auto note : notes) {
             if (note.isFavorite())
@@ -64,7 +64,7 @@ public:
         return counter;
     }
 
-    int countLockedNotes() {
+    int countLockedNotes() const {
         int counter = 0;
         for (auto note : notes) {
             if (note.isLocked())
@@ -77,56 +77,55 @@ public:
 
     void lock(int index) {
         if (checkIndex(index)) {
-            this->notes[index].lock();
-            this->mainDataBase.editAttr(notes[index].getTitle(),
+            notes[index].lock();
+            mainDataBase.editAttr(notes[index].getTitle(),
                                         "locked", "locked", "true");
-            this->updated = true;
-            this->scan();
+            updated = true;
+            scan();
         }
     }
 
     void unlock(int index) {
         if (checkIndex(index)) {
-            this->notes[index].unlock();
-            this->mainDataBase.editAttr(notes[index].getTitle(),
+            notes[index].unlock();
+            mainDataBase.editAttr(notes[index].getTitle(),
                                         "locked", "locked", "false");
             updated = true;
-            this->scan();
+            scan();
         }
     }
 
     void favorite(int index) {
-        if (this->checkIndex(index)) {
-            this->notes[index].favorite();
-            this->mainDataBase.editAttr(notes[index].getTitle(),
+        if (checkIndex(index)) {
+            notes[index].favorite();
+            mainDataBase.editAttr(notes[index].getTitle(),
                                         "favorite", "favorite", "true");
-            this->updated = true;
-            this->scan();
+            updated = true;
+            scan();
         }
     }
 
     void removeFromFavorites(int index) {
         if (checkIndex(index)) {
-            this->notes[index].removeFromFavorites();
-            this->mainDataBase.editAttr(notes[index].getTitle(),
+            notes[index].removeFromFavorites();
+            mainDataBase.editAttr(notes[index].getTitle(),
                                         "favorite", "favorite", "false");
-            this->updated = true;
-            this->scan();
+            updated = true;
+            scan();
         }
     }
 
-    bool isUpdated() {
-        return this->updated;
+    bool isUpdated() const {
+        return updated;
     }
 
     void deleteNote(int index);
 
     void deleteAll() {
-        for (int i = 0; i < this->size(); i++) {
-            this->deleteNote(i);
-        }
-        this->notes.clear();
-        this->mainDataBase.clearFile();
+        for (int i = 0; i < size(); i++)
+            deleteNote(i);
+        notes.clear();
+        mainDataBase.clearFile();
     }
 
     class IndexOutOfRange : public out_of_range {
@@ -147,11 +146,10 @@ private:
                  bool locked = false, bool favorite = false);
 
     bool checkIndex(int index) {
-        if (index >= 0 and index < this->size())
+        if (index >= 0 and index < size())
             return true;
         return false;
     }
-
 };
 
 

@@ -12,7 +12,7 @@
 using namespace std;
 
 /*
- * This class is only a container for informations about a folder.
+ * This class is only a container for information about a folder.
  * It doesn't interact with the database, and do not perform any action on the notes.
  * Just an interface carrying variables.
  */
@@ -39,15 +39,15 @@ public:
         }
     }
 
-    string getFolderName() {
+    string getFolderName() const {
         return folderName;
     }
 
-    int size() {
+    int size() const {
         return notesArray.size();
     }
 
-    bool isIn(string noteTitle) {
+    bool isIn(string noteTitle) const {
         for (auto note: notesArray) {
             if (note == noteTitle) {
                 return true;

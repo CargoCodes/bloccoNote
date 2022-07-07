@@ -17,7 +17,7 @@ using namespace std;
 class LsmL {
 public:
     explicit LsmL(string filePath) : filePath(filePath) {
-        this->startingContent();
+        startingContent();
     }
 
     LsmL(const LsmL &other) {
@@ -55,9 +55,9 @@ public:
     bool isEmpty();
 
     bool clearFile() {
-        this->pos = 0;
-        this->content = "<#\n#>";
-        this->text = "<#\n#>";
+        pos = 0;
+        content = "<#\n#>";
+        text = "<#\n#>";
         return writeFile("<#\n#>");
     }
 
@@ -90,8 +90,8 @@ private:
     vector<string> getAttr_();
 
     void nullAdvancement() {
-        while(this->text[this->pos] == ' ' or this->text[this->pos] == '\t' or this->text[this->pos] == '\n')
-            this->pos += 1;
+        while(text[pos] == ' ' or text[pos] == '\t' or text[pos] == '\n')
+            pos += 1;
     }
 
     static vector<string> split(string str, char separator){
@@ -130,7 +130,7 @@ private:
     string readFile() {
         string fileContent;
         string res;
-        file.open(this->filePath, ios::in);
+        file.open(filePath, ios::in);
         if (file.is_open()) {
             while (getline(file, fileContent)) {
                 res += fileContent + "\n";
@@ -142,7 +142,7 @@ private:
     }
 
     bool writeFile(const string &toWrite) {
-        file.open(this->filePath, ios::out);
+        file.open(filePath, ios::out);
         if (file.is_open()) {
             file << toWrite;
             file.close();

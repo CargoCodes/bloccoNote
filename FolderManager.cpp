@@ -5,8 +5,8 @@
 #include "FolderManager.h"
 
 FolderManager::FolderManager() {
-    if (not this->folderDataBase.isEmpty()) {
-        auto dbContent = this->folderDataBase.read();
+    if (not folderDataBase.isEmpty()) {
+        auto dbContent = folderDataBase.read();
 
         for (auto fieldContainer: dbContent) {
             for (auto field: fieldContainer) {
@@ -15,7 +15,7 @@ FolderManager::FolderManager() {
                 NoteFolder folder(folderName);
 
                 try {
-                    auto notes = this->folderDataBase.getField(folderName);
+                    auto notes = folderDataBase.getField(folderName);
 
                     for (auto note: notes) {
                         string noteName = note.first;
@@ -24,7 +24,7 @@ FolderManager::FolderManager() {
                     }
                 } catch (...) {}
 
-                this->folders.push_back(folder);
+                folders.push_back(folder);
             }
         }
     }
