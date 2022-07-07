@@ -45,8 +45,32 @@ public:
         return -1;
     }
 
+    void print() {
+        for(auto note : this->notes) {
+            cout << note.getTitle() << " " << note.isLocked() << " " << note.isFavorite() << endl;
+        }
+    }
+
     int size() {
         return this->notes.size();
+    }
+
+    int countFavoriteNotes() {
+        int counter = 0;
+        for (auto note : notes) {
+            if (note.isFavorite())
+                counter++;
+        }
+        return counter;
+    }
+
+    int countLockedNotes() {
+        int counter = 0;
+        for (auto note : notes) {
+            if (note.isLocked())
+                counter++;
+        }
+        return counter;
     }
 
     void editNote(int index, const string &newTitle, const string &newContent);
@@ -57,6 +81,7 @@ public:
             this->mainDataBase.editAttr(notes[index].getTitle(),
                                         "locked", "locked", "true");
             this->updated = true;
+            this->scan();
         }
     }
 
@@ -66,6 +91,7 @@ public:
             this->mainDataBase.editAttr(notes[index].getTitle(),
                                         "locked", "locked", "false");
             updated = true;
+            this->scan();
         }
     }
 
@@ -75,6 +101,7 @@ public:
             this->mainDataBase.editAttr(notes[index].getTitle(),
                                         "favorite", "favorite", "true");
             this->updated = true;
+            this->scan();
         }
     }
 
@@ -84,6 +111,7 @@ public:
             this->mainDataBase.editAttr(notes[index].getTitle(),
                                         "favorite", "favorite", "false");
             this->updated = true;
+            this->scan();
         }
     }
 
@@ -95,8 +123,9 @@ public:
 
     void deleteAll() {
         for (int i = 0; i < this->size(); i++) {
-            deleteNote(0);
+            this->deleteNote(i);
         }
+        this->notes.clear();
         this->mainDataBase.clearFile();
     }
 
