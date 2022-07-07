@@ -66,6 +66,7 @@ void NotesManager::newNote(const string &title, const string &content, bool lock
     this->notes.push_back(newNote);
 
     this->updated = true;
+    this->scan();
 }
 
 void NotesManager::editNote(int index, const string &newTitle, const string &newContent) {
@@ -80,6 +81,7 @@ void NotesManager::editNote(int index, const string &newTitle, const string &new
             note.edit(newTitle, newContent);
 
             this->updated = true;
+            this->scan();
         }
     }
 }
@@ -101,6 +103,7 @@ void NotesManager::deleteNote(int index) {
         } else
             this->notes.clear();
         this->updated = true;
+        this->scan();
     }
 }
 
