@@ -55,15 +55,6 @@ TEST(LsmL, getAttr) {
     cout << lsml.getAttr("field1", "attribute1") << endl;
     EXPECT_EQ(lsml.getAttr("field1", "attribute1"), "1");
 
-    /*try {
-        lsml.getAttr("field1", "attr2");
-        FAIL();
-    } catch(LsmL::AttributeNotFoundError) {
-        SUCCEED();
-    } catch (...){
-        FAIL();
-    }*/
-
     try {
         lsml.getAttr("field2", "attr");
         FAIL();
