@@ -139,27 +139,6 @@ vector<map<string, map<string, string>>> LsmL::read() {
         throw runtime_error("Can't open file \"" + this->filePath + "\"");
 }
 
-/*
-void LsmL::write(const vector<map<string, map<string, string>>> &toWriteContent) {
-    string toWrite = "<#\n"; // SOF
-
-    for (auto &fieldcont: toWriteContent) { // for each field container in the vector
-        for (auto &internalField: fieldcont) { // for each pair in field container
-            auto fieldName = internalField.first; // fieldName is the first element of the pair
-            toWrite += "    [$] \"" + fieldName + "\" ::>\n";
-            auto attributeList = internalField.second; // map of attributes
-            for (auto &attribute: attributeList) { // gets pair from map
-                auto attributeName = attribute.first;
-                auto attributeContent = attribute.second; // gets the attribute content, which is the second element of the pair
-                toWrite += "        (" + attributeName + ") -> \"" + attributeContent + "\"\n";
-            }
-        }
-        toWrite += "#>"; // EOF
-    }
-    writeFile(toWrite);
-}
-*/
-
 map<string, string> LsmL::getField(const string &fieldName) {
     map<string, string> res;
     string fileContent = readFile(); // reads the file
@@ -308,7 +287,7 @@ bool LsmL::editAttr(const string &fieldName, const string &attrName, const strin
     this->content = readFile();
     int fieldIndex = this->content.find("[$] \"" + fieldName + "\" ::>");
     if (fieldIndex > 0) { // checks if the field exists
-        string preField = this->content.substr(0, fieldIndex); // isolates what's before the field
+        string preField = subString(this->content, 0, fieldIndex); // isolates what's before the field
         string tmp = subString(this->content, fieldIndex + 5, this->content.length());
 
         int eofFieldIndex = tmp.find("[$]");
@@ -321,12 +300,12 @@ bool LsmL::editAttr(const string &fieldName, const string &attrName, const strin
             endIndex = endFieldIndex;
 
         string isolatedField = subString(this->content, fieldIndex, endIndex + fieldIndex + 5); // isolates the field
-        string afterField = tmp.substr(endIndex, tmp.length()); // isolates what's after the field
+        string afterField = subString(tmp, endIndex, tmp.length()); // isolates what's after the field
 
-        int oldAttrIndex = isolatedField.find(attrName);
+        int oldAttrIndex = isolatedField.find("(" + attrName + ")");
         if (oldAttrIndex > 0) { // checks if the attribute exists
-            isolatedField = isolatedField.substr(0, oldAttrIndex) + newAttrName + // updates the attribute name
-                            subString(isolatedField, oldAttrIndex + attrName.length(), isolatedField.length());
+            isolatedField = subString(isolatedField, 0, oldAttrIndex+1)+ newAttrName + // updates the attribute name
+                            subString(isolatedField, oldAttrIndex + attrName.length()+1, isolatedField.length());
 
             if (not attrContent.empty()) { // if attribute name is not empty
                 int virgStart = oldAttrIndex;
@@ -334,13 +313,15 @@ bool LsmL::editAttr(const string &fieldName, const string &attrName, const strin
                 while (isolatedField[virgStart] != '"')
                     virgStart += 1;
 
+
                 int virgEnd = virgStart+1;
                 while(isolatedField[virgEnd] != '"')
                     virgEnd += 1;
 
-                isolatedField = isolatedField.substr(0, virgStart + 1) + attrContent // updates the attribute content
+                isolatedField = subString(isolatedField, 0, virgStart+1) + attrContent // updates the attribute content
                                 + subString(isolatedField, virgEnd, isolatedField.length());
             }
+
             this->content = preField + isolatedField + afterField;
 
             return writeFile(this->content);
